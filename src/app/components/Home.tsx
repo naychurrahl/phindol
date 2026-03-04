@@ -25,20 +25,21 @@ export function Home() {
                 the right cover at the right price. Policies that actually pay
                 when you claim.
               </p>
-              <div className="flex flex-row gap-4">
+              <div className="flex flex-row gap-4 min-w-0">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center bg-green-500 text-white px-8 py-4 rounded-md hover:bg-green-600 transition-colors text-lg"
+                  className="flex items-center min-w-0 whitespace-nowrap bg-green-500 text-white px-4 py-4 rounded-md hover:bg-green-600 transition-colors text-[clamp(0.8rem,2vw,1rem)]"
                 >
-                  Get a Free Quote
-                  <ArrowRight className="ml-2" size={20} />
+                  <span className="min-w-0 truncate">Get a Free Quote</span>
+                  <ArrowRight className="ml-2 shrink-0" size={20} />
                 </Link>
+
                 <Link
                   to="/contact"
-                  className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md hover:bg-gray-100 transition-colors text-lg"
+                  className="flex items-center min-w-0 whitespace-nowrap bg-white text-blue-600 px-4 py-4 rounded-md hover:bg-gray-100 transition-colors text-[clamp(0.8rem,2vw,1rem)]"
                 >
-                  Call Now
-                  <Phone className="ml-2" size={20} />
+                  <span className="min-w-0 truncate">Call Now</span>
+                  <Phone className="ml-2 shrink-0" size={20} />
                 </Link>
               </div>
             </div>
@@ -48,6 +49,46 @@ export function Home() {
                 alt="Diverse professionals team"
                 className="rounded-lg shadow-2xl w-full h-auto"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Infographics */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                <Shield className="text-blue-600" size={32} />
+              </div>
+              <h3 className="text-xl mb-3 text-gray-900">
+                Free comparisons from 20+ top insurers
+              </h3>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                <Shield className="text-blue-600" size={32} />
+              </div>
+              <h3 className="text-xl mb-3 text-gray-900">
+                24/7 claims support in Abuja, Lagos, Kano & nationwide
+              </h3>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                <Shield className="text-blue-600" size={32} />
+              </div>
+              <h3 className="text-xl mb-3 text-gray-900">
+                Save up to 40% on car insurance premiums
+              </h3>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                <Shield className="text-blue-600" size={32} />
+              </div>
+              <h3 className="text-xl mb-3 text-gray-900">
+                20+ Top insurers compared on every single quote
+              </h3>
             </div>
           </div>
         </div>
