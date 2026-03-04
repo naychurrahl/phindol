@@ -1,6 +1,6 @@
-import { Link } from 'react-router';
-import { ArrowRight, Shield, Users, Clock, CheckCircle } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Link } from "react-router";
+import { ArrowRight, Shield, Users, Clock, CheckCircle, Phone } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function Home() {
   return (
@@ -11,18 +11,29 @@ export function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6">
-                Protect What Matters Most – Tailored Insurance Solutions for You
+                Better Cover. Lower Premium. We'll Find It.
               </h1>
               <p className="text-xl mb-8 text-blue-100">
-                Comprehensive insurance coverage designed to secure your future and give you peace of mind.
+                Phindol Insurance compares 20+ top Nigerian insurers to find you
+                the right cover at the right price. Policies that actually pay
+                when you claim.
               </p>
-              <Link
-                to="/contact"
-                className="inline-flex items-center bg-green-500 text-white px-8 py-4 rounded-md hover:bg-green-600 transition-colors text-lg"
-              >
-                Get a Free Quote
-                <ArrowRight className="ml-2" size={20} />
-              </Link>
+              <div className="flex flex-row gap-4">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center bg-green-500 text-white px-8 py-4 rounded-md hover:bg-green-600 transition-colors text-lg"
+                >
+                  Get a Free Quote
+                  <ArrowRight className="ml-2" size={20} />
+                </Link>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md hover:bg-gray-100 transition-colors text-lg"
+                >
+                  Call Now
+                  <Phone className="ml-2" size={20} />
+                </Link>
+              </div>
             </div>
             <div className="hidden md:block">
               <ImageWithFallback
@@ -39,34 +50,57 @@ export function Home() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl text-center mb-12 text-gray-900">
-            Why Choose Phindol Insurance?
+            Why Phindol?
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <p className="text-2xl md:text-2xl text-center mb-12 text-gray-600">
+            Nigeria's Smartest Way to Get Insured
+          </p>
+          <div className="grid md:grid-cols-4 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
                 <Shield className="text-blue-600" size={32} />
               </div>
-              <h3 className="text-xl mb-3 text-gray-900">Comprehensive Coverage</h3>
+              <h3 className="text-xl mb-3 text-gray-900">
+                NAICOM Licensed - Fully Accountable
+              </h3>
               <p className="text-gray-600">
-                Wide range of insurance products tailored to meet your specific needs and budget.
+                We operate under Nigeria's strictest regulatory standards. Your
+                money, your policy, and your claims are protected from day one.
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
                 <Users className="text-blue-600" size={32} />
               </div>
-              <h3 className="text-xl mb-3 text-gray-900">Expert Team</h3>
+              <h3 className="text-xl mb-3 text-gray-900">
+                One Request, 20+ Quotes Instantly
+              </h3>
               <p className="text-gray-600">
-                Experienced professionals dedicated to providing personalized service and guidance.
+                We pull live comparisons from over 20 top insurers
+                simultaneously giving you the full market picture, not a single
+                company's offer.
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
                 <Clock className="text-blue-600" size={32} />
               </div>
-              <h3 className="text-xl mb-3 text-gray-900">Fast Claims Processing</h3>
+              <h3 className="text-xl mb-3 text-gray-900">
+                We Fight Your Corner When It Counts
+              </h3>
               <p className="text-gray-600">
-                Quick and efficient claims handling to get you the support you need when it matters most.
+                Our 24/7 claims team advocates for you directly with insurers,
+                so you get paid fairly and fast, without the runaround.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                <Clock className="text-blue-600" size={32} />
+              </div>
+              <h3 className="text-xl mb-3 text-gray-900">Save Up to 40%</h3>
+              <p className="text-gray-600">
+                Our clients consistently pay less for stronger coverage. If we
+                can't beat your current premium, we'll tell you honestly.
               </p>
             </div>
           </div>
@@ -77,7 +111,7 @@ export function Home() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl text-center mb-12 text-gray-900">
-            Our Insurance Services
+            Our Services
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Life Insurance */}
@@ -90,19 +124,33 @@ export function Home() {
               <div className="p-6">
                 <h3 className="text-2xl mb-3 text-gray-900">Life Insurance</h3>
                 <p className="text-gray-600 mb-4">
-                  Secure your family's financial future with our comprehensive life insurance plans designed to provide peace of mind.
+                  Secure your family's financial future with our comprehensive
+                  life insurance plans designed to provide peace of mind.
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start">
-                    <CheckCircle className="text-green-500 mr-2 flex-shrink-0 mt-1" size={20} />
-                    <span className="text-gray-700">Term and whole life options</span>
+                    <CheckCircle
+                      className="text-green-500 mr-2 flex-shrink-0 mt-1"
+                      size={20}
+                    />
+                    <span className="text-gray-700">
+                      Term and whole life options
+                    </span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="text-green-500 mr-2 flex-shrink-0 mt-1" size={20} />
-                    <span className="text-gray-700">Flexible coverage amounts</span>
+                    <CheckCircle
+                      className="text-green-500 mr-2 flex-shrink-0 mt-1"
+                      size={20}
+                    />
+                    <span className="text-gray-700">
+                      Flexible coverage amounts
+                    </span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="text-green-500 mr-2 flex-shrink-0 mt-1" size={20} />
+                    <CheckCircle
+                      className="text-green-500 mr-2 flex-shrink-0 mt-1"
+                      size={20}
+                    />
                     <span className="text-gray-700">Affordable premiums</span>
                   </li>
                 </ul>
@@ -124,22 +172,40 @@ export function Home() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-2xl mb-3 text-gray-900">Corporate Insurance</h3>
+                <h3 className="text-2xl mb-3 text-gray-900">
+                  Corporate Insurance
+                </h3>
                 <p className="text-gray-600 mb-4">
-                  Protect your business with tailored corporate insurance solutions covering assets, liability, and employee welfare.
+                  Protect your business with tailored corporate insurance
+                  solutions covering assets, liability, and employee welfare.
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start">
-                    <CheckCircle className="text-green-500 mr-2 flex-shrink-0 mt-1" size={20} />
-                    <span className="text-gray-700">Property and liability coverage</span>
+                    <CheckCircle
+                      className="text-green-500 mr-2 flex-shrink-0 mt-1"
+                      size={20}
+                    />
+                    <span className="text-gray-700">
+                      Property and liability coverage
+                    </span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="text-green-500 mr-2 flex-shrink-0 mt-1" size={20} />
-                    <span className="text-gray-700">Employee benefits packages</span>
+                    <CheckCircle
+                      className="text-green-500 mr-2 flex-shrink-0 mt-1"
+                      size={20}
+                    />
+                    <span className="text-gray-700">
+                      Employee benefits packages
+                    </span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="text-green-500 mr-2 flex-shrink-0 mt-1" size={20} />
-                    <span className="text-gray-700">Customized business solutions</span>
+                    <CheckCircle
+                      className="text-green-500 mr-2 flex-shrink-0 mt-1"
+                      size={20}
+                    />
+                    <span className="text-gray-700">
+                      Customized business solutions
+                    </span>
                   </li>
                 </ul>
                 <Link
@@ -162,7 +228,8 @@ export function Home() {
             Ready to Secure Your Future?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Get in touch with our expert team today for a free consultation and personalized quote.
+            Get in touch with our expert team today for a free consultation and
+            personalized quote.
           </p>
           <Link
             to="/contact"
