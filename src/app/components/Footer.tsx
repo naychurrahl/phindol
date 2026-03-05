@@ -8,9 +8,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-blue-500">Phindol</span>
-              <span className="text-2xl text-white ml-1">Insurance</span>
+            <div className="flex items-center mb-2">
+              <span className="text-xl font-bold text-[#4172af]">Phindol</span>
+              <span className="text-xl text-white ml-1">Insurance</span>
             </div>
             <p className="text-sm mb-4">
               Providing comprehensive insurance solutions tailored to protect

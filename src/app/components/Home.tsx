@@ -19,7 +19,7 @@ export function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="relative bg-gradient-to-r from-[#4172af] to-[#14345d] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -34,7 +34,7 @@ export function Home() {
               <div className="flex flex-row gap-4 min-w-0">
                 <Link
                   to="/contact"
-                  className="flex items-center min-w-0 whitespace-nowrap bg-green-500 text-white px-4 py-4 rounded-md hover:bg-green-600 transition-colors text-[clamp(0.8rem,2vw,1rem)]"
+                  className="flex items-center min-w-0 whitespace-nowrap bg-[#14345d] text-white px-4 py-4 rounded-md hover:bg-[#14345d60] transition-colors text-[clamp(0.8rem,2vw,1rem)]"
                 >
                   <span className="min-w-0 truncate">Get a Free Quote</span>
                   <ArrowRight className="ml-2 shrink-0" size={20} />
@@ -42,7 +42,7 @@ export function Home() {
 
                 <Link
                   to="/contact"
-                  className="flex items-center min-w-0 whitespace-nowrap bg-white text-blue-600 px-4 py-4 rounded-md hover:bg-gray-100 transition-colors text-[clamp(0.8rem,2vw,1rem)]"
+                  className="flex items-center min-w-0 whitespace-nowrap bg-white text-[#4172af] px-4 py-4 rounded-md hover:bg-gray-100 transition-colors text-[clamp(0.8rem,2vw,1rem)]"
                 >
                   <span className="min-w-0 truncate">Call Now</span>
                   <Phone className="ml-2 shrink-0" size={20} />
@@ -65,8 +65,8 @@ export function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <ClipboardCheck className="text-blue-600" size={32} />
+              <div className="inline-flex items-center justify-center w-16 h-16 text-[#14345d] rounded-full mb-4">
+                <ClipboardCheck className="text-[#4172af]" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
                 Free comparisons from 20+ top insurers
@@ -74,8 +74,8 @@ export function Home() {
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <Headphones className="text-blue-600" size={32} />
+              <div className="inline-flex items-center justify-center w-16 h-16 text-[#14345d] rounded-full mb-4">
+                <Headphones className="text-[#4172af]" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
                 24/7 claims support in Abuja, Lagos, Kano & nationwide
@@ -83,9 +83,9 @@ export function Home() {
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <Car className="text-blue-600" size={32} />
-                <Percent className="text-blue-600" size={32} />
+              <div className="inline-flex items-center justify-center w-16 h-16 text-[#14345d] rounded-full mb-4">
+                <Car className="text-[#4172af]" size={32} />
+                <Percent className="text-[#4172af]" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
                 Save up to 40% on car insurance premiums
@@ -93,8 +93,8 @@ export function Home() {
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <Filter className="text-blue-600" size={32} />
+              <div className="inline-flex items-center justify-center w-16 h-16 text-[#14345d] rounded-full mb-4">
+                <Filter className="text-[#4172af]" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
                 20+ Top insurers compared on every single quote
@@ -118,8 +118,8 @@ export function Home() {
           </p>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <Shield className="text-blue-600" size={32} />
+              <div className="inline-flex items-center justify-center w-16 h-16 text-[#14345d] rounded-full mb-4">
+                <Shield className="text-[#4172af]" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
                 NAICOM Licensed - Fully Accountable
@@ -130,8 +130,8 @@ export function Home() {
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <Users className="text-blue-600" size={32} />
+              <div className="inline-flex items-center justify-center w-16 h-16 text-[#14345d] rounded-full mb-4">
+                <Users className="text-[#4172af]" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
                 One Request, 20+ Quotes Instantly
@@ -143,8 +143,8 @@ export function Home() {
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <Clock className="text-blue-600" size={32} />
+              <div className="inline-flex items-center justify-center w-16 h-16 text-[#14345d] rounded-full mb-4">
+                <Clock className="text-[#4172af]" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
                 We Fight Your Corner When It Counts
@@ -155,8 +155,8 @@ export function Home() {
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <Clock className="text-blue-600" size={32} />
+              <div className="inline-flex items-center justify-center w-16 h-16 text-[#14345d] rounded-full mb-4">
+                <Clock className="text-[#4172af]" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">Save Up to 40%</h3>
               <p className="text-gray-600">
@@ -195,7 +195,7 @@ export function Home() {
                 </p>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-700"
+                  className="inline-flex items-center text-[#4172af] hover:text-[#4172af]"
                 >
                   Get Car Quote
                   <ArrowRight className="ml-2" size={18} />
@@ -223,7 +223,7 @@ export function Home() {
                 </p>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-700"
+                  className="inline-flex items-center text-[#4172af] hover:text-[#4172af]"
                 >
                   Compare Health Plans
                   <ArrowRight className="ml-2" size={18} />
@@ -251,7 +251,7 @@ export function Home() {
                 </p>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-700"
+                  className="inline-flex items-center text-[#4172af] hover:text-[#4172af]"
                 >
                   Free Home Quote
                   <ArrowRight className="ml-2" size={18} />
@@ -260,7 +260,10 @@ export function Home() {
             </div>
 
             {/* Business Insurance */}
-            <div id="businessInsurance" className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div
+              id="businessInsurance"
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
+            >
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1699026687712-5221e5d7b98b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBidXNpbmVzcyUyMG9mZmljZXxlbnwxfHx8fDE3NzIxODg5NDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                 alt="Business Insurance"
@@ -275,7 +278,7 @@ export function Home() {
                 </p>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-700"
+                  className="inline-flex items-center text-[#4172af] hover:text-[#4172af]"
                 >
                   Business Quote
                   <ArrowRight className="ml-2" size={18} />
@@ -315,7 +318,7 @@ export function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section className="py-16 bg-[#4172af] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl mb-6">
             Ready for the Best Insurance Deal in Nigeria?
@@ -326,7 +329,7 @@ export function Home() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md hover:bg-gray-100 transition-colors text-lg"
+            className="inline-flex items-center bg-white text-[#4172af] px-8 py-4 rounded-md hover:bg-gray-100 transition-colors text-lg"
           >
             Call Us Now
             <ArrowRight className="ml-2" size={20} />
