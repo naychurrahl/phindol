@@ -13,7 +13,8 @@ export function Footer() {
               <span className="text-2xl text-white ml-1">Insurance</span>
             </div>
             <p className="text-sm mb-4">
-              Providing comprehensive insurance solutions tailored to protect what matters most to you.
+              Providing comprehensive insurance solutions tailored to protect
+              what matters most to you.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="hover:text-blue-500 transition-colors">
@@ -41,22 +42,34 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-blue-500 transition-colors">
+                <Link
+                  to="/about"
+                  className="hover:text-blue-500 transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="hover:text-blue-500 transition-colors">
+                <Link
+                  to="/gallery"
+                  className="hover:text-blue-500 transition-colors"
+                >
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-blue-500 transition-colors">
+                <Link
+                  to="/blog"
+                  className="hover:text-blue-500 transition-colors"
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-blue-500 transition-colors">
+                <Link
+                  to="/contact"
+                  className="hover:text-blue-500 transition-colors"
+                >
                   Contact
                 </Link>
               </li>
@@ -68,18 +81,35 @@ export function Footer() {
             <h3 className="text-white font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/services/life-insurance" className="hover:text-blue-500 transition-colors">
-                  Life Insurance
+                <Link
+                  to="/#carInsuranceBrokers"
+                  className="hover:text-blue-500 transition-colors"
+                >
+                  Car Insurance Brokers
                 </Link>
               </li>
               <li>
-                <Link to="/services/corporate-insurance" className="hover:text-blue-500 transition-colors">
-                  Corporate Insurance
+                <Link
+                  to="/#healthInsuranceNigeria"
+                  className="hover:text-blue-500 transition-colors"
+                >
+                  Health Insurance Nigeria
                 </Link>
               </li>
               <li>
-                <Link to="/services/claims-support" className="hover:text-blue-500 transition-colors">
-                  Claims & Support
+                <Link
+                  to="/#homePropertyInsurance"
+                  className="hover:text-blue-500 transition-colors"
+                >
+                  Home & Property Insurance
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/#businessInsurance"
+                  className="hover:text-blue-500 transition-colors"
+                >
+                  Business Insurance
                 </Link>
               </li>
             </ul>
@@ -95,7 +125,7 @@ export function Footer() {
               </li>
               <li className="flex items-start">
                 <Phone size={18} className="mr-2 mt-1 flex-shrink-0" />
-                <span className="text-sm">+234 XXX XXX XXXX</span>
+                <span className="text-sm">+234-810-0165243</span>
               </li>
               <li className="flex items-start">
                 <Mail size={18} className="mr-2 mt-1 flex-shrink-0" />

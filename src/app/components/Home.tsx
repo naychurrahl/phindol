@@ -6,6 +6,12 @@ import {
   Clock,
   CheckCircle,
   Phone,
+  ShieldCheck,
+  Headphones,
+  Car,
+  Percent,
+  Filter,
+  ClipboardCheck,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
@@ -60,37 +66,44 @@ export function Home() {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <Shield className="text-blue-600" size={32} />
+                <ClipboardCheck className="text-blue-600" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
                 Free comparisons from 20+ top insurers
               </h3>
             </div>
+
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <Shield className="text-blue-600" size={32} />
+                <Headphones className="text-blue-600" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
                 24/7 claims support in Abuja, Lagos, Kano & nationwide
               </h3>
             </div>
+
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <Shield className="text-blue-600" size={32} />
+                <Car className="text-blue-600" size={32} />
+                <Percent className="text-blue-600" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
                 Save up to 40% on car insurance premiums
               </h3>
             </div>
+
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <Shield className="text-blue-600" size={32} />
+                <Filter className="text-blue-600" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
                 20+ Top insurers compared on every single quote
               </h3>
             </div>
           </div>
+          <p className="text-2xl md:text-2xl text-center mb-12 text-gray-600">
+            Licensed by NAICOM Trusted by Nigerians
+          </p>
         </div>
       </section>
 
@@ -156,17 +169,20 @@ export function Home() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-16">
+      <section className="py-16" id="services">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl text-center mb-12 text-gray-900">
             Our Services
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Car Insurance Brokers */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div
+              id="carInsuranceBrokers"
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
+            >
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Life insurance"
+                alt="Car Insurance Brokers"
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
@@ -178,7 +194,7 @@ export function Home() {
                   Best rates for drivers.
                 </p>
                 <Link
-                  to="/services/life-insurance"
+                  to="/contact"
                   className="inline-flex items-center text-blue-600 hover:text-blue-700"
                 >
                   Get Car Quote
@@ -188,10 +204,13 @@ export function Home() {
             </div>
 
             {/* Health Insurance Nigeria */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div
+              id="healthInsuranceNigeria"
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
+            >
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1699026687712-5221e5d7b98b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBidXNpbmVzcyUyMG9mZmljZXxlbnwxfHx8fDE3NzIxODg5NDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Corporate insurance"
+                alt="Health Insurance Nigeria"
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
@@ -203,7 +222,7 @@ export function Home() {
                   hospitals nationwide.
                 </p>
                 <Link
-                  to="/services/corporate-insurance"
+                  to="/contact"
                   className="inline-flex items-center text-blue-600 hover:text-blue-700"
                 >
                   Compare Health Plans
@@ -213,10 +232,13 @@ export function Home() {
             </div>
 
             {/* Home & Property Insurance */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div
+              id="homePropertyInsurance"
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
+            >
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Life insurance"
+                alt="Home & Property Insurance"
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
@@ -228,7 +250,7 @@ export function Home() {
                   floods.
                 </p>
                 <Link
-                  to="/services/life-insurance"
+                  to="/contact"
                   className="inline-flex items-center text-blue-600 hover:text-blue-700"
                 >
                   Free Home Quote
@@ -238,10 +260,10 @@ export function Home() {
             </div>
 
             {/* Business Insurance */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div id="businessInsurance" className="bg-white rounded-lg shadow-lg overflow-hidden">
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1699026687712-5221e5d7b98b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBidXNpbmVzcyUyMG9mZmljZXxlbnwxfHx8fDE3NzIxODg5NDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Corporate insurance"
+                alt="Business Insurance"
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
@@ -252,7 +274,7 @@ export function Home() {
                   Liability, professional indemnity & more for SMEs in Nigeria.
                 </p>
                 <Link
-                  to="/services/corporate-insurance"
+                  to="/contact"
                   className="inline-flex items-center text-blue-600 hover:text-blue-700"
                 >
                   Business Quote

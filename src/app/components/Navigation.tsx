@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import Logo from './ui/logo';
 
 export function Navigation() {
   const location = useLocation();
@@ -17,13 +18,13 @@ export function Navigation() {
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About Us' },
     { 
-      path: '/services', 
-      label: 'Services',
+      path: '/#services', 
+      label: 'Services'/* ,
       submenu: [
         { path: '/services/life-insurance', label: 'Life Insurance' },
         { path: '/services/corporate-insurance', label: 'Corporate Insurance' },
         { path: '/services/claims-support', label: 'Claims & Support' },
-      ]
+      ] */
     },
     { path: '/gallery', label: 'Gallery' },
     { path: '/blog', label: 'Blog' },
@@ -36,8 +37,9 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-blue-600">Phindol</span>
-            <span className="text-2xl text-gray-700 ml-1">Insurance</span>
+            {/*<span className="text-2xl font-bold text-blue-600">Phindol</span>
+            <span className="text-2xl text-gray-700 ml-1">Insurance</span>*/}
+            <Logo src="/logo.png" alt="Phindol Insurance Logo" size={40} />
           </Link>
 
           {/* Desktop Navigation */}
