@@ -1,32 +1,32 @@
 import { Link } from 'react-router';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { companyInfo, services } from '../data';
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer style={{ backgroundColor: 'var(--brand-gray-900)', color: 'var(--brand-gray-300)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center mb-2">
-              <span className="text-xl font-bold text-[#4172af]">Phindol</span>
-              <span className="text-xl text-white ml-1">Insurance</span>
+            <div className="flex items-center mb-4">
+              <span className="text-2xl" style={{ color: 'var(--brand-blue-500)' }}>{companyInfo.name.split(' ')[0]}</span>
+              <span className="text-2xl ml-1" style={{ color: 'var(--brand-white)' }}>{companyInfo.name.split(' ').slice(1).join(' ')}</span>
             </div>
             <p className="text-sm mb-4">
-              Providing comprehensive insurance solutions tailored to protect
-              what matters most to you.
+              {companyInfo.tagline}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-blue-500 transition-colors">
+              <a href={companyInfo.social.facebook} className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
                 <Facebook size={20} />
               </a>
-              <a href="#" className="hover:text-blue-500 transition-colors">
+              <a href={companyInfo.social.twitter} className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
                 <Twitter size={20} />
               </a>
-              <a href="#" className="hover:text-blue-500 transition-colors">
+              <a href={companyInfo.social.linkedin} className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="hover:text-blue-500 transition-colors">
+              <a href={companyInfo.social.instagram} className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
                 <Instagram size={20} />
               </a>
             </div>
@@ -34,42 +34,30 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="mb-4" style={{ color: 'var(--brand-white)' }}>Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="hover:text-blue-500 transition-colors">
+                <Link to="/" className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
                   Home
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/about"
-                  className="hover:text-blue-500 transition-colors"
-                >
+                <Link to="/about" className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
                   About Us
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/gallery"
-                  className="hover:text-blue-500 transition-colors"
-                >
+                <Link to="/gallery" className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/blog"
-                  className="hover:text-blue-500 transition-colors"
-                >
+                <Link to="/blog" className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
                   Blog
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/contact"
-                  className="hover:text-blue-500 transition-colors"
-                >
+                <Link to="/contact" className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
                   Contact
                 </Link>
               </li>
@@ -78,75 +66,63 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Our Services</h3>
+            <h3 className="mb-4" style={{ color: 'var(--brand-white)' }}>Our Services</h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  to="/#carInsuranceBrokers"
-                  className="hover:text-blue-500 transition-colors"
-                >
-                  Car Insurance Brokers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/#healthInsuranceNigeria"
-                  className="hover:text-blue-500 transition-colors"
-                >
-                  Health Insurance Nigeria
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/#homePropertyInsurance"
-                  className="hover:text-blue-500 transition-colors"
-                >
-                  Home & Property Insurance
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/#businessInsurance"
-                  className="hover:text-blue-500 transition-colors"
-                >
-                  Business Insurance
-                </Link>
-              </li>
+              {services.map((service) => (
+                <li key={service.id}>
+                  <Link 
+                    to={`/services/${service.slug}`} 
+                    className="hover:opacity-80 transition-opacity"
+                    style={{ color: 'inherit' }}
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact Us</h3>
+            <h3 className="mb-4" style={{ color: 'var(--brand-white)' }}>Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin size={18} className="mr-2 mt-1 flex-shrink-0" />
-                <span className="text-sm">Abuja, Nigeria</span>
+                <span className="text-sm">{companyInfo.address}</span>
               </li>
-              <li className="flex items-start">
-                <Phone size={18} className="mr-2 mt-1 flex-shrink-0" />
-                <span className="text-sm">+234-810-0165243</span>
+              <li className="flex items-center">
+                <Phone size={18} className="mr-2 flex-shrink-0" />
+                <a href={`tel:${companyInfo.phone}`} className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+                  {companyInfo.phone}
+                </a>
               </li>
-              <li className="flex items-start">
-                <Mail size={18} className="mr-2 mt-1 flex-shrink-0" />
-                <span className="text-sm">info@phindolinsurance.com</span>
+              <li className="flex items-center">
+                <Mail size={18} className="mr-2 flex-shrink-0" />
+                <a href={`mailto:${companyInfo.email}`} className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+                  {companyInfo.email}
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-400 mb-4 md:mb-0">
-            © 2026 Phindol Insurance Brokers. All rights reserved.
-          </p>
-          <div className="flex space-x-6 text-sm">
-            <a href="#" className="hover:text-blue-500 transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-blue-500 transition-colors">
-              Terms of Service
-            </a>
+        <div className="mt-8 pt-8" style={{ borderTop: '1px solid var(--brand-gray-700)' }}>
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm">
+              &copy; {new Date().getFullYear()} {companyInfo.name}. All rights reserved.
+            </p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <Link to="#" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+                Privacy Policy
+              </Link>
+              <Link to="#" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+                Terms of Service
+              </Link>
+              <Link to="#" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+                Cookie Policy
+              </Link>
+            </div>
           </div>
         </div>
       </div>
