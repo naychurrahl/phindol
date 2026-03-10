@@ -1,7 +1,7 @@
 // Company Information
 export const companyInfo = {
   name: 'Phindol Insurance Brokers',
-  tagline: 'Your Trusted Partner in Comprehensive Insurance Solutions',
+  tagline: 'Providing comprehensive insurance solutions tailored to protect what matters most to you.',
   phone: '+234 123 456 7890',
   email: 'info@phindolinsurance.com',
   address: '123 Insurance Plaza, Victoria Island, Lagos, Nigeria',

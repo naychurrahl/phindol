@@ -71,7 +71,7 @@ export function Footer() {
               {services.map((service) => (
                 <li key={service.id}>
                   <Link 
-                    to={`/services/${service.slug}`} 
+                    to={`/#${service.slug}`} 
                     className="hover:opacity-80 transition-opacity"
                     style={{ color: 'inherit' }}
                   >

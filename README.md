@@ -1,7 +1,7 @@
 
-  # Build Website from File
+  # Phindol
 
-  This is a code bundle for Build Website from File. The original project is available at https://www.figma.com/design/318IupAs6JUpJ04hK6BkUH/Build-Website-from-File.
+  This site is for an insurance broker
 
   ## Running the code
 
