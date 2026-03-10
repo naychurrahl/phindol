@@ -1,16 +1,17 @@
 // Company Information
 export const companyInfo = {
-  name: 'Phindol Insurance Brokers',
-  tagline: 'Providing comprehensive insurance solutions tailored to protect what matters most to you.',
-  phone: '+234 123 456 7890',
-  email: 'info@phindolinsurance.com',
-  address: '123 Insurance Plaza, Victoria Island, Lagos, Nigeria',
-  hours: 'Mon-Fri: 8:00 AM - 6:00 PM',
+  name: "Phindol Insurance Brokers",
+  tagline:
+    "Providing comprehensive insurance solutions tailored to protect what matters most to you.",
+  phone: "+234 810 0165 243",
+  email: "info@phindolinsurance.com",
+  address: "123 Insurance Plaza, Victoria Island, Lagos, Nigeria",
+  hours: "Mon-Fri: 8:00 AM - 6:00 PM",
   social: {
-    facebook: '#',
-    twitter: '#',
-    linkedin: '#',
-    instagram: '#',
+    facebook: "#",
+    twitter: "#",
+    linkedin: "#",
+    instagram: "#",
   },
 };
 
