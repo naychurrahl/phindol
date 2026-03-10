@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { companyInfo, services } from '../data';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -38,7 +39,8 @@ export function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl mb-6">Contact Us</h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Get in touch with our expert team. We're here to help you find the perfect insurance solution.
+            Get in touch with our expert team. We're here to help you find the
+            perfect insurance solution.
           </p>
         </div>
       </section>
@@ -51,7 +53,8 @@ export function Contact() {
             <div>
               <h2 className="text-3xl mb-6 text-gray-900">Get in Touch</h2>
               <p className="text-gray-600 mb-8">
-                Have questions about our insurance products? Need help with a claim? Our dedicated team is ready to assist you.
+                Have questions about our insurance products? Need help with a
+                claim? Our dedicated team is ready to assist you.
               </p>
 
               <div className="space-y-6">
@@ -62,10 +65,14 @@ export function Contact() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg mb-1 text-gray-900">Office Address</h3>
+                    <h3 className="text-lg mb-1 text-gray-900">
+                      Office Address
+                    </h3>
                     <p className="text-gray-600">
-                      Phindol Insurance Brokers<br />
-                      Central Business District<br />
+                      Phindol Insurance Brokers
+                      <br />
+                      Central Business District
+                      <br />
                       Abuja, Nigeria
                     </p>
                   </div>
@@ -79,8 +86,10 @@ export function Contact() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg mb-1 text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+234 XXX XXX XXXX</p>
-                    <p className="text-sm text-gray-500 mt-1">24/7 Emergency Hotline</p>
+                    <p className="text-gray-600">{`${companyInfo.phone}`}</p>
+                    <p className="text-sm text-gray-500 mt-1">
+                      24/7 Emergency Hotline
+                    </p>
                   </div>
                 </div>
 
@@ -92,8 +101,7 @@ export function Contact() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg mb-1 text-gray-900">Email</h3>
-                    <p className="text-gray-600">info@phindolinsurance.com</p>
-                    <p className="text-gray-600">claims@phindolinsurance.com</p>
+                    <p className="text-gray-600">{`${companyInfo.email}`}</p>
                   </div>
                 </div>
 
@@ -104,8 +112,12 @@ export function Contact() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg mb-1 text-gray-900">Business Hours</h3>
-                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                    <h3 className="text-lg mb-1 text-gray-900">
+                      Business Hours
+                    </h3>
+                    <p className="text-gray-600">
+                      Monday - Friday: 8:00 AM - 6:00 PM
+                    </p>
                     <p className="text-gray-600">Saturday: 9:00 AM - 2:00 PM</p>
                     <p className="text-gray-600">Sunday: Closed</p>
                   </div>
@@ -124,7 +136,9 @@ export function Contact() {
             {/* Contact Form */}
             <div>
               <div className="bg-white rounded-lg shadow-xl p-8">
-                <h2 className="text-2xl mb-6 text-gray-900">Send Us a Message</h2>
+                <h2 className="text-2xl mb-6 text-gray-900">
+                  Send Us a Message
+                </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-gray-700 mb-2">
@@ -175,7 +189,10 @@ export function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="insuranceType" className="block text-gray-700 mb-2">
+                    <label
+                      htmlFor="insuranceType"
+                      className="block text-gray-700 mb-2"
+                    >
                       Insurance Type *
                     </label>
                     <select
@@ -196,7 +213,10 @@ export function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-gray-700 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-gray-700 mb-2"
+                    >
                       Message *
                     </label>
                     <textarea
@@ -228,13 +248,19 @@ export function Contact() {
       {/* Map Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl text-center mb-8 text-gray-900">Visit Our Office</h2>
+          <h2 className="text-3xl text-center mb-8 text-gray-900">
+            Visit Our Office
+          </h2>
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="aspect-video bg-gray-200 flex items-center justify-center">
               <div className="text-center">
                 <MapPin className="mx-auto mb-4 text-blue-600" size={48} />
-                <p className="text-gray-600 text-lg">Phindol Insurance Brokers</p>
-                <p className="text-gray-500">Central Business District, Abuja</p>
+                <p className="text-gray-600 text-lg">
+                  Phindol Insurance Brokers
+                </p>
+                <p className="text-gray-500">
+                  Central Business District, Abuja
+                </p>
                 <p className="text-sm text-gray-400 mt-4">
                   [Google Maps integration would be displayed here]
                 </p>
@@ -247,22 +273,21 @@ export function Contact() {
       {/* CTA Section */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6">
-            Ready to Get Started?
-          </h2>
+          <h2 className="text-3xl md:text-4xl mb-6">Ready to Get Started?</h2>
           <p className="text-xl mb-8 text-blue-100">
-            Contact an expert now for a free consultation and personalized insurance quote.
+            Contact an expert now for a free consultation and personalized
+            insurance quote.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+234XXXXXXXXX"
+              href={`tel:${companyInfo.phone}`}
               className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md hover:bg-gray-100 transition-colors text-lg"
             >
               <Phone className="mr-2" size={20} />
               Call Us Now
             </a>
             <a
-              href="mailto:info@phindolinsurance.com"
+              href={`mailto:${companyInfo.email}`}
               className="inline-flex items-center justify-center bg-green-500 text-white px-8 py-4 rounded-md hover:bg-green-600 transition-colors text-lg"
             >
               <Mail className="mr-2" size={20} />
