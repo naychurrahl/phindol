@@ -1,8 +1,10 @@
-import { Link, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import Logo from './ui/logo';
+import { services } from "../data";
 
+console.log(services);
 export function Navigation() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

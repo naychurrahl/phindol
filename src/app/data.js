@@ -1,6 +1,6 @@
 // Company Information
 export const companyInfo = {
-  name: "Phindol Insurance Brokers",
+  name: "Wendy",
   tagline:
     "Providing comprehensive insurance solutions tailored to protect what matters most to you.",
   phone: "+234 810 0165 243, +234 811 6745 039",
@@ -82,6 +82,7 @@ export const services = [
     slug: 'life-insurance',
     description: 'Protect your family\'s future with comprehensive life insurance coverage.',
     icon: 'Heart',
+    cta: "Someting",
     features: [
       'Term Life Insurance',
       'Whole Life Insurance',

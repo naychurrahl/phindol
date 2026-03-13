@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { ArrowRight, Shield, Users, Clock, Phone, Filter, Percent, Car, Headphones, ClipboardCheck } from 'lucide-react';
-import { companyInfo } from '../data';
+import { companyInfo, services } from "../data";
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function Home() {
@@ -74,9 +74,7 @@ export function Home() {
               <div className="inline-flex items-center justify-center w-16 h-16 text-[#14345d] rounded-full mb-4">
                 <Percent className="text-[#4172af]" size={32} />
               </div>
-              <h3 className="text-xl mb-3 text-gray-900">
-                Expert guidance
-              </h3>
+              <h3 className="text-xl mb-3 text-gray-900">Expert guidance</h3>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
@@ -162,116 +160,33 @@ export function Home() {
             Our Services
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Car Insurance Brokers */}
-            <div
-              id="carInsuranceBrokers"
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Car Insurance Brokers"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl mb-3 text-gray-900">
-                  Car Insurance Brokers
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Affordable third-party & comprehensive car insurance quotes.
-                  Best rates for drivers.
-                </p>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center text-[#4172af] hover:text-[#4172af]"
-                >
-                  Get Car Quote
-                  <ArrowRight className="ml-2" size={18} />
-                </Link>
+            {services.map((service) => (
+              <div
+                id={service.slug}
+                className="bg-white rounded-lg shadow-lg overflow-hidden"
+              >
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  alt="Car Insurance Brokers"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-2xl mb-3 text-gray-900">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {service.description}
+                  </p>
+                  <a
+                    href="/contact#cta"
+                    className="inline-flex items-center text-[#4172af] hover:text-[#4172af]"
+                  >
+                    {service.cta ?? "Get quote"}
+                    <ArrowRight className="ml-2" size={18} />
+                  </a>
+                </div>
               </div>
-            </div>
-
-            {/* Health Insurance Nigeria */}
-            <div
-              id="healthInsuranceNigeria"
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1699026687712-5221e5d7b98b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBidXNpbmVzcyUyMG9mZmljZXxlbnwxfHx8fDE3NzIxODg5NDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Health Insurance Nigeria"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl mb-3 text-gray-900">
-                  Health Insurance Nigeria
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Family & individual HMO plans from top providers. Coverage for
-                  hospitals nationwide.
-                </p>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center text-[#4172af] hover:text-[#4172af]"
-                >
-                  Compare Health Plans
-                  <ArrowRight className="ml-2" size={18} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Home & Property Insurance */}
-            <div
-              id="homePropertyInsurance"
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Home & Property Insurance"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl mb-3 text-gray-900">
-                  Home & Property Insurance
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Protect your home, renters, or property from fire, theft &
-                  floods.
-                </p>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center text-[#4172af] hover:text-[#4172af]"
-                >
-                  Free Home Quote
-                  <ArrowRight className="ml-2" size={18} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Business Insurance */}
-            <div
-              id="businessInsurance"
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1699026687712-5221e5d7b98b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBidXNpbmVzcyUyMG9mZmljZXxlbnwxfHx8fDE3NzIxODg5NDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Business Insurance"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl mb-3 text-gray-900">
-                  Business Insurance
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Liability, professional indemnity & more for SMEs in Nigeria.
-                </p>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center text-[#4172af] hover:text-[#4172af]"
-                >
-                  Business Quote
-                  <ArrowRight className="ml-2" size={18} />
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
