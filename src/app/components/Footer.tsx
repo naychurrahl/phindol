@@ -176,11 +176,18 @@ export function Footer() {
               <li className="flex items-center">
                 <Phone size={18} className="mr-2 flex-shrink-0" />
                 <a
-                  href={`tel:${companyInfo.phone}`}
+                  href={`tel:${companyInfo.tel}`}
                   className="text-sm hover:opacity-80 transition-opacity"
                   style={{ color: "inherit" }}
                 >
-                  {companyInfo.phone}
+                  {companyInfo.tel},
+                </a>
+                <a
+                  href={`tel:${companyInfo.wa}`}
+                  className="text-sm hover:opacity-80 transition-opacity"
+                  style={{ color: "inherit" }}
+                >
+                  {companyInfo.wa}
                 </a>
               </li>
               <li className="flex items-center">

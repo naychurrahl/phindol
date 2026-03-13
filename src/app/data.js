@@ -5,6 +5,7 @@ export const companyInfo = {
     "Providing comprehensive insurance solutions tailored to protect what matters most to you.",
   phone: "+234 810 0165 243, +234 811 6745 039",
   tel: "+2348100165243",
+  wa: "+2348116745039",
   email: "info@phindolinsurance.com",
   address: "29, Panama street, Maitama, Abuja, Nigeria",
   hours: "Mon-Fri: 8:00 AM - 6:00 PM",
