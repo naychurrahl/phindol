@@ -1,64 +1,143 @@
 import { Link } from 'react-router';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaWhatsapp,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FiFacebook } from "react-icons/fi";
 import { companyInfo, services } from '../data';
 
 export function Footer() {
   return (
-    <footer style={{ backgroundColor: 'var(--brand-gray-900)', color: 'var(--brand-gray-300)' }}>
+    <footer
+      style={{
+        backgroundColor: "var(--brand-gray-900)",
+        color: "var(--brand-gray-300)",
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <span className="text-2xl" style={{ color: 'var(--brand-blue-500)' }}>{companyInfo.name.split(' ')[0]}</span>
-              <span className="text-2xl ml-1" style={{ color: 'var(--brand-white)' }}>{companyInfo.name.split(' ').slice(1).join(' ')}</span>
+              <span
+                className="text-2xl"
+                style={{ color: "var(--brand-blue-500)" }}
+              >
+                {companyInfo.name.split(" ")[0]}
+              </span>
+              <span
+                className="text-2xl ml-1"
+                style={{ color: "var(--brand-white)" }}
+              >
+                {companyInfo.name.split(" ").slice(1).join(" ")}
+              </span>
             </div>
-            <p className="text-sm mb-4">
-              {companyInfo.tagline}
-            </p>
+            <p className="text-sm mb-4">{companyInfo.tagline}</p>
             <div className="flex space-x-4">
-              <a href={companyInfo.social.facebook} className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
-                <Facebook size={20} />
+              <a
+                href={companyInfo.social.whatsapp}
+                className="hover:opacity-80 transition-opacity"
+                style={{ color: "inherit" }}
+                target="_blank"
+              >
+                <FaWhatsapp size={20} />
               </a>
-              <a href={companyInfo.social.twitter} className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
-                <Twitter size={20} />
+              <a
+                href={companyInfo.social.facebook}
+                className="hover:opacity-80 transition-opacity"
+                style={{ color: "inherit" }}
+                target="_blank"
+              >
+                <FiFacebook size={20} />
               </a>
-              <a href={companyInfo.social.linkedin} className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
-                <Linkedin size={20} />
+              <a
+                href={companyInfo.social.instagram}
+                className="hover:opacity-80 transition-opacity"
+                style={{ color: "inherit" }}
+                target="_blank"
+              >
+                <FaInstagram size={20} />
               </a>
-              <a href={companyInfo.social.instagram} className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
-                <Instagram size={20} />
+              <a
+                href={companyInfo.social.linkedin}
+                className="hover:opacity-80 transition-opacity"
+                style={{ color: "inherit" }}
+                target="_blank"
+              >
+                <FaLinkedin size={20} />
+              </a>
+              <a
+                href={companyInfo.social.twitter}
+                className="hover:opacity-80 transition-opacity"
+                style={{ color: "inherit" }}
+                target="_blank"
+              >
+                <FaXTwitter size={20} />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4" style={{ color: 'var(--brand-white)' }}>Quick Links</h3>
+            <h3 className="mb-4" style={{ color: "var(--brand-white)" }}>
+              Quick Links
+            </h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+                <Link
+                  to="/"
+                  className="hover:opacity-80 transition-opacity"
+                  style={{ color: "inherit" }}
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+                <Link
+                  to="/about"
+                  className="hover:opacity-80 transition-opacity"
+                  style={{ color: "inherit" }}
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+                <Link
+                  to="/gallery"
+                  className="hover:opacity-80 transition-opacity"
+                  style={{ color: "inherit" }}
+                >
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+                <Link
+                  to="/blog"
+                  className="hover:opacity-80 transition-opacity"
+                  style={{ color: "inherit" }}
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+                <Link
+                  to="/contact"
+                  className="hover:opacity-80 transition-opacity"
+                  style={{ color: "inherit" }}
+                >
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/partners"
+                  className="hover:opacity-80 transition-opacity"
+                  style={{ color: "inherit" }}
+                >
+                  Partners
                 </Link>
               </li>
             </ul>
@@ -66,14 +145,16 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="mb-4" style={{ color: 'var(--brand-white)' }}>Our Services</h3>
+            <h3 className="mb-4" style={{ color: "var(--brand-white)" }}>
+              Our Services
+            </h3>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.id}>
-                  <Link 
-                    to={`/#${service.slug}`} 
+                  <Link
+                    to={`/#${service.slug}`}
                     className="hover:opacity-80 transition-opacity"
-                    style={{ color: 'inherit' }}
+                    style={{ color: "inherit" }}
                   >
                     {service.title}
                   </Link>
@@ -84,7 +165,9 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="mb-4" style={{ color: 'var(--brand-white)' }}>Contact Us</h3>
+            <h3 className="mb-4" style={{ color: "var(--brand-white)" }}>
+              Contact Us
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin size={18} className="mr-2 mt-1 flex-shrink-0" />
@@ -92,13 +175,21 @@ export function Footer() {
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-2 flex-shrink-0" />
-                <a href={`tel:${companyInfo.phone}`} className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+                <a
+                  href={`tel:${companyInfo.phone}`}
+                  className="text-sm hover:opacity-80 transition-opacity"
+                  style={{ color: "inherit" }}
+                >
                   {companyInfo.phone}
                 </a>
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-2 flex-shrink-0" />
-                <a href={`mailto:${companyInfo.email}`} className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+                <a
+                  href={`mailto:${companyInfo.email}`}
+                  className="text-sm hover:opacity-80 transition-opacity"
+                  style={{ color: "inherit" }}
+                >
                   {companyInfo.email}
                 </a>
               </li>
@@ -107,19 +198,35 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 pt-8" style={{ borderTop: '1px solid var(--brand-gray-700)' }}>
+        <div
+          className="mt-8 pt-8"
+          style={{ borderTop: "1px solid var(--brand-gray-700)" }}
+        >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm">
-              &copy; {new Date().getFullYear()} {companyInfo.name}. All rights reserved.
+              &copy; {new Date().getFullYear()} {companyInfo.name}. All rights
+              reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="#" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+              <Link
+                to="#"
+                className="text-sm hover:opacity-80 transition-opacity"
+                style={{ color: "inherit" }}
+              >
                 Privacy Policy
               </Link>
-              <Link to="#" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+              <Link
+                to="#"
+                className="text-sm hover:opacity-80 transition-opacity"
+                style={{ color: "inherit" }}
+              >
                 Terms of Service
               </Link>
-              <Link to="#" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'inherit' }}>
+              <Link
+                to="#"
+                className="text-sm hover:opacity-80 transition-opacity"
+                style={{ color: "inherit" }}
+              >
                 Cookie Policy
               </Link>
             </div>

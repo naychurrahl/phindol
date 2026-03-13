@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { companyInfo, services } from '../data';
+import { companyInfo } from '../data';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -68,13 +68,7 @@ export function Contact() {
                     <h3 className="text-lg mb-1 text-gray-900">
                       Office Address
                     </h3>
-                    <p className="text-gray-600">
-                      Phindol Insurance Brokers
-                      <br />
-                      Central Business District
-                      <br />
-                      Abuja, Nigeria
-                    </p>
+                    <p className="text-gray-600">{`${companyInfo.address}`}</p>
                   </div>
                 </div>
 
@@ -280,7 +274,7 @@ export function Contact() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={`tel:${companyInfo.phone}`}
+              href={`tel:${companyInfo.tel}`}
               className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md hover:bg-gray-100 transition-colors text-lg"
             >
               <Phone className="mr-2" size={20} />

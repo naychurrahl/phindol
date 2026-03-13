@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import { ArrowRight, Shield, Users, Clock, Phone, Filter, Percent, Car, Headphones, ClipboardCheck } from 'lucide-react';
+import { companyInfo } from '../data';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function Home() {
@@ -28,7 +29,7 @@ export function Home() {
                 </Link>
 
                 <Link
-                  to="/contact"
+                  to={`tel:${companyInfo.tel}`}
                   className="flex items-center min-w-0 whitespace-nowrap bg-white text-[#4172af] px-4 py-4 rounded-md hover:bg-gray-100 transition-colors text-[clamp(0.8rem,2vw,1rem)]"
                 >
                   <span className="min-w-0 truncate">Call Now</span>
@@ -71,11 +72,10 @@ export function Home() {
 
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 text-[#14345d] rounded-full mb-4">
-                <Car className="text-[#4172af]" size={32} />
                 <Percent className="text-[#4172af]" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
-                Save up to 40% on car insurance premiums
+                Expert guidance
               </h3>
             </div>
 
@@ -84,7 +84,7 @@ export function Home() {
                 <Filter className="text-[#4172af]" size={32} />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
-                20+ Top insurers compared on every single quote
+                Fast and reliable policy placement
               </h3>
             </div>
           </div>
@@ -283,7 +283,7 @@ export function Home() {
             Client Stories
           </h2>
           <p className="text-2xl md:text-2xl text-center mb-12 text-gray-600">
-            Over 10,000 Nigerians trust Phindol to protect what matters most.
+            Thousands of Nigerians trust Phindol to protect what matters most.
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
