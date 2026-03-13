@@ -37,7 +37,7 @@ const Logo: React.FC<LogoProps> = ({
         <img src={src} alt={alt} style={imageStyle} />
       </div>
       <div>
-        <span className="text-2xl font-bold text-[#4172af]">Phindol</span>
+        <span className="text-l font-bold text-[#4172af]">Phindol</span>
         <span className="text-l text-gray-700 ml-1">Insurance</span>
         <span className="text-l text-gray-700 ml-1">Brokers</span>
       </div>

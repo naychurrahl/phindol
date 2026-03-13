@@ -151,13 +151,13 @@ export function Footer() {
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.id}>
-                  <Link
-                    to={`/#${service.slug}`}
+                  <a
+                    href={`/#${service.slug}`}
                     className="hover:opacity-80 transition-opacity"
                     style={{ color: "inherit" }}
                   >
                     {service.title}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
