@@ -166,7 +166,11 @@ export function Home() {
                 className="bg-white rounded-lg shadow-lg overflow-hidden"
               >
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  /* src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" */
+                  src={
+                    service.icon ??
+                    "https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  }
                   alt="Car Insurance Brokers"
                   className="w-full h-48 object-cover"
                 />
@@ -174,9 +178,7 @@ export function Home() {
                   <h3 className="text-2xl mb-3 text-gray-900">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">
-                    {service.description}
-                  </p>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
                   <a
                     href="/contact#cta"
                     className="inline-flex items-center text-[#4172af] hover:text-[#4172af]"

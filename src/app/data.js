@@ -81,7 +81,7 @@ export const services = [
     title: 'Life Insurance',
     slug: 'life-insurance',
     description: 'Protect your family\'s future with comprehensive life insurance coverage.',
-    icon: 'Heart',
+    icon: null,
     cta: "Someting",
     features: [
       'Term Life Insurance',

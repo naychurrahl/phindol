@@ -8,9 +8,12 @@ export function AboutUs() {
       {/* Hero Section */}
       <section className="bg-gradient-blue-dark text-brand-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl mb-6 text-brand-white">About Phindol Insurance</h1>
+          <h1 className="text-4xl md:text-5xl mb-6 text-brand-white">
+            About Phindol Insurance
+          </h1>
           <p className="text-xl text-brand-blue-100 max-w-3xl mx-auto">
-            Your trusted partner in protecting what matters most, with a commitment to excellence and personalized service.
+            Your trusted partner in protecting what matters most, with a
+            commitment to excellence and personalized service.
           </p>
         </div>
       </section>
@@ -22,13 +25,22 @@ export function AboutUs() {
             <div>
               <h2 className="text-3xl md:text-4xl mb-6">Our Story</h2>
               <p className="text-muted mb-4 text-lg">
-                Founded in 2015, Phindol Insurance Brokers emerged from a simple belief: that every individual and business deserves access to comprehensive, affordable insurance solutions tailored to their unique needs.
+                Founded in 2015, Phindol Insurance Brokers emerged from a simple
+                belief: that every individual and business deserves access to
+                comprehensive, affordable insurance solutions tailored to their
+                unique needs.
               </p>
               <p className="text-muted mb-4 text-lg">
-                What started as a small team of dedicated insurance professionals in Abuja has grown into one of Nigeria's most trusted insurance brokerages. Our success is built on a foundation of trust, expertise, and an unwavering commitment to our clients.
+                What started as a small team of dedicated insurance
+                professionals in Abuja has grown into one of Nigeria's most
+                trusted insurance brokerages. Our success is built on a
+                foundation of trust, expertise, and an unwavering commitment to
+                our clients.
               </p>
               <p className="text-muted text-lg">
-                Today, we serve thousands of individuals and businesses across Nigeria, providing peace of mind through comprehensive insurance solutions that truly protect what matters most.
+                Today, we serve thousands of individuals and businesses across
+                Nigeria, providing peace of mind through comprehensive insurance
+                solutions that truly protect what matters most.
               </p>
             </div>
             <div>
@@ -82,7 +94,8 @@ export function AboutUs() {
               </div>
               <h3 className="text-xl mb-3">Partnership</h3>
               <p className="text-muted">
-                We build lasting relationships based on trust and mutual respect.
+                We build lasting relationships based on trust and mutual
+                respect.
               </p>
             </div>
           </div>
@@ -99,11 +112,22 @@ export function AboutUs() {
             {teamMembers.map((member) => (
               <div key={member.id} className="card overflow-hidden">
                 <div className="bg-gradient-blue-radial h-48 flex items-center justify-center">
-                  <Users className="text-brand-white" size={80} />
+                  {/* <Users className="text-brand-white" size={80} /> */}
+                  <ImageWithFallback
+                    /* src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" */
+                    src={member.image}
+                    alt="Car Insurance Brokers"
+                    className="w-full h-48 object-cover"
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl mb-2">{member.name}</h3>
-                  <p className="text-brand-secondary mb-3" style={{ fontWeight: 600 }}>{member.position}</p>
+                  <p
+                    className="text-brand-secondary mb-3"
+                    style={{ fontWeight: 600 }}
+                  >
+                    {member.position}
+                  </p>
                   <p className="text-muted text-sm">{member.bio}</p>
                 </div>
               </div>
@@ -111,32 +135,7 @@ export function AboutUs() {
           </div>
         </div>
       </section>
-
-      {/* Trust Section */}
-      <section className="py-16 section-dark">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6 text-brand-white">
-            Trusted by Thousands
-          </h2>
-          <p className="text-xl mb-8 text-brand-blue-100">
-            Join the growing number of individuals and businesses who have placed their trust in Phindol Insurance. We're committed to being there when you need us most.
-          </p>
-          <div className="grid grid-cols-3 gap-8">
-            <div>
-              <div className="text-4xl md:text-5xl mb-2" style={{ fontWeight: 700 }}>5,000+</div>
-              <div className="text-brand-blue-100">Happy Clients</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl mb-2" style={{ fontWeight: 700 }}>10+</div>
-              <div className="text-brand-blue-100">Years Experience</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl mb-2" style={{ fontWeight: 700 }}>98%</div>
-              <div className="text-brand-blue-100">Satisfaction Rate</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 }
