@@ -102,11 +102,79 @@ export function AboutUs() {
         </div>
       </section>
 
-      {/* Our Team */}
+      {/* Our Board */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl text-center mb-12">
+            Meet Our Board Members
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member) => (
+              <div key={member.id} className="card overflow-hidden">
+                <div className="bg-gradient-blue-radial h-48 flex items-center justify-center">
+                  {/* <Users className="text-brand-white" size={80} /> */}
+                  <ImageWithFallback
+                    /* src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" */
+                    src={member.image}
+                    alt="Car Insurance Brokers"
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl mb-2">{member.name}</h3>
+                  <p
+                    className="text-brand-secondary mb-3"
+                    style={{ fontWeight: 600 }}
+                  >
+                    {member.position}
+                  </p>
+                  <p className="text-muted text-sm">{member.bio}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Management */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl text-center mb-12">
             Meet Our Expert Team
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member) => (
+              <div key={member.id} className="card overflow-hidden">
+                <div className="bg-gradient-blue-radial h-48 flex items-center justify-center">
+                  {/* <Users className="text-brand-white" size={80} /> */}
+                  <ImageWithFallback
+                    /* src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" */
+                    src={member.image}
+                    alt="Car Insurance Brokers"
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl mb-2">{member.name}</h3>
+                  <p
+                    className="text-brand-secondary mb-3"
+                    style={{ fontWeight: 600 }}
+                  >
+                    {member.position}
+                  </p>
+                  <p className="text-muted text-sm">{member.bio}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Customer Relation */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl text-center mb-12">
+            Meet Our Customers Relations Team
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member) => (
