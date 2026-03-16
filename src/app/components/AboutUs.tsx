@@ -3,15 +3,22 @@ import { Target, Award, Heart, Users } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { teamMembers } from "../data";
 import Modal from "./Modal";
+import { createPortal } from "react-dom";
+
+const domNode = document.getElementById("overlays");
 
 export function AboutUs() {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [hayStack, setHaystack] = useState<any[]>([]);
 
   return (
     <>
-      {selectedId && <Modal modeKey={selectedId} toggleMode={setSelectedId} hayStack={hayStack}/>}
+      {
+        createPortal(
+          selectedId && <Modal modeKey={selectedId} toggleMode={setSelectedId} hayStack={hayStack} />,
+          domNode!
+        )
+      }
       <div>
         {/* Hero Section */}
         <section className="bg-gradient-blue-dark text-brand-white py-20">

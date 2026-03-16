@@ -13,12 +13,11 @@ export default function Modal({
 
   if (!person) toggleMode(null);
 
-  console.log(person);
+  console.log({here: person});
 
   return (
     <div
       onClick={() => {
-        console.log(modeKey);
         toggleMode(null);
       }}
       >
