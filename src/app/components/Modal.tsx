@@ -9,7 +9,12 @@ export default function Modal({
   toggleMode: (v: number | null) => void;
   hayStack: any[];
 }) {
-  console.log(hayStack)
+  const person = hayStack.find((d) => d.id === modeKey);
+
+  if (!person) toggleMode(null);
+
+  console.log(person);
+
   return (
     <div
       onClick={() => {
@@ -17,7 +22,7 @@ export default function Modal({
         toggleMode(null);
       }}
       >
-      Yeah!!!
+      {person.bio}
     </div>
   );
 }
