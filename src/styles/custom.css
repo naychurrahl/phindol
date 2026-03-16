@@ -55,6 +55,8 @@
 
 .text-brand-white { color: var(--brand-white); }
 
+.text-brand-white-mute { color: rgb(var(--brand-white) / 0.5); }
+
 /* Border Colors */
 .border-brand-gray-200 { border-color: var(--brand-gray-200); }
 .border-brand-gray-300 { border-color: var(--brand-gray-300); }

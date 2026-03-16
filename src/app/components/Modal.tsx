@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Modal({
   modeKey,
   toggleMode,
@@ -27,39 +25,39 @@ export default function Modal({
           closeModal();
         }
       }}
-      className="fixed inset-0 h-dvh w-screen z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+      className="fixed inset-0 h-dvh w-screen z-50 backdrop-blur-sm flex items-center justify-center p-4"
     >
-      <div className="text-center mb-6">
-        <img
-          src={person.image ?? "img.jpg"}
-          alt={person.name}
-          className="w-full object-cover"
-        />
+      <div className="flex flex-col bg-brand-primary p-4 space-y-6 overflow-y-auto">
+        <div className="text-center mb-6">
+          <img
+            src={person.image ?? "img.jpg"}
+            alt={person.name}
+            className="w-full object-cover"
+          />
 
-        <h2 className="font-heading text-2xl font-bold text-gray-800">
-          {person.name}
-        </h2>
+          <h2 className="font-heading text-2xl font-bold ">{person.name}</h2>
 
-        <p className="text-red-600 font-semibold">{person.title}</p>
-      </div>
+          <p className="text-brand-neutral font-semibold">{person.position}</p>
+        </div>
 
-      <div className="space-y-6">
-        {Object.entries(person.meta ?? {}).map(([key, value]) => (
-          <div key={key}>
-            <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
-              <svg
-                className="w-5 h-5 text-red-500"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
-              </svg>
-              {key}
-            </h3>
+        <div className="space-y-6">
+          {Object.entries(person.meta ?? null).map(([key, value]) => (
+            <div key={key}>
+              <h3 className="font-semibold text-brand-blue-200 mb-2 flex items-center gap-2">
+                <svg
+                  className="w-5 h-5 text-brand-gray-500"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                </svg>
+                {key}
+              </h3>
 
-            <p className="text-gray-600">{value}</p>
-          </div>
-        ))}
+              <p className="text-brand-blue-100">{value}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

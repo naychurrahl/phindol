@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Target, Award, Heart, Users } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { teamMembers } from "../data";
+import { boardMembers, teamMembers, customerRelations } from "../data";
 import Modal from "./Modal";
 import { createPortal } from "react-dom";
 
@@ -13,12 +13,16 @@ export function AboutUs() {
 
   return (
     <>
-      {
-        createPortal(
-          selectedId && <Modal modeKey={selectedId} toggleMode={setSelectedId} hayStack={hayStack} />,
-          domNode!
-        )
-      }
+      {createPortal(
+        selectedId && (
+          <Modal
+            modeKey={selectedId}
+            toggleMode={setSelectedId}
+            hayStack={hayStack}
+          />
+        ),
+        domNode!,
+      )}
       <div>
         {/* Hero Section */}
         <section className="bg-gradient-blue-dark text-brand-white py-20">
@@ -124,6 +128,48 @@ export function AboutUs() {
               Meet Our Board Members
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {boardMembers.map((member) => (
+                <div
+                  key={member.id}
+                  onClick={() => {
+                    setSelectedId(member.id);
+                    setHaystack(teamMembers);
+                    document.body.classList.add("overflow-hidden");
+                  }}
+                  className="card overflow-hidden"
+                >
+                  <div className="bg-gradient-blue-radial h-48 flex items-center justify-center">
+                    {/* <Users className="text-brand-white" size={80} /> */}
+                    <ImageWithFallback
+                      /* src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" */
+                      src={member.image}
+                      alt="Car Insurance Brokers"
+                      className="w-full h-48 object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl mb-2">{member.name}</h3>
+                    <p
+                      className="text-brand-secondary mb-3"
+                      style={{ fontWeight: 600 }}
+                    >
+                      {member.position}
+                    </p>
+                    <p className="text-muted text-sm">{member.meta.bio}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Our Management */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl text-center mb-12">
+              Meet Our Management
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {teamMembers.map((member) => (
                 <div
                   key={member.id}
@@ -151,7 +197,49 @@ export function AboutUs() {
                     >
                       {member.position}
                     </p>
-                    <p className="text-muted text-sm">{member.bio}</p>
+                    <p className="text-muted text-sm">{member.meta.bio}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Our Customer Relations */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl text-center mb-12">
+              Meet Our Customer Relations Team
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {customerRelations.map((member) => (
+                <div
+                  key={member.id}
+                  onClick={() => {
+                    setSelectedId(member.id);
+                    setHaystack(teamMembers);
+                    document.body.classList.add("overflow-hidden");
+                  }}
+                  className="card overflow-hidden"
+                >
+                  <div className="bg-gradient-blue-radial h-48 flex items-center justify-center">
+                    {/* <Users className="text-brand-white" size={80} /> */}
+                    <ImageWithFallback
+                      /* src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" */
+                      src={member.image}
+                      alt="Car Insurance Brokers"
+                      className="w-full h-48 object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl mb-2">{member.name}</h3>
+                    <p
+                      className="text-brand-secondary mb-3"
+                      style={{ fontWeight: 600 }}
+                    >
+                      {member.position}
+                    </p>
+                    <p className="text-muted text-sm">{member.meta.bio}</p>
                   </div>
                 </div>
               ))}
