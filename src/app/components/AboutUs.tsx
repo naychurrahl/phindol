@@ -130,6 +130,7 @@ export function AboutUs() {
                   onClick={() => {
                     setSelectedId(member.id);
                     setHaystack(teamMembers);
+                    document.body.classList.add("overflow-hidden");
                   }}
                   className="card overflow-hidden"
                 >
