@@ -6,7 +6,7 @@ export const companyInfo = {
   phone: "+234 810 0165 243, +234 811 6745 039",
   tel: "+2348100165243",
   wa: "+2348116745039",
-  email: "info@phindolinsurance.com",
+  email: "info@phindol.ng",
   address: "29, Panama street, Maitama, Abuja, Nigeria",
   hours: "Mon-Fri: 8:00 AM - 6:00 PM",
   social: {
@@ -18,8 +18,72 @@ export const companyInfo = {
   },
 };
 
+// Board Members
+export const boardMembers = [
+  {
+    id: 1,
+    name: 'Dr. Johnson',
+    position: 'Chief Executive Officer',
+    bio: 'With over 20 years in the insurance industry, Dr. Johnson leads Phindol with vision and expertise.',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+  {
+    id: 2,
+    name: 'Chiomy Okafor',
+    position: 'Head of Corporate Insurance',
+    bio: 'Chioma specializes in creating tailored insurance solutions for businesses of all sizes.',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvbWFuJTIwYWZyaWNhbnxlbnwxfHx8fDE3MjQyNjM3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+  {
+    id: 3,
+    name: 'Ibrahim Musa',
+    position: 'Director of Claims',
+    bio: 'Ibrahim ensures that every claim is processed efficiently and fairly, providing peace of mind to our clients.',
+    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMHN1aXR8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+  {
+    id: 4,
+    name: 'Fatima Bello',
+    position: 'Senior Life Insurance Advisor',
+    bio: 'Fatima has helped hundreds of families secure their financial future with comprehensive life insurance plans.',
+    image: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGJ1c2luZXNzJTIwaGlqYWJ8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+];
+
 // Team Members
 export const teamMembers = [
+  {
+    id: 1,
+    name: 'Dr. Johnson',
+    position: 'Chief Executive Officer',
+    bio: 'With over 20 years in the insurance industry, Dr. Johnson leads Phindol with vision and expertise.',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+  {
+    id: 2,
+    name: 'Chiomy Okafor',
+    position: 'Head of Corporate Insurance',
+    bio: 'Chioma specializes in creating tailored insurance solutions for businesses of all sizes.',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvbWFuJTIwYWZyaWNhbnxlbnwxfHx8fDE3MjQyNjM3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+  {
+    id: 3,
+    name: 'Ibrahim Musa',
+    position: 'Director of Claims',
+    bio: 'Ibrahim ensures that every claim is processed efficiently and fairly, providing peace of mind to our clients.',
+    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMHN1aXR8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+  {
+    id: 4,
+    name: 'Fatima Bello',
+    position: 'Senior Life Insurance Advisor',
+    bio: 'Fatima has helped hundreds of families secure their financial future with comprehensive life insurance plans.',
+    image: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGJ1c2luZXNzJTIwaGlqYWJ8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+];
+
+// Customer Relations
+export const customerRelations = [
   {
     id: 1,
     name: 'Dr. Johnson',
@@ -78,49 +142,57 @@ export const companyValues = [
 export const services = [
   {
     id: 1,
-    title: 'Life Insurance',
-    slug: 'life-insurance',
-    description: 'Protect your family\'s future with comprehensive life insurance coverage.',
+    title: "Risk Assessment/Management",
+    slug: "Risk-Assessment-Management",
+    description:
+      "We are committed to helping you safeguard your business and assets with expert risk assessment and management solutions. Our team analyzes potential risks, identifies vulnerabilities, and provides tailored strategies to minimize financial and operational threats. Whether it’s regulatory compliance, business continuity, or loss prevention, we offer proactive solutions to keep you protected.",
     icon: null,
-    cta: "Someting",
-    features: [
-      'Term Life Insurance',
-      'Whole Life Insurance',
-      'Universal Life Insurance',
-      'Family Protection Plans',
-      'Income Replacement',
-      'Estate Planning',
-    ],
+    cta: "Get in touch today to learn more about how we can help.",
   },
   {
     id: 2,
-    title: 'Corporate Insurance',
-    slug: 'corporate-insurance',
-    description: 'Comprehensive insurance solutions for businesses of all sizes.',
-    icon: 'Building2',
-    features: [
-      'General Liability Insurance',
-      'Property Insurance',
-      'Workers\' Compensation',
-      'Professional Indemnity',
-      'Business Interruption',
-      'Cyber Insurance',
-    ],
+    title: "Surveying",
+    slug: "surveying",
+    description:
+      "Accurate insurance coverage starts with a thorough assessment.Our expert surveying services help identify risks, determine asset values, and ensure you have the right protection in place. Whether for property, business, or specialized assets, we provide detailed evaluations to support informed insurance decisions.",
+    icon: "Building2",
+    cta: "Contact us today to schedule a survey!",
   },
   {
     id: 3,
-    title: 'Claims Support',
-    slug: 'claims-support',
-    description: 'Fast, efficient, and compassionate claims processing when you need it most.',
-    icon: 'FileText',
-    features: [
-      '24/7 Claims Hotline',
-      'Dedicated Claims Adjusters',
-      'Fast Processing',
-      'Online Claims Portal',
-      'Regular Updates',
-      'Expert Guidance',
-    ],
+    title: "Client Services",
+    slug: "client-services",
+    description:
+      "We prioritize your peace of mind with personalized client services tailored to your unique insurance needs. From policy guidance and claims assistance to risk management support, our team is here to provide expert advice and seamless service. Whether you’re an individual or a business, we ensure you get the protection and support you deserve.",
+    icon: "FileText",
+    cta: "Reach out to us today for exceptional client care.",
+  },
+  {
+    id: 4,
+    title: "Claims Management",
+    slug: "claims-management",
+    description:
+      "Filing an insurance claim can be complex, but we make the process smooth and hassle-free. Our dedicated claim management team assists you every step of the way—from documentation and submission to follow-ups and settlements—ensuring you get the compensation you deserve as quickly as possible. Let us handle your claims with expertise and efficiency.",
+    icon: "FileText",
+    cta: "Contact us today!",
+  },
+  {
+    id: 5,
+    title: "Competitive Pricing",
+    slug: "competitive-pricing",
+    description:
+      "We believe quality insurance should be both reliable and affordable. We partner top Insurance Companies to provide you with the best coverage at the most competitive rates. Whether for personal or business needs, we tailor cost-effective solutions without compromising protection.",
+    icon: "FileText",
+    cta: "Get a quote today and discover the best value for your insurance needs",
+  },
+  {
+    id: 6,
+    title: "Consultancy",
+    slug: "consultancy",
+    description:
+      "Making the right insurance decisions requires expert guidance. Our consultancy services provide personalized advice to help you choose the best coverage, manage risks, and optimize your policies. From business insurance to personal coverage, our team works closely with you to identify the most suitable policies. We assess your current coverage, recommend improvements, and ensure you’re not underinsured or overpaying.",
+    icon: "FileText",
+    cta: "Contact us today for professional insurance advice tailored to your needs.",
   },
 ];
 
