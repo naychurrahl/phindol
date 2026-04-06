@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { galleryImages, galleryCategories, galleryStats } from '../data';
+import { galleryImages, galleryCategories } from "../data";
 
 export function Gallery() {
+  //const galleryImages = galleryImagesData();
+  
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const filteredImages = selectedCategory === 'all' 
-    ? galleryImages 
+  const filteredImages = selectedCategory === 'all'
+    ? galleryImages
     : galleryImages.filter(img => img.category === selectedCategory);
 
   return (
@@ -72,20 +74,6 @@ export function Gallery() {
               <p className="text-lg" style={{ color: 'var(--brand-gray-600)' }}>No images found in this category.</p>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16" style={{ backgroundColor: 'var(--brand-blue-600)', color: 'var(--brand-white)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {galleryStats.map((stat, index) => (
-              <div key={index}>
-                <div className="text-4xl md:text-5xl mb-2">{stat.value}</div>
-                <div style={{ color: 'var(--brand-blue-100)' }}>{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
     </div>

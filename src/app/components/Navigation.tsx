@@ -1,7 +1,7 @@
-import { useLocation } from 'react-router';
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import Logo from './ui/logo';
+import { useLocation } from "react-router";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import Logo from "./ui/logo";
 import { services } from "../data";
 
 export function Navigation() {
@@ -9,27 +9,26 @@ export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const isActive = (path: string) => {
-    if (path === '/') {
-      return location.pathname === '/';
+    if (path === "/") {
+      return location.pathname === "/";
     }
     return location.pathname.startsWith(path);
   };
 
   const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About Us' },
-    { 
-      path: '/#services', 
-      label: 'Services',
-      submenu: [
-        { path: '/#life-insurance', label: 'Life Insurance' },
-        { path: '/#corporate-insurance', label: 'Corporate Insurance' },
-        { path: '/#claims-support', label: 'Claims & Support' },
-      ]
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About Us" },
+    {
+      path: "/#services",
+      label: "Services",
+      submenu: Object.entries(services).map(([key, value]) => ({
+        path: `/#${value.slug}`,
+        label: value?.title ?? null,
+      })),
     },
-    { path: '/gallery', label: 'Gallery' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/contact', label: 'Contact' },
+    { path: "/gallery", label: "Gallery" },
+    { path: "/blog", label: "Blog" },
+    { path: "/contact", label: "Contact" },
   ];
 
   return (
@@ -52,10 +51,18 @@ export function Navigation() {
                     <button
                       className="transition-colors"
                       style={{
-                        color: isActive(link.path) ? 'var(--brand-secondary)' : 'var(--brand-primary)'
+                        color: isActive(link.path)
+                          ? "var(--brand-secondary)"
+                          : "var(--brand-primary)",
                       }}
-                      onMouseEnter={(e) => !isActive(link.path) && (e.currentTarget.style.color = 'var(--brand-secondary)')}
-                      onMouseLeave={(e) => !isActive(link.path) && (e.currentTarget.style.color = 'var(--brand-primary)')}
+                      onMouseEnter={(e) =>
+                        !isActive(link.path) &&
+                        (e.currentTarget.style.color = "var(--brand-secondary)")
+                      }
+                      onMouseLeave={(e) =>
+                        !isActive(link.path) &&
+                        (e.currentTarget.style.color = "var(--brand-primary)")
+                      }
                     >
                       {link.label}
                     </button>
@@ -76,20 +83,25 @@ export function Navigation() {
                     href={link.path}
                     className="transition-colors"
                     style={{
-                      color: isActive(link.path) ? 'var(--brand-secondary)' : 'var(--brand-primary)'
+                      color: isActive(link.path)
+                        ? "var(--brand-secondary)"
+                        : "var(--brand-primary)",
                     }}
-                    onMouseEnter={(e) => !isActive(link.path) && (e.currentTarget.style.color = 'var(--brand-secondary)')}
-                    onMouseLeave={(e) => !isActive(link.path) && (e.currentTarget.style.color = 'var(--brand-primary)')}
+                    onMouseEnter={(e) =>
+                      !isActive(link.path) &&
+                      (e.currentTarget.style.color = "var(--brand-secondary)")
+                    }
+                    onMouseLeave={(e) =>
+                      !isActive(link.path) &&
+                      (e.currentTarget.style.color = "var(--brand-primary)")
+                    }
                   >
                     {link.label}
                   </a>
                 )}
               </div>
             ))}
-            <a
-              href="/contact"
-              className="btn-primary"
-            >
+            <a href="/contact" className="btn-primary">
               Get a Quote
             </a>
           </div>
@@ -110,7 +122,10 @@ export function Navigation() {
               <div key={link.path}>
                 {link.submenu ? (
                   <>
-                    <div className="px-4 py-2 text-brand-primary" style={{ fontWeight: 500 }}>
+                    <div
+                      className="px-4 py-2 text-brand-primary"
+                      style={{ fontWeight: 500 }}
+                    >
                       {link.label}
                     </div>
                     {link.submenu.map((sublink) => (
@@ -129,19 +144,24 @@ export function Navigation() {
                     href={link.path}
                     className="block px-4 py-2"
                     style={{
-                      color: isActive(link.path) ? 'var(--brand-secondary)' : 'var(--brand-primary)',
-                      backgroundColor: isActive(link.path) ? 'var(--brand-blue-50)' : 'transparent'
+                      color: isActive(link.path)
+                        ? "var(--brand-secondary)"
+                        : "var(--brand-primary)",
+                      backgroundColor: isActive(link.path)
+                        ? "var(--brand-blue-50)"
+                        : "transparent",
                     }}
                     onMouseEnter={(e) => {
                       if (!isActive(link.path)) {
-                        e.currentTarget.style.backgroundColor = 'var(--brand-blue-50)';
-                        e.currentTarget.style.color = 'var(--brand-secondary)';
+                        e.currentTarget.style.backgroundColor =
+                          "var(--brand-blue-50)";
+                        e.currentTarget.style.color = "var(--brand-secondary)";
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!isActive(link.path)) {
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.color = 'var(--brand-primary)';
+                        e.currentTarget.style.backgroundColor = "transparent";
+                        e.currentTarget.style.color = "var(--brand-primary)";
                       }
                     }}
                     onClick={() => setMobileMenuOpen(false)}
