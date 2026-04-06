@@ -149,7 +149,7 @@ export function Footer() {
               Our Services
             </h3>
             <ul className="space-y-2">
-              {services.map((service) => (
+              {services().map((service) => (
                 <li key={service.id}>
                   <a
                     href={`/#${service.slug}`}

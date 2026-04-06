@@ -171,62 +171,64 @@ export const companyValues = [
 ];
 
 // Services
-export const services = [
-  {
-    id: 1,
-    title: "Risk Assessment/Management",
-    slug: "Risk-Assessment-Management",
-    description:
-      "We are committed to helping you safeguard your business and assets with expert risk assessment and management solutions. Our team analyzes potential risks, identifies vulnerabilities, and provides tailored strategies to minimize financial and operational threats. Whether it’s regulatory compliance, business continuity, or loss prevention, we offer proactive solutions to keep you protected.",
-    icon: null,
-    cta: "Get in touch today to learn more about how we can help.",
-  },
-  {
-    id: 2,
-    title: "Surveying",
-    slug: "surveying",
-    description:
-      "Accurate insurance coverage starts with a thorough assessment.Our expert surveying services help identify risks, determine asset values, and ensure you have the right protection in place. Whether for property, business, or specialized assets, we provide detailed evaluations to support informed insurance decisions.",
-    icon: "Building2",
-    cta: "Contact us today to schedule a survey!",
-  },
-  {
-    id: 3,
-    title: "Client Services",
-    slug: "client-services",
-    description:
-      "We prioritize your peace of mind with personalized client services tailored to your unique insurance needs. From policy guidance and claims assistance to risk management support, our team is here to provide expert advice and seamless service. Whether you’re an individual or a business, we ensure you get the protection and support you deserve.",
-    icon: "FileText",
-    cta: "Reach out to us today for exceptional client care.",
-  },
-  {
-    id: 4,
-    title: "Claims Management",
-    slug: "claims-management",
-    description:
-      "Filing an insurance claim can be complex, but we make the process smooth and hassle-free. Our dedicated claim management team assists you every step of the way—from documentation and submission to follow-ups and settlements—ensuring you get the compensation you deserve as quickly as possible. Let us handle your claims with expertise and efficiency.",
-    icon: "FileText",
-    cta: "Contact us today!",
-  },
-  {
-    id: 5,
-    title: "Competitive Pricing",
-    slug: "competitive-pricing",
-    description:
-      "We believe quality insurance should be both reliable and affordable. We partner top Insurance Companies to provide you with the best coverage at the most competitive rates. Whether for personal or business needs, we tailor cost-effective solutions without compromising protection.",
-    icon: "FileText",
-    cta: "Get a quote today and discover the best value for your insurance needs",
-  },
-  {
-    id: 6,
-    title: "Consultancy",
-    slug: "consultancy",
-    description:
-      "Making the right insurance decisions requires expert guidance. Our consultancy services provide personalized advice to help you choose the best coverage, manage risks, and optimize your policies. From business insurance to personal coverage, our team works closely with you to identify the most suitable policies. We assess your current coverage, recommend improvements, and ensure you’re not underinsured or overpaying.",
-    icon: "FileText",
-    cta: "Contact us today for professional insurance advice tailored to your needs.",
-  },
-];
+export const services = () =>{
+  return [
+    {
+      id: 1,
+      title: "Risk Assessment/Management",
+      slug: "Risk-Assessment-Management",
+      description:
+        "We are committed to helping you safeguard your business and assets with expert risk assessment and management solutions. Our team analyzes potential risks, identifies vulnerabilities, and provides tailored strategies to minimize financial and operational threats. Whether it’s regulatory compliance, business continuity, or loss prevention, we offer proactive solutions to keep you protected.",
+      icon: null,
+      cta: "Get in touch today to learn more about how we can help.",
+    },
+    {
+      id: 2,
+      title: "Surveying",
+      slug: "surveying",
+      description:
+        "Accurate insurance coverage starts with a thorough assessment.Our expert surveying services help identify risks, determine asset values, and ensure you have the right protection in place. Whether for property, business, or specialized assets, we provide detailed evaluations to support informed insurance decisions.",
+      icon: "Building2",
+      cta: "Contact us today to schedule a survey!",
+    },
+    {
+      id: 3,
+      title: "Client Services",
+      slug: "client-services",
+      description:
+        "We prioritize your peace of mind with personalized client services tailored to your unique insurance needs. From policy guidance and claims assistance to risk management support, our team is here to provide expert advice and seamless service. Whether you’re an individual or a business, we ensure you get the protection and support you deserve.",
+      icon: "FileText",
+      cta: "Reach out to us today for exceptional client care.",
+    },
+    {
+      id: 4,
+      title: "Claims Management",
+      slug: "claims-management",
+      description:
+        "Filing an insurance claim can be complex, but we make the process smooth and hassle-free. Our dedicated claim management team assists you every step of the way—from documentation and submission to follow-ups and settlements—ensuring you get the compensation you deserve as quickly as possible. Let us handle your claims with expertise and efficiency.",
+      icon: "FileText",
+      cta: "Contact us today!",
+    },
+    {
+      id: 5,
+      title: "Competitive Pricing",
+      slug: "competitive-pricing",
+      description:
+        "We believe quality insurance should be both reliable and affordable. We partner top Insurance Companies to provide you with the best coverage at the most competitive rates. Whether for personal or business needs, we tailor cost-effective solutions without compromising protection.",
+      icon: "FileText",
+      cta: "Get a quote today and discover the best value for your insurance needs",
+    },
+    {
+      id: 6,
+      title: "Consultancy",
+      slug: "consultancy",
+      description:
+        "Making the right insurance decisions requires expert guidance. Our consultancy services provide personalized advice to help you choose the best coverage, manage risks, and optimize your policies. From business insurance to personal coverage, our team works closely with you to identify the most suitable policies. We assess your current coverage, recommend improvements, and ensure you’re not underinsured or overpaying.",
+      icon: "FileText",
+      cta: "Contact us today for professional insurance advice tailored to your needs.",
+    },
+  ]
+};
 
 // Gallery Images
 export const galleryImages = [

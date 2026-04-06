@@ -160,7 +160,7 @@ export function Home() {
             Our Services
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service) => (
+            {services().map((service) => (
               <div
                 id={service.slug}
                 className="bg-white rounded-lg shadow-lg overflow-hidden"
