@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 import { ArrowRight, Shield, Users, Clock, Phone, Filter, Percent, Car, Headphones, ClipboardCheck } from 'lucide-react';
 import { companyInfo, services as xervice } from "../data";
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react';
 
 const services = await xervice();
 
@@ -162,7 +163,7 @@ export function Home() {
             Our Services
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service) => (
+            {services.map((service: { slug: string | undefined; icon: any; title: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; description: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; cta: any; }) => (
               <div
                 id={service.slug}
                 className="bg-white rounded-lg shadow-lg overflow-hidden"

@@ -24,7 +24,7 @@ export function Navigation() {
       path: "/#services",
       label: "Services",
       submenu: Object.entries(services).map(([key, value]) => ({
-        path: `/#${value.slug}`,
+        path: `/#${value?.slug}`,
         label: value?.title ?? null,
       })),
     },

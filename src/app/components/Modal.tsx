@@ -16,8 +16,6 @@ export default function Modal({
 
   if (!person) closeModal;
 
-  console.log({ here: person });
-
   return (
     <div
       onClick={(e) => {
@@ -25,9 +23,9 @@ export default function Modal({
           closeModal();
         }
       }}
-      className="fixed inset-0 h-dvh w-screen z-50 backdrop-blur-sm flex items-center justify-center p-4"
+      className="fixed inset-0 h-dvh w-screen z-50 backdrop-blur-sm flex items-center overflow-scroll justify-center p-4"
     >
-      <div className="flex flex-col bg-brand-primary p-4 space-y-6 overflow-y-auto">
+      <div className="flex flex-col bg-brand-primary p-4 space-y-6">
         <div className="text-center mb-6">
           <img
             src={person.image ?? "img.jpg"}

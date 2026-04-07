@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Target, Award, Heart, Users } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { boardMembers, teamMembers, customerRelations } from "../data";
+import { boardMembers as bm, teamMembers as tm, customerRelations as cm} from "../data";
 import Modal from "./Modal";
 import { createPortal } from "react-dom";
+
+const boardMembers = await bm();
+const teamMembers = await tm();
+const customerRelations = await cm();
 
 const domNode = document.getElementById("overlays");
 

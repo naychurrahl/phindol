@@ -62,154 +62,174 @@ export const companyInfo = {
 };
 
 // Board Members
-export const boardMembers = [
-  {
-    id: 1,
-    name: "Dr. Johnson",
-    position: "Chief Executive Officer",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    meta: {
-      bio: "With over 20 years in the insurance industry, Dr. Johnson leads Phindol with vision and expertise.",
+export const boardMembers = async () => {
+  return await apiRequest({ url: `${baseUrl}/board_members` });
+
+  return [
+    {
+      id: 1,
+      name: "Dr. Johnson",
+      position: "Chief Executive Officer",
+      image:
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "With over 20 years in the insurance industry, Dr. Johnson leads Phindol with vision and expertise.",
+      },
     },
-  },
-  {
-    id: 2,
-    name: "Chiomy Okafor",
-    position: "Head of Corporate Insurance",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvbWFuJTIwYWZyaWNhbnxlbnwxfHx8fDE3MjQyNjM3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    meta: {
-      bio: "Chioma specializes in creating tailored insurance solutions for businesses of all sizes.",
+    {
+      id: 2,
+      name: "Chiomy Okafor",
+      position: "Head of Corporate Insurance",
+      image:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvbWFuJTIwYWZyaWNhbnxlbnwxfHx8fDE3MjQyNjM3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "Chioma specializes in creating tailored insurance solutions for businesses of all sizes.",
+      },
     },
-  },
-  {
-    id: 3,
-    name: "Ibrahim Musa",
-    position: "Director of Claims",
-    image:
-      "https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMHN1aXR8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    meta: {
-      bio: "Ibrahim ensures that every claim is processed efficiently and fairly, providing peace of mind to our clients.",
+    {
+      id: 3,
+      name: "Ibrahim Musa",
+      position: "Director of Claims",
+      image:
+        "https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMHN1aXR8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "Ibrahim ensures that every claim is processed efficiently and fairly, providing peace of mind to our clients.",
+      },
     },
-  },
-  {
-    id: 4,
-    name: "Fatima Bello",
-    position: "Senior Life Insurance Advisor",
-    image:
-      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGJ1c2luZXNzJTIwaGlqYWJ8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    meta: {
-      bio: "Fatima has helped hundreds of families secure their financial future with comprehensive life insurance plans.",
+    {
+      id: 4,
+      name: "Fatima Bello",
+      position: "Senior Life Insurance Advisor",
+      image:
+        "https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGJ1c2luZXNzJTIwaGlqYWJ8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "Fatima has helped hundreds of families secure their financial future with comprehensive life insurance plans.",
+      },
     },
-  },
-];
+  ];
+};
 
 // Team Members
-export const teamMembers = [
-  {
-    id: 1,
-    name: 'Dr. Johnson',
-    position: 'Chief Executive Officer',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    meta: {
-      bio: 'With over 20 years in the insurance industry, Dr. Johnson leads Phindol with vision and expertise.',
-    }
-  },
-  {
-    id: 2,
-    name: 'Chiomy Okafor',
-    position: 'Head of Corporate Insurance',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvbWFuJTIwYWZyaWNhbnxlbnwxfHx8fDE3MjQyNjM3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    meta: {
-      bio: 'Chioma specializes in creating tailored insurance solutions for businesses of all sizes.',
-    }
-  },
-  {
-    id: 3,
-    name: 'Ibrahim Musa',
-    position: 'Director of Claims',
-    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMHN1aXR8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    meta: {
-      bio: 'Ibrahim ensures that every claim is processed efficiently and fairly, providing peace of mind to our clients.',
-    }
-  },
-  {
-    id: 4,
-    name: 'Fatima Bello',
-    position: 'Senior Life Insurance Advisor',
-    image: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGJ1c2luZXNzJTIwaGlqYWJ8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    meta: {
-      bio: 'Fatima has helped hundreds of families secure their financial future with comprehensive life insurance plans.',
-    }
-  },
-];
+export const teamMembers = async () => {
+  return await apiRequest({ url: `${baseUrl}/team_members` });
+
+  return [
+    {
+      id: 1,
+      name: "Dr. Johnson",
+      position: "Chief Executive Officer",
+      image:
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "With over 20 years in the insurance industry, Dr. Johnson leads Phindol with vision and expertise.",
+      },
+    },
+    {
+      id: 2,
+      name: "Chiomy Okafor",
+      position: "Head of Corporate Insurance",
+      image:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvbWFuJTIwYWZyaWNhbnxlbnwxfHx8fDE3MjQyNjM3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "Chioma specializes in creating tailored insurance solutions for businesses of all sizes.",
+      },
+    },
+    {
+      id: 3,
+      name: "Ibrahim Musa",
+      position: "Director of Claims",
+      image:
+        "https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMHN1aXR8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "Ibrahim ensures that every claim is processed efficiently and fairly, providing peace of mind to our clients.",
+      },
+    },
+    {
+      id: 4,
+      name: "Fatima Bello",
+      position: "Senior Life Insurance Advisor",
+      image:
+        "https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGJ1c2luZXNzJTIwaGlqYWJ8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "Fatima has helped hundreds of families secure their financial future with comprehensive life insurance plans.",
+      },
+    },
+  ];
+};
 
 // Customer Relations
-export const customerRelations = [
-  {
-    id: 1,
-    name: "Dr. Johnson",
-    position: "Chief Executive Officer",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    meta: {
-      bio: "With over 20 years in the insurance industry, Dr. Johnson leads Phindol with vision and expertise.",
+export const customerRelations = async () => {
+  return await apiRequest({ url: `${baseUrl}/customer_relations` });
+
+  return [
+    {
+      id: 1,
+      name: "Dr. Johnson",
+      position: "Chief Executive Officer",
+      image:
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "With over 20 years in the insurance industry, Dr. Johnson leads Phindol with vision and expertise.",
+      },
     },
-  },
-  {
-    id: 2,
-    name: "Chiomy Okafor",
-    position: "Head of Corporate Insurance",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvbWFuJTIwYWZyaWNhbnxlbnwxfHx8fDE3MjQyNjM3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    meta: {
-      bio: "Chioma specializes in creating tailored insurance solutions for businesses of all sizes.",
+    {
+      id: 2,
+      name: "Chiomy Okafor",
+      position: "Head of Corporate Insurance",
+      image:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvbWFuJTIwYWZyaWNhbnxlbnwxfHx8fDE3MjQyNjM3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "Chioma specializes in creating tailored insurance solutions for businesses of all sizes.",
+      },
     },
-  },
-  {
-    id: 3,
-    name: "Ibrahim Musa",
-    position: "Director of Claims",
-    image:
-      "https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMHN1aXR8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    meta: {
-      bio: "Ibrahim ensures that every claim is processed efficiently and fairly, providing peace of mind to our clients.",
+    {
+      id: 3,
+      name: "Ibrahim Musa",
+      position: "Director of Claims",
+      image:
+        "https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMHN1aXR8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "Ibrahim ensures that every claim is processed efficiently and fairly, providing peace of mind to our clients.",
+      },
     },
-  },
-  {
-    id: 4,
-    name: "Fatima Bello",
-    position: "Senior Life Insurance Advisor",
-    image:
-      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGJ1c2luZXNzJTIwaGlqYWJ8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    meta: {
-      bio: "Fatima has helped hundreds of families secure their financial future with comprehensive life insurance plans.",
+    {
+      id: 4,
+      name: "Fatima Bello",
+      position: "Senior Life Insurance Advisor",
+      image:
+        "https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGJ1c2luZXNzJTIwaGlqYWJ8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "Fatima has helped hundreds of families secure their financial future with comprehensive life insurance plans.",
+      },
     },
-  },
-];
+  ];
+};
 
 // Company Values
 export const companyValues = [
   {
     id: 1,
-    title: 'Integrity',
-    description: 'We uphold the highest standards of honesty and transparency in all our dealings.',
+    title: "Integrity",
+    description:
+      "We uphold the highest standards of honesty and transparency in all our dealings.",
   },
   {
     id: 2,
-    title: 'Client-Centric',
-    description: 'Your needs and satisfaction are at the heart of everything we do.',
+    title: "Client-Centric",
+    description:
+      "Your needs and satisfaction are at the heart of everything we do.",
   },
   {
     id: 3,
-    title: 'Excellence',
-    description: 'We strive for excellence in service delivery and professional expertise.',
+    title: "Excellence",
+    description:
+      "We strive for excellence in service delivery and professional expertise.",
   },
   {
     id: 4,
-    title: 'Innovation',
-    description: 'We embrace innovative solutions to meet evolving insurance needs.',
+    title: "Innovation",
+    description:
+      "We embrace innovative solutions to meet evolving insurance needs.",
   },
 ];
 
@@ -279,100 +299,102 @@ export const services = async () => {
 export const galleryImages = [
   {
     id: 1,
-    url: 'https://images.unsplash.com/photo-1740818576358-7596eb883cf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBtZWV0aW5nJTIwY29uc3VsdGF0aW9ufGVufDF8fHx8MTc3MjMwNzAwM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Client Consultation',
-    category: 'clients',
+    url: "https://images.unsplash.com/photo-1740818576358-7596eb883cf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBtZWV0aW5nJTIwY29uc3VsdGF0aW9ufGVufDF8fHx8MTc3MjMwNzAwM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Client Consultation",
+    category: "clients",
   },
   {
     id: 2,
-    url: 'https://images.unsplash.com/photo-1745847768380-2caeadbb3b71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGhhbmRzaGFrZSUyMGFncmVlbWVudHxlbnwxfHx8fDE3NzIyMzM1MTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Partnership Agreement',
-    category: 'events',
+    url: "https://images.unsplash.com/photo-1745847768380-2caeadbb3b71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGhhbmRzaGFrZSUyMGFncmVlbWVudHxlbnwxfHx8fDE3NzIyMzM1MTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Partnership Agreement",
+    category: "events",
   },
   {
     id: 3,
-    url: 'https://images.unsplash.com/photo-1611736539111-2245a9f97a59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBvZmZpY2UlMjB0ZWFtJTIwd29ya3xlbnwxfHx8fDE3NzIzMDcwMDN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Team Collaboration',
-    category: 'team',
+    url: "https://images.unsplash.com/photo-1611736539111-2245a9f97a59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBvZmZpY2UlMjB0ZWFtJTIwd29ya3xlbnwxfHx8fDE3NzIzMDcwMDN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Team Collaboration",
+    category: "team",
   },
   {
     id: 4,
-    url: 'https://images.unsplash.com/photo-1666018215790-867b14fe4822?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBkb2N1bWVudHMlMjBzaWduaW5nfGVufDF8fHx8MTc3MjMwNzAwNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Policy Documentation',
-    category: 'clients',
+    url: "https://images.unsplash.com/photo-1666018215790-867b14fe4822?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBkb2N1bWVudHMlMjBzaWduaW5nfGVufDF8fHx8MTc3MjMwNzAwNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Policy Documentation",
+    category: "clients",
   },
   {
     id: 5,
-    url: 'https://images.unsplash.com/photo-1758630737900-a28682c5aa69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBvZmZpY2UlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NzIyOTgzMDV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Our Modern Office',
-    category: 'office',
+    url: "https://images.unsplash.com/photo-1758630737900-a28682c5aa69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBvZmZpY2UlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NzIyOTgzMDV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Our Modern Office",
+    category: "office",
   },
   {
     id: 6,
-    url: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXN0b21lciUyMHNlcnZpY2UlMjByZXByZXNlbnRhdGl2ZXxlbnwxfHx8fDE3NzIyNjgyOTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Customer Service Excellence',
-    category: 'team',
+    url: "https://images.unsplash.com/photo-1556740758-90de374c12ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXN0b21lciUyMHNlcnZpY2UlMjByZXByZXNlbnRhdGl2ZXxlbnwxfHx8fDE3NzIyNjgyOTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Customer Service Excellence",
+    category: "team",
   },
   {
     id: 7,
-    url: 'https://images.unsplash.com/photo-1762968269894-1d7e1ce8894e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGNvbmZlcmVuY2UlMjBwcmVzZW50YXRpb258ZW58MXx8fHwxNzcyMjYzMTQ5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Annual Conference',
-    category: 'events',
+    url: "https://images.unsplash.com/photo-1762968269894-1d7e1ce8894e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGNvbmZlcmVuY2UlMjBwcmVzZW50YXRpb258ZW58MXx8fHwxNzcyMjYzMTQ5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Annual Conference",
+    category: "events",
   },
   {
     id: 8,
-    url: 'https://images.unsplash.com/photo-1769740333462-9a63bfa914bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwbWVldGluZyUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NzIzMDUzOTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Team Strategy Meeting',
-    category: 'team',
+    url: "https://images.unsplash.com/photo-1769740333462-9a63bfa914bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwbWVldGluZyUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NzIzMDUzOTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Team Strategy Meeting",
+    category: "team",
   },
   {
     id: 9,
-    url: 'https://images.unsplash.com/photo-1632961974688-fae53de3cabc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwcHJvZmVzc2lvbmFscyUyMHRlYW0lMjB0cnVzdHxlbnwxfHx8fDE3NzIzMDUzOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Diverse Professional Team',
-    category: 'team',
+    url: "https://images.unsplash.com/photo-1632961974688-fae53de3cabc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwcHJvZmVzc2lvbmFscyUyMHRlYW0lMjB0cnVzdHxlbnwxfHx8fDE3NzIzMDUzOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Diverse Professional Team",
+    category: "team",
   },
   {
     id: 10,
-    url: 'https://images.unsplash.com/photo-1699026687712-5221e5d7b98b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBidXNpbmVzcyUyMG9mZmljZXxlbnwxfHx8fDE3NzIxODg5NDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Corporate Office Space',
-    category: 'office',
+    url: "https://images.unsplash.com/photo-1699026687712-5221e5d7b98b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBidXNpbmVzcyUyMG9mZmljZXxlbnwxfHx8fDE3NzIxODg5NDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Corporate Office Space",
+    category: "office",
   },
   {
     id: 11,
-    url: 'https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Happy Client Families',
-    category: 'clients',
+    url: "https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Happy Client Families",
+    category: "clients",
   },
   {
     id: 12,
-    url: 'https://images.unsplash.com/photo-1659352786973-82ae3af461a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBwcm90ZWN0aW9uJTIwZmFtaWx5fGVufDF8fHx8MTc3MjI0NDg2NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Insurance Protection',
-    category: 'clients',
+    url: "https://images.unsplash.com/photo-1659352786973-82ae3af461a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBwcm90ZWN0aW9uJTIwZmFtaWx5fGVufDF8fHx8MTc3MjI0NDg2NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Insurance Protection",
+    category: "clients",
   },
 ];
 
 // Gallery Categories
-export const galleryCategories = ['all', 'events', 'office', 'team', 'clients'];
+export const galleryCategories = ["all", "events", "office", "team", "clients"];
 
 // Gallery Stats
 export const galleryStats = [
-  { value: '50+', label: 'Corporate Events' },
-  { value: '5,000+', label: 'Happy Clients' },
-  { value: '100+', label: 'Team Members' },
-  { value: '10+', label: 'Years of Service' },
+  { value: "50+", label: "Corporate Events" },
+  { value: "5,000+", label: "Happy Clients" },
+  { value: "100+", label: "Team Members" },
+  { value: "10+", label: "Years of Service" },
 ];
 
 // Blog Posts
 export const blogPosts = [
   {
     id: 1,
-    title: 'Understanding Life Insurance: A Comprehensive Guide for Families',
-    excerpt: 'Learn everything you need to know about choosing the right life insurance policy for your family\'s future security and peace of mind.',
-    author: 'Dr. Adewale Johnson',
-    date: 'February 15, 2026',
-    readTime: '5 min read',
-    category: 'Life Insurance',
-    image: 'https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    title: "Understanding Life Insurance: A Comprehensive Guide for Families",
+    excerpt:
+      "Learn everything you need to know about choosing the right life insurance policy for your family's future security and peace of mind.",
+    author: "Dr. Adewale Johnson",
+    date: "February 15, 2026",
+    readTime: "5 min read",
+    category: "Life Insurance",
+    image:
+      "https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     content: `
       <p>Life insurance is one of the most important financial decisions you'll make for your family. It provides financial security and peace of mind, ensuring that your loved ones are protected even when you're no longer around to provide for them.</p>
 
@@ -406,13 +428,15 @@ export const blogPosts = [
   },
   {
     id: 2,
-    title: '5 Reasons Why Every Business Needs Corporate Insurance',
-    excerpt: 'Discover why corporate insurance is essential for protecting your business assets, employees, and long-term growth.',
-    author: 'Chioma Okafor',
-    date: 'February 10, 2026',
-    readTime: '4 min read',
-    category: 'Corporate Insurance',
-    image: 'https://images.unsplash.com/photo-1699026687712-5221e5d7b98b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBidXNpbmVzcyUyMG9mZmljZXxlbnwxfHx8fDE3NzIxODg5NDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    title: "5 Reasons Why Every Business Needs Corporate Insurance",
+    excerpt:
+      "Discover why corporate insurance is essential for protecting your business assets, employees, and long-term growth.",
+    author: "Chioma Okafor",
+    date: "February 10, 2026",
+    readTime: "4 min read",
+    category: "Corporate Insurance",
+    image:
+      "https://images.unsplash.com/photo-1699026687712-5221e5d7b98b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBidXNpbmVzcyUyMG9mZmljZXxlbnwxfHx8fDE3NzIxODg5NDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     content: `
       <p>Running a business comes with numerous risks. From property damage to liability claims, unexpected events can threaten your company's financial stability and future growth. Here are five compelling reasons why corporate insurance is essential.</p>
 
@@ -437,13 +461,15 @@ export const blogPosts = [
   },
   {
     id: 3,
-    title: 'How to File an Insurance Claim: Step-by-Step Guide',
-    excerpt: 'A detailed walkthrough of the claims process to help you navigate it smoothly and get the support you need quickly.',
-    author: 'Ibrahim Musa',
-    date: 'February 5, 2026',
-    readTime: '6 min read',
-    category: 'Claims & Support',
-    image: 'https://images.unsplash.com/photo-1666018215790-867b14fe4822?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBkb2N1bWVudHMlMjBzaWduaW5nfGVufDF8fHx8MTc3MjMwNzAwNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    title: "How to File an Insurance Claim: Step-by-Step Guide",
+    excerpt:
+      "A detailed walkthrough of the claims process to help you navigate it smoothly and get the support you need quickly.",
+    author: "Ibrahim Musa",
+    date: "February 5, 2026",
+    readTime: "6 min read",
+    category: "Claims & Support",
+    image:
+      "https://images.unsplash.com/photo-1666018215790-867b14fe4822?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBkb2N1bWVudHMlMjBzaWduaW5nfGVufDF8fHx8MTc3MjMwNzAwNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     content: `
       <p>Filing an insurance claim can seem daunting, but understanding the process makes it much easier. Here's a comprehensive guide to help you navigate the claims process smoothly.</p>
 
@@ -489,80 +515,89 @@ export const blogPosts = [
   },
   {
     id: 4,
-    title: 'Term vs. Whole Life Insurance: Which is Right for You?',
-    excerpt: 'Compare the benefits and drawbacks of term and whole life insurance to make an informed decision for your family.',
-    author: 'Fatima Bello',
-    date: 'January 28, 2026',
-    readTime: '7 min read',
-    category: 'Life Insurance',
-    image: 'https://images.unsplash.com/photo-1659352786973-82ae3af461a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBwcm90ZWN0aW9uJTIwZmFtaWx5fGVufDF8fHx8MTc3MjI0NDg2NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    content: '<p>Choosing between term and whole life insurance is one of the most important decisions you\'ll make. Both have unique benefits tailored to different needs and financial situations.</p>',
+    title: "Term vs. Whole Life Insurance: Which is Right for You?",
+    excerpt:
+      "Compare the benefits and drawbacks of term and whole life insurance to make an informed decision for your family.",
+    author: "Fatima Bello",
+    date: "January 28, 2026",
+    readTime: "7 min read",
+    category: "Life Insurance",
+    image:
+      "https://images.unsplash.com/photo-1659352786973-82ae3af461a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBwcm90ZWN0aW9uJTIwZmFtaWx5fGVufDF8fHx8MTc3MjI0NDg2NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    content:
+      "<p>Choosing between term and whole life insurance is one of the most important decisions you'll make. Both have unique benefits tailored to different needs and financial situations.</p>",
   },
   {
     id: 5,
-    title: 'Protecting Your Business from Cyber Threats with Insurance',
-    excerpt: 'Learn how cyber insurance can safeguard your business against data breaches, ransomware, and other digital threats.',
-    author: 'Ibrahim Musa',
-    date: 'January 20, 2026',
-    readTime: '5 min read',
-    category: 'Corporate Insurance',
-    image: 'https://images.unsplash.com/photo-1611736539111-2245a9f97a59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBvZmZpY2UlMjB0ZWFtJTIwd29ya3xlbnwxfHx8fDE3NzIzMDcwMDN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    content: '<p>In today\'s digital age, cyber threats are more prevalent than ever. Cyber insurance protects your business from the financial impact of data breaches and cyberattacks.</p>',
+    title: "Protecting Your Business from Cyber Threats with Insurance",
+    excerpt:
+      "Learn how cyber insurance can safeguard your business against data breaches, ransomware, and other digital threats.",
+    author: "Ibrahim Musa",
+    date: "January 20, 2026",
+    readTime: "5 min read",
+    category: "Corporate Insurance",
+    image:
+      "https://images.unsplash.com/photo-1611736539111-2245a9f97a59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBvZmZpY2UlMjB0ZWFtJTIwd29ya3xlbnwxfHx8fDE3NzIzMDcwMDN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    content:
+      "<p>In today's digital age, cyber threats are more prevalent than ever. Cyber insurance protects your business from the financial impact of data breaches and cyberattacks.</p>",
   },
   {
     id: 6,
-    title: 'Common Insurance Myths Debunked',
-    excerpt: 'Separate fact from fiction as we address the most common misconceptions about insurance coverage.',
-    author: 'Dr. Adewale Johnson',
-    date: 'January 15, 2026',
-    readTime: '4 min read',
-    category: 'Insurance Tips',
-    image: 'https://images.unsplash.com/photo-1740818576358-7596eb883cf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBtZWV0aW5nJTIwY29uc3VsdGF0aW9ufGVufDF8fHx8MTc3MjMwNzAwM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    content: '<p>Many misconceptions about insurance prevent people from getting the coverage they need. Let\'s clear up some of the most common myths.</p>',
+    title: "Common Insurance Myths Debunked",
+    excerpt:
+      "Separate fact from fiction as we address the most common misconceptions about insurance coverage.",
+    author: "Dr. Adewale Johnson",
+    date: "January 15, 2026",
+    readTime: "4 min read",
+    category: "Insurance Tips",
+    image:
+      "https://images.unsplash.com/photo-1740818576358-7596eb883cf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBtZWV0aW5nJTIwY29uc3VsdGF0aW9ufGVufDF8fHx8MTc3MjMwNzAwM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    content:
+      "<p>Many misconceptions about insurance prevent people from getting the coverage they need. Let's clear up some of the most common myths.</p>",
   },
 ];
 
 // Blog Categories
 export const blogCategories = [
-  'Life Insurance',
-  'Corporate Insurance',
-  'Claims & Support',
-  'Insurance Tips',
-  'Industry News',
-  'Customer Stories',
-  'Health & Wellness',
-  'Financial Planning',
+  "Life Insurance",
+  "Corporate Insurance",
+  "Claims & Support",
+  "Insurance Tips",
+  "Industry News",
+  "Customer Stories",
+  "Health & Wellness",
+  "Financial Planning",
 ];
 
 // Statistics
 export const statistics = [
-  { value: '10+', label: 'Years of Excellence' },
-  { value: '5,000+', label: 'Happy Clients' },
-  { value: '98%', label: 'Client Satisfaction' },
-  { value: '24/7', label: 'Support Available' },
+  { value: "10+", label: "Years of Excellence" },
+  { value: "5,000+", label: "Happy Clients" },
+  { value: "98%", label: "Client Satisfaction" },
+  { value: "24/7", label: "Support Available" },
 ];
 
 // Testimonials
 export const testimonials = [
   {
     id: 1,
-    name: 'Oluwaseun Adeyemi',
-    company: 'TechCorp Nigeria',
-    text: 'Phindol Insurance made the process of securing our corporate insurance seamless. Their team is professional, responsive, and genuinely cares about our needs.',
+    name: "Oluwaseun Adeyemi",
+    company: "TechCorp Nigeria",
+    text: "Phindol Insurance made the process of securing our corporate insurance seamless. Their team is professional, responsive, and genuinely cares about our needs.",
     rating: 5,
   },
   {
     id: 2,
-    name: 'Amaka Nwankwo',
-    company: 'Private Client',
-    text: 'After losing my husband, the life insurance payout helped me secure my children\'s future. Phindol handled everything with compassion and efficiency.',
+    name: "Amaka Nwankwo",
+    company: "Private Client",
+    text: "After losing my husband, the life insurance payout helped me secure my children's future. Phindol handled everything with compassion and efficiency.",
     rating: 5,
   },
   {
     id: 3,
-    name: 'Chukwudi Okonkwo',
-    company: 'Okonkwo Enterprises',
-    text: 'Their claims support is outstanding. When we had a fire incident, they processed our claim quickly and helped us get back on our feet.',
+    name: "Chukwudi Okonkwo",
+    company: "Okonkwo Enterprises",
+    text: "Their claims support is outstanding. When we had a fire incident, they processed our claim quickly and helped us get back on our feet.",
     rating: 5,
   },
 ];
