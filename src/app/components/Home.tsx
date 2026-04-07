@@ -1,7 +1,9 @@
 import { Link } from 'react-router';
 import { ArrowRight, Shield, Users, Clock, Phone, Filter, Percent, Car, Headphones, ClipboardCheck } from 'lucide-react';
-import { companyInfo, services } from "../data";
+import { companyInfo, services as xervice } from "../data";
 import { ImageWithFallback } from './figma/ImageWithFallback';
+
+const services = await xervice();
 
 export function Home() {
   return (
@@ -160,7 +162,7 @@ export function Home() {
             Our Services
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {services().map((service) => (
+            {services.map((service) => (
               <div
                 id={service.slug}
                 className="bg-white rounded-lg shadow-lg overflow-hidden"

@@ -1,3 +1,45 @@
+export async function apiRequest({
+  url,
+  method = "GET",
+  body = null,
+  headers = {},
+}) {
+  if (!url) {
+    throw new Error("Requires a url");
+  }
+
+  const options = {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+      ...headers,
+    },
+  };
+
+  if (body && method !== "GET") {
+    options.body = typeof body === "string" ? body : JSON.stringify(body);
+  }
+
+  const response = await fetch(url, options);
+
+  let result;
+  const ContentType = response.headers.get("content-type");
+
+  if (ContentType && ContentType?.includes("application/json")) {
+    result = await response.json();
+  } else {
+    result = await response.text();
+  }
+
+  if (!response.ok) {
+    throw new Error(result?.message || `Request failed with status `);
+  }
+
+  return result;
+}
+
+//console.log(await apiRequest({url: "https://localhost:6443/ping"}));
+
 // Company Information
 export const companyInfo = {
   name: "Wendy",
@@ -171,7 +213,9 @@ export const companyValues = [
 ];
 
 // Services
-export const services = () =>{
+export const services = async () => {
+  return await apiRequest({ url: "https://localhost:6443/services" });
+
   return [
     {
       id: 1,
@@ -227,7 +271,7 @@ export const services = () =>{
       icon: "FileText",
       cta: "Contact us today for professional insurance advice tailored to your needs.",
     },
-  ]
+  ];
 };
 
 // Gallery Images

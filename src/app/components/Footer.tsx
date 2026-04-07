@@ -7,9 +7,12 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiFacebook } from "react-icons/fi";
-import { companyInfo, services } from '../data';
+import { companyInfo, services as xervice } from '../data';
 
-export function Footer() {
+const services = await xervice();
+
+export function  Footer() {
+
   return (
     <footer
       style={{
@@ -149,7 +152,7 @@ export function Footer() {
               Our Services
             </h3>
             <ul className="space-y-2">
-              {services().map((service) => (
+              {services.map((service) => (
                 <li key={service.id}>
                   <a
                     href={`/#${service.slug}`}

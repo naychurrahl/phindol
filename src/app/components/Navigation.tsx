@@ -2,7 +2,9 @@ import { useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Logo from "./ui/logo";
-import { services } from "../data";
+import { services as xervice } from "../data";
+
+const services = await xervice();
 
 export function Navigation() {
   const location = useLocation();
@@ -21,7 +23,7 @@ export function Navigation() {
     {
       path: "/#services",
       label: "Services",
-      submenu: Object.entries(services()).map(([key, value]) => ({
+      submenu: Object.entries(services).map(([key, value]) => ({
         path: `/#${value.slug}`,
         label: value?.title ?? null,
       })),
