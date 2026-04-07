@@ -38,6 +38,7 @@ export async function apiRequest({
   return result;
 }
 
+const baseUrl = "https://localhost:6443";
 //console.log(await apiRequest({url: "https://localhost:6443/ping"}));
 
 // Company Information
@@ -214,7 +215,7 @@ export const companyValues = [
 
 // Services
 export const services = async () => {
-  return await apiRequest({ url: "https://localhost:6443/services" });
+  return await apiRequest({ url: `${baseUrl}/services` });
 
   return [
     {
