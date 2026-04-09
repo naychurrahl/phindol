@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { galleryImages, galleryCategories } from "../data";
+import { gallery } from "../data";
+
+const galleryData = await gallery();
+
+const galleryImages = galleryData.galleryImages;
+const galleryCategories = ["all", ...galleryData.galleryCategories];
 
 export function Gallery() {
   //const galleryImages = galleryImagesData();
