@@ -1,7 +1,14 @@
 import { Link } from 'react-router';
 import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { blogPosts, blogCategories } from '../data';
+import { blog } from '../data';
+
+console.log("here");
+
+const blogData = await blog();
+
+const blogPosts = blogData.blogPosts;
+const blogCategories = ["all", ...blogData.blogCategories];
 
 export function Blog() {
   const featuredPost = blogPosts[0];

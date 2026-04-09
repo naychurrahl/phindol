@@ -1,7 +1,11 @@
 import { Link, useParams } from 'react-router';
 import { Calendar, User, Clock, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { blogPosts } from '../data';
+import { blog } from '../data';
+
+const blogs = await blog();
+
+const blogPosts = blogs.blogPosts;
 
 export function BlogPost() {
   const { id } = useParams();

@@ -392,19 +392,30 @@ export const galleryStats = [
 ];
 
 // Blog Posts
-export const blogPosts = [
-  {
-    id: 1,
-    title: "Understanding Life Insurance: A Comprehensive Guide for Families",
-    excerpt:
-      "Learn everything you need to know about choosing the right life insurance policy for your family's future security and peace of mind.",
-    author: "Dr. Adewale Johnson",
-    date: "February 15, 2026",
-    readTime: "5 min read",
-    category: "Life Insurance",
-    image:
-      "https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    content: `
+export const blog = async () => {
+  
+  const blog = await apiRequest({ url: `${baseUrl}/blog` });
+  
+  console.log(blog);
+
+  return {
+    blogPosts: blog.blogPosts,
+    blogCategories: blog.blogCategories,
+  };
+
+  return [
+    {
+      id: 1,
+      title: "Understanding Life Insurance: A Comprehensive Guide for Families",
+      excerpt:
+        "Learn everything you need to know about choosing the right life insurance policy for your family's future security and peace of mind.",
+      author: "Dr. Adewale Johnson",
+      date: "February 15, 2026",
+      readTime: "5 min read",
+      category: "Life Insurance",
+      image:
+        "https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      content: `
       <p>Life insurance is one of the most important financial decisions you'll make for your family. It provides financial security and peace of mind, ensuring that your loved ones are protected even when you're no longer around to provide for them.</p>
 
       <h2>What is Life Insurance?</h2>
@@ -434,19 +445,19 @@ export const blogPosts = [
 
       <p>Ready to secure your family's future? Contact us today for a free consultation and personalized quote.</p>
     `,
-  },
-  {
-    id: 2,
-    title: "5 Reasons Why Every Business Needs Corporate Insurance",
-    excerpt:
-      "Discover why corporate insurance is essential for protecting your business assets, employees, and long-term growth.",
-    author: "Chioma Okafor",
-    date: "February 10, 2026",
-    readTime: "4 min read",
-    category: "Corporate Insurance",
-    image:
-      "https://images.unsplash.com/photo-1699026687712-5221e5d7b98b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBidXNpbmVzcyUyMG9mZmljZXxlbnwxfHx8fDE3NzIxODg5NDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    content: `
+    },
+    {
+      id: 2,
+      title: "5 Reasons Why Every Business Needs Corporate Insurance",
+      excerpt:
+        "Discover why corporate insurance is essential for protecting your business assets, employees, and long-term growth.",
+      author: "Chioma Okafor",
+      date: "February 10, 2026",
+      readTime: "4 min read",
+      category: "Corporate Insurance",
+      image:
+        "https://images.unsplash.com/photo-1699026687712-5221e5d7b98b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBidXNpbmVzcyUyMG9mZmljZXxlbnwxfHx8fDE3NzIxODg5NDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      content: `
       <p>Running a business comes with numerous risks. From property damage to liability claims, unexpected events can threaten your company's financial stability and future growth. Here are five compelling reasons why corporate insurance is essential.</p>
 
       <h2>1. Protects Your Assets</h2>
@@ -467,19 +478,19 @@ export const blogPosts = [
       <h2>Get Started Today</h2>
       <p>Don't leave your business vulnerable. Contact Phindol Insurance for a customized corporate insurance package that meets your specific needs and budget.</p>
     `,
-  },
-  {
-    id: 3,
-    title: "How to File an Insurance Claim: Step-by-Step Guide",
-    excerpt:
-      "A detailed walkthrough of the claims process to help you navigate it smoothly and get the support you need quickly.",
-    author: "Ibrahim Musa",
-    date: "February 5, 2026",
-    readTime: "6 min read",
-    category: "Claims & Support",
-    image:
-      "https://images.unsplash.com/photo-1666018215790-867b14fe4822?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBkb2N1bWVudHMlMjBzaWduaW5nfGVufDF8fHx8MTc3MjMwNzAwNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    content: `
+    },
+    {
+      id: 3,
+      title: "How to File an Insurance Claim: Step-by-Step Guide",
+      excerpt:
+        "A detailed walkthrough of the claims process to help you navigate it smoothly and get the support you need quickly.",
+      author: "Ibrahim Musa",
+      date: "February 5, 2026",
+      readTime: "6 min read",
+      category: "Claims & Support",
+      image:
+        "https://images.unsplash.com/photo-1666018215790-867b14fe4822?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBkb2N1bWVudHMlMjBzaWduaW5nfGVufDF8fHx8MTc3MjMwNzAwNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      content: `
       <p>Filing an insurance claim can seem daunting, but understanding the process makes it much easier. Here's a comprehensive guide to help you navigate the claims process smoothly.</p>
 
       <h2>Step 1: Report the Incident Immediately</h2>
@@ -521,50 +532,51 @@ export const blogPosts = [
       <h2>We're Here to Help</h2>
       <p>At Phindol Insurance, we're committed to making the claims process as smooth as possible. Our dedicated claims team is here to support you every step of the way.</p>
     `,
-  },
-  {
-    id: 4,
-    title: "Term vs. Whole Life Insurance: Which is Right for You?",
-    excerpt:
-      "Compare the benefits and drawbacks of term and whole life insurance to make an informed decision for your family.",
-    author: "Fatima Bello",
-    date: "January 28, 2026",
-    readTime: "7 min read",
-    category: "Life Insurance",
-    image:
-      "https://images.unsplash.com/photo-1659352786973-82ae3af461a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBwcm90ZWN0aW9uJTIwZmFtaWx5fGVufDF8fHx8MTc3MjI0NDg2NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    content:
-      "<p>Choosing between term and whole life insurance is one of the most important decisions you'll make. Both have unique benefits tailored to different needs and financial situations.</p>",
-  },
-  {
-    id: 5,
-    title: "Protecting Your Business from Cyber Threats with Insurance",
-    excerpt:
-      "Learn how cyber insurance can safeguard your business against data breaches, ransomware, and other digital threats.",
-    author: "Ibrahim Musa",
-    date: "January 20, 2026",
-    readTime: "5 min read",
-    category: "Corporate Insurance",
-    image:
-      "https://images.unsplash.com/photo-1611736539111-2245a9f97a59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBvZmZpY2UlMjB0ZWFtJTIwd29ya3xlbnwxfHx8fDE3NzIzMDcwMDN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    content:
-      "<p>In today's digital age, cyber threats are more prevalent than ever. Cyber insurance protects your business from the financial impact of data breaches and cyberattacks.</p>",
-  },
-  {
-    id: 6,
-    title: "Common Insurance Myths Debunked",
-    excerpt:
-      "Separate fact from fiction as we address the most common misconceptions about insurance coverage.",
-    author: "Dr. Adewale Johnson",
-    date: "January 15, 2026",
-    readTime: "4 min read",
-    category: "Insurance Tips",
-    image:
-      "https://images.unsplash.com/photo-1740818576358-7596eb883cf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBtZWV0aW5nJTIwY29uc3VsdGF0aW9ufGVufDF8fHx8MTc3MjMwNzAwM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    content:
-      "<p>Many misconceptions about insurance prevent people from getting the coverage they need. Let's clear up some of the most common myths.</p>",
-  },
-];
+    },
+    {
+      id: 4,
+      title: "Term vs. Whole Life Insurance: Which is Right for You?",
+      excerpt:
+        "Compare the benefits and drawbacks of term and whole life insurance to make an informed decision for your family.",
+      author: "Fatima Bello",
+      date: "January 28, 2026",
+      readTime: "7 min read",
+      category: "Life Insurance",
+      image:
+        "https://images.unsplash.com/photo-1659352786973-82ae3af461a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBwcm90ZWN0aW9uJTIwZmFtaWx5fGVufDF8fHx8MTc3MjI0NDg2NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      content:
+        "<p>Choosing between term and whole life insurance is one of the most important decisions you'll make. Both have unique benefits tailored to different needs and financial situations.</p>",
+    },
+    {
+      id: 5,
+      title: "Protecting Your Business from Cyber Threats with Insurance",
+      excerpt:
+        "Learn how cyber insurance can safeguard your business against data breaches, ransomware, and other digital threats.",
+      author: "Ibrahim Musa",
+      date: "January 20, 2026",
+      readTime: "5 min read",
+      category: "Corporate Insurance",
+      image:
+        "https://images.unsplash.com/photo-1611736539111-2245a9f97a59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBvZmZpY2UlMjB0ZWFtJTIwd29ya3xlbnwxfHx8fDE3NzIzMDcwMDN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      content:
+        "<p>In today's digital age, cyber threats are more prevalent than ever. Cyber insurance protects your business from the financial impact of data breaches and cyberattacks.</p>",
+    },
+    {
+      id: 6,
+      title: "Common Insurance Myths Debunked",
+      excerpt:
+        "Separate fact from fiction as we address the most common misconceptions about insurance coverage.",
+      author: "Dr. Adewale Johnson",
+      date: "January 15, 2026",
+      readTime: "4 min read",
+      category: "Insurance Tips",
+      image:
+        "https://images.unsplash.com/photo-1740818576358-7596eb883cf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2UlMjBtZWV0aW5nJTIwY29uc3VsdGF0aW9ufGVufDF8fHx8MTc3MjMwNzAwM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      content:
+        "<p>Many misconceptions about insurance prevent people from getting the coverage they need. Let's clear up some of the most common myths.</p>",
+    },
+  ];
+};
 
 // Blog Categories
 export const blogCategories = [
