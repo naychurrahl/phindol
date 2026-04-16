@@ -31,6 +31,7 @@ export function Navigation() {
     { path: "/gallery", label: "Gallery" },
     { path: "/blog", label: "Blog" },
     { path: "/contact", label: "Contact" },
+    { path: "/about/#partners", label: "Partners" },
   ];
 
   return (
