@@ -38,12 +38,13 @@ export async function apiRequest({
   return result;
 }
 
-const baseUrl = "https://localhost:6443";
+//const baseUrl = "https://localhost:6443";
+const baseUrl = "https://api.phindol.ng";
 //console.log(await apiRequest({url: "https://localhost:6443/ping"}));
 
 // Company Information
 export const companyInfo = {
-  name: "Wendy",
+  name: "Pindol Insurance Brokers",
   tagline:
     "Providing comprehensive insurance solutions tailored to protect what matters most to you.",
   phone: "+234 810 0165 243, +234 811 6745 039",
@@ -57,7 +58,7 @@ export const companyInfo = {
     twitter: "https://x.com/phindolbrokers",
     linkedin: "https://www.linkedin.com/company/phindolinsurancenrokers/",
     instagram: "https://www.instagram.com/phindolinsurancebrokers/",
-    whatsapp: "https://wa.me/+2348116745039",
+    whatsapp: "https://wa.me/2348116745039",
   },
 };
 
@@ -380,8 +381,8 @@ export const gallery = async () => {
   ];
 };
 
-// Gallery Categories
-export const galleryCategories = ["all", "events", "office", "team", "clients"];
+/* // Gallery Categories
+export const galleryCategories = ["all", "events", "office", "team", "clients"]; */
 
 // Gallery Stats
 export const galleryStats = [
@@ -579,7 +580,7 @@ export const blog = async () => {
 };
 
 // Blog Categories
-export const blogCategories = [
+/* export const blogCategories = [
   "Life Insurance",
   "Corporate Insurance",
   "Claims & Support",
@@ -588,7 +589,7 @@ export const blogCategories = [
   "Customer Stories",
   "Health & Wellness",
   "Financial Planning",
-];
+]; */
 
 // Statistics
 export const statistics = [
