@@ -363,7 +363,7 @@ export function AboutUs() {
                   key={member.id}
                   onClick={() => {
                     setSelectedId(member.id);
-                    setHaystack(teamMembers);
+                    setHaystack(customerRelations);
                     document.body.classList.add("overflow-hidden");
                   }}
                   className="card overflow-hidden"
