@@ -38,8 +38,8 @@ export async function apiRequest({
   return result;
 }
 
-//const baseUrl = "https://localhost:6443";
-const baseUrl = "https://api.phindol.ng";
+const baseUrl = "https://localhost:6443";
+//const baseUrl = "https://api.phindol.ng";
 //console.log(await apiRequest({url: "https://localhost:6443/ping"}));
 
 // Company Information
