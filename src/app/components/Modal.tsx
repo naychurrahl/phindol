@@ -25,8 +25,8 @@ export default function Modal({
       }}
       className="fixed inset-0 h-dvh w-screen z-50 backdrop-blur-sm flex items-center overflow-scroll justify-center p-4"
     >
-      <div className="flex flex-col bg-brand-primary p-4 space-y-6">
-        <div className="text-center mb-6" >
+      <div className="flex flex-col bg-brand-primary p-4 overflow-scroll space-y-6">
+        <div className="text-center mb-6">
           <img
             src={person.image ?? "img.jpg"}
             alt={person.name}
@@ -52,7 +52,7 @@ export default function Modal({
                 {key}
               </h3>
 
-              <p className="text-brand-blue-100">{value}</p>
+              <p className="text-brand-blue-100"> {value}</p>
             </div>
           ))}
         </div>

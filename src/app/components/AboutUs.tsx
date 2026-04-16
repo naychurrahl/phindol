@@ -120,7 +120,7 @@ export function AboutUs() {
         {/* Our Mission and Vision */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-12 items-center items-stretch">
               <div className="border-solid border-2 p-8 rounded-xl">
                 <h2 className="text-3xl md:text-4xl mb-6">Our Mission</h2>
                 <p className="text-muted mb-4 text-lg">
@@ -270,15 +270,16 @@ export function AboutUs() {
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl text-center mb-12">
-              Meet Our Board Members
+              Our Board Members
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
               {boardMembers.map((member) => (
                 <div
                   key={member.id}
                   onClick={() => {
+                    console.log("clicked", member);
                     setSelectedId(member.id);
-                    setHaystack(teamMembers);
+                    setHaystack(boardMembers);
                     document.body.classList.add("overflow-hidden");
                   }}
                   className="card overflow-hidden"
@@ -312,7 +313,7 @@ export function AboutUs() {
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl text-center mb-12">
-              Meet Our Management
+              Our Management Team
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {teamMembers.map((member) => (
@@ -354,7 +355,7 @@ export function AboutUs() {
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl text-center mb-12">
-              Meet Our Customer Relations Team
+              Our Customer Relations Team
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {customerRelations.map((member) => (
