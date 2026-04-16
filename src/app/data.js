@@ -1,3 +1,14 @@
+export function truncateWords(text, suffix = "...", wordLimit = 20) {
+  if (!text) return "";
+
+  const cleanText = text.replace(/<[^>]+>/g, ""); // remove HTML tags
+  const words = cleanText.split(/\s+/);
+
+  if (words.length <= wordLimit) return cleanText;
+
+  return words.slice(0, wordLimit).join(" ") + suffix;
+}
+
 export async function apiRequest({
   url,
   method = "GET",
@@ -44,7 +55,7 @@ const baseUrl = "https://api.phindol.ng";
 
 // Company Information
 export const companyInfo = {
-  name: "Pindol Insurance Brokers",
+  name: "Phindol Insurance Brokers",
   tagline:
     "Providing comprehensive insurance solutions tailored to protect what matters most to you.",
   phone: "+234 810 0165 243, +234 811 6745 039",
@@ -381,6 +392,53 @@ export const gallery = async () => {
   ];
 };
 
+export const partners = async () => {
+  //return await apiRequest({ url: `${baseUrl}/partners` });
+
+  return [
+    {
+      id: 1,
+      name: "Dr. Johnson",
+      position: "Chief Executive Officer",
+      image:
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "With over 20 years in the insurance industry, Dr. Johnson leads Phindol with vision and expertise.",
+      },
+    },
+    {
+      id: 2,
+      name: "Chiomy Okafor",
+      position: "Head of Corporate Insurance",
+      image:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvbWFuJTIwYWZyaWNhbnxlbnwxfHx8fDE3MjQyNjM3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "Chioma specializes in creating tailored insurance solutions for businesses of all sizes.",
+      },
+    },
+    {
+      id: 3,
+      name: "Ibrahim Musa",
+      position: "Director of Claims",
+      image:
+        "https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMHN1aXR8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "Ibrahim ensures that every claim is processed efficiently and fairly, providing peace of mind to our clients.",
+      },
+    },
+    {
+      id: 4,
+      name: "Fatima Bello",
+      position: "Senior Life Insurance Advisor",
+      image:
+        "https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGJ1c2luZXNzJTIwaGlqYWJ8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      meta: {
+        bio: "Fatima has helped hundreds of families secure their financial future with comprehensive life insurance plans.",
+      },
+    },
+  ];
+};
+
 /* // Gallery Categories
 export const galleryCategories = ["all", "events", "office", "team", "clients"]; */
 
@@ -394,9 +452,8 @@ export const galleryStats = [
 
 // Blog Posts
 export const blog = async () => {
-  
   const blog = await apiRequest({ url: `${baseUrl}/blog` });
-  
+
   //console.log(blog);
 
   return {
