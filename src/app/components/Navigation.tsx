@@ -2,9 +2,7 @@ import { useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Logo from "./ui/logo";
-import { services as xervice } from "../data";
-
-const services = await xervice();
+import { services } from "../data";
 
 export function Navigation() {
   const location = useLocation();

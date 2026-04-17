@@ -7,9 +7,7 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiFacebook } from "react-icons/fi";
-import { companyInfo, services as xervice } from '../data';
-
-const services = await xervice();
+import { companyInfo, services } from '../data';
 
 export function  Footer() {
 

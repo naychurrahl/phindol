@@ -2,18 +2,15 @@ import React, { useState } from "react";
 import { Target, Award, Heart, Users } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import {
-  boardMembers as bm,
-  teamMembers as tm,
-  customerRelations as cm,
+  boardMembers,
+  management,
+  customerRelations,
   partners as pm,
   truncateWords,
 } from "../data";
 import Modal from "./Modal";
 import { createPortal } from "react-dom";
 
-const boardMembers = await bm();
-const teamMembers = await tm();
-const customerRelations = await cm();
 const partners = await pm();
 
 const domNode = document.getElementById("overlays");
@@ -213,7 +210,7 @@ export function AboutUs() {
                     setHaystack(boardMembers);
                     document.body.classList.add("overflow-hidden");
                   }}
-                  className="card overflow-hidden flex flex-col"
+                  className="card overflow-hidden flex flex-col cursor-pointer"
                 >
                   <div className="bg-gradient-blue-radial h-48 flex items-center justify-center">
                     {/* <Users className="text-brand-white" size={80} /> */}
@@ -247,15 +244,15 @@ export function AboutUs() {
               Our Management Team
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-              {teamMembers.map((member) => (
+              {management.map((member) => (
                 <div
                   key={member.id}
                   onClick={() => {
                     setSelectedId(member.id);
-                    setHaystack(teamMembers);
+                    setHaystack(management);
                     document.body.classList.add("overflow-hidden");
                   }}
-                  className="card overflow-hidden"
+                  className="card overflow-hidden cursor-pointer flex flex-col"
                 >
                   <div className="bg-gradient-blue-radial h-48 flex items-center justify-center">
                     {/* <Users className="text-brand-white" size={80} /> */}
@@ -274,7 +271,7 @@ export function AboutUs() {
                     >
                       {member.position}
                     </p>
-                    <p className="text-muted text-sm">{`${truncateWords(member.meta.bio, " Read more...")}`}</p>
+                    <p className="text-muted text-sm">{`${truncateWords(member.meta.bio, " ... Read more.", (90 - (member.name.length + member.position.length)))}`}</p>
                   </div>
                 </div>
               ))}
@@ -316,7 +313,7 @@ export function AboutUs() {
                     >
                       {member.position}
                     </p>
-                    <p className="text-muted text-sm">{`${truncateWords(member.meta.bio, " Read more...")}`}</p>
+                    <p className="text-muted text-sm">{`${truncateWords(member.meta.bio, " ... Read more.", 50 - (member.name.length + member.position.length))}`}</p>
                   </div>
                 </div>
               ))}
