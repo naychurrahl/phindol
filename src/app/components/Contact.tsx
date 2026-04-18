@@ -1,31 +1,37 @@
-import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { companyInfo } from '../data';
+import { useState } from "react";
+import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { companyInfo } from "../data";
 
 export function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    insuranceType: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    insuranceType: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Mock form submission
-    alert('Thank you for contacting us! We will get back to you within 24 hours.');
+    alert(
+      "Thank you for contacting us! We will get back to you within 24 hours.",
+    );
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      insuranceType: '',
-      message: '',
+      name: "",
+      email: "",
+      phone: "",
+      insuranceType: "",
+      message: "",
     });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -246,8 +252,8 @@ export function Contact() {
             Visit Our Office
           </h2>
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="aspect-video bg-gray-200 flex items-center justify-center">
-              <div className="text-center">
+            <div className="aspect-video bg-gray-200 flex items-center p-2 justify-center">
+              {/* <div className="text-center">
                 <MapPin className="mx-auto mb-4 text-blue-600" size={48} />
                 <p className="text-gray-600 text-lg">
                   Phindol Insurance Brokers
@@ -255,18 +261,24 @@ export function Contact() {
                 <p className="text-gray-500">
                   Central Business District, Abuja
                 </p>
-                <p className="text-sm text-gray-400 mt-4">
-                  [Google Maps integration would be displayed here]
-                </p>
-              </div>
+              </div> */}
+              <iframe
+                className="w-full h-full border-0"
+                loading="lazy"
+                allowFullScreen
+                src="https://www.google.com/maps?q=29, Panama street, Maitama, Abuja, Nigeria&z=15&output=embed"
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div id="cta" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 section-dark text-white">
+        <div
+          id="cta"
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        >
           <h2 className="text-3xl md:text-4xl mb-6">Ready to Get Started?</h2>
           <p className="text-xl mb-8 text-blue-100">
             Contact an expert now for a free consultation and personalized

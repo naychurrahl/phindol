@@ -1,10 +1,8 @@
 import { Link } from 'react-router';
 import { ArrowRight, Shield, Users, Clock, Phone, Filter, Percent, Car, Headphones, ClipboardCheck } from 'lucide-react';
-import { companyInfo, services as xervice } from "../data";
+import { companyInfo, services } from "../data";
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react';
-
-const services = await xervice();
 
 export function Home() {
   return (

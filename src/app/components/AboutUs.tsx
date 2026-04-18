@@ -5,13 +5,11 @@ import {
   boardMembers,
   management,
   customerRelations,
-  partners as pm,
+  partners,
   truncateWords,
 } from "../data";
 import Modal from "./Modal";
 import { createPortal } from "react-dom";
-
-const partners = await pm();
 
 const domNode = document.getElementById("overlays");
 

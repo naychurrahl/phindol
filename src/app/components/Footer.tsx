@@ -24,13 +24,13 @@ export function  Footer() {
           <div>
             <div className="flex items-center mb-4">
               <span
-                className="text-2xl"
+                className="text-2lg"
                 style={{ color: "var(--brand-blue-500)" }}
               >
                 {companyInfo.name.split(" ")[0]}
               </span>
               <span
-                className="text-2xl ml-1"
+                className="text-2lg ml-1"
                 style={{ color: "var(--brand-white)" }}
               >
                 {companyInfo.name.split(" ").slice(1).join(" ")}
@@ -134,7 +134,7 @@ export function  Footer() {
               </li>
               <li>
                 <Link
-                  to="/partners"
+                  to="/about/#partners"
                   className="hover:opacity-80 transition-opacity"
                   style={{ color: "inherit" }}
                 >

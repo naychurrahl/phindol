@@ -49,9 +49,8 @@ export async function apiRequest({
   return result;
 }
 
-//const baseUrl = "https://localhost:6443";
-const baseUrl = "https://api.phindol.ng";
-//console.log(await apiRequest({url: "https://localhost:6443/ping"}));
+const baseUrl = "https://localhost:6443";
+//const baseUrl = "https://api.phindol.ng";
 
 // Company Information
 export const companyInfo = {
@@ -406,7 +405,7 @@ export const services = [
   },
 ];
 
-// Gallery Images
+// Gallery
 export const gallery = async () => {
   const gallery = await apiRequest({ url: `${baseUrl}/gallery` });
 
@@ -491,65 +490,50 @@ export const gallery = async () => {
   ];
 };
 
-export const partners = async () => {
-  //return await apiRequest({ url: `${baseUrl}/partners` });
-
-  return [
-    {
-      id: 1,
-      name: "Dr. Johnson",
-      position: "Chief Executive Officer",
-      image:
-        "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      meta: {
-        bio: "With over 20 years in the insurance industry, Dr. Johnson leads Phindol with vision and expertise.",
-      },
+export const partners = [
+  {
+    id: 1,
+    name: "Dr. Johnson",
+    position: "Chief Executive Officer",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    meta: {
+      bio: "With over 20 years in the insurance industry, Dr. Johnson leads Phindol with vision and expertise.",
     },
-    {
-      id: 2,
-      name: "Chiomy Okafor",
-      position: "Head of Corporate Insurance",
-      image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvbWFuJTIwYWZyaWNhbnxlbnwxfHx8fDE3MjQyNjM3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      meta: {
-        bio: "Chioma specializes in creating tailored insurance solutions for businesses of all sizes.",
-      },
+  },
+  {
+    id: 2,
+    name: "Chiomy Okafor",
+    position: "Head of Corporate Insurance",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvbWFuJTIwYWZyaWNhbnxlbnwxfHx8fDE3MjQyNjM3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    meta: {
+      bio: "Chioma specializes in creating tailored insurance solutions for businesses of all sizes.",
     },
-    {
-      id: 3,
-      name: "Ibrahim Musa",
-      position: "Director of Claims",
-      image:
-        "https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMHN1aXR8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      meta: {
-        bio: "Ibrahim ensures that every claim is processed efficiently and fairly, providing peace of mind to our clients.",
-      },
+  },
+  {
+    id: 3,
+    name: "Ibrahim Musa",
+    position: "Director of Claims",
+    image:
+      "https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMHN1aXR8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    meta: {
+      bio: "Ibrahim ensures that every claim is processed efficiently and fairly, providing peace of mind to our clients.",
     },
-    {
-      id: 4,
-      name: "Fatima Bello",
-      position: "Senior Life Insurance Advisor",
-      image:
-        "https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGJ1c2luZXNzJTIwaGlqYWJ8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      meta: {
-        bio: "Fatima has helped hundreds of families secure their financial future with comprehensive life insurance plans.",
-      },
+  },
+  {
+    id: 4,
+    name: "Fatima Bello",
+    position: "Senior Life Insurance Advisor",
+    image:
+      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGJ1c2luZXNzJTIwaGlqYWJ8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    meta: {
+      bio: "Fatima has helped hundreds of families secure their financial future with comprehensive life insurance plans.",
     },
-  ];
-};
-
-/* // Gallery Categories
-export const galleryCategories = ["all", "events", "office", "team", "clients"]; */
-
-// Gallery Stats
-export const galleryStats = [
-  { value: "50+", label: "Corporate Events" },
-  { value: "5,000+", label: "Happy Clients" },
-  { value: "100+", label: "Team Members" },
-  { value: "10+", label: "Years of Service" },
+  },
 ];
 
-// Blog Posts
+// Blog
 export const blog = async () => {
   const blog = await apiRequest({ url: `${baseUrl}/blog` });
 
@@ -735,47 +719,31 @@ export const blog = async () => {
   ];
 };
 
-// Blog Categories
-/* export const blogCategories = [
-  "Life Insurance",
-  "Corporate Insurance",
-  "Claims & Support",
-  "Insurance Tips",
-  "Industry News",
-  "Customer Stories",
-  "Health & Wellness",
-  "Financial Planning",
-]; */
-
-// Statistics
-export const statistics = [
-  { value: "10+", label: "Years of Excellence" },
-  { value: "5,000+", label: "Happy Clients" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "24/7", label: "Support Available" },
-];
-
 // Testimonials
-export const testimonials = [
-  {
-    id: 1,
-    name: "Oluwaseun Adeyemi",
-    company: "TechCorp Nigeria",
-    text: "Phindol Insurance made the process of securing our corporate insurance seamless. Their team is professional, responsive, and genuinely cares about our needs.",
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: "Amaka Nwankwo",
-    company: "Private Client",
-    text: "After losing my husband, the life insurance payout helped me secure my children's future. Phindol handled everything with compassion and efficiency.",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Chukwudi Okonkwo",
-    company: "Okonkwo Enterprises",
-    text: "Their claims support is outstanding. When we had a fire incident, they processed our claim quickly and helped us get back on our feet.",
-    rating: 5,
-  },
-];
+export const testimonials = async () => {
+  return await apiRequest({ url: `${baseUrl}/testimonials` });
+
+  return [
+    {
+      id: 1,
+      name: "Oluwaseun Adeyemi",
+      company: "TechCorp Nigeria",
+      text: "Phindol Insurance made the process of securing our corporate insurance seamless. Their team is professional, responsive, and genuinely cares about our needs.",
+      rating: 5,
+    },
+    {
+      id: 2,
+      name: "Amaka Nwankwo",
+      company: "Private Client",
+      text: "After losing my husband, the life insurance payout helped me secure my children's future. Phindol handled everything with compassion and efficiency.",
+      rating: 5,
+    },
+    {
+      id: 3,
+      name: "Chukwudi Okonkwo",
+      company: "Okonkwo Enterprises",
+      text: "Their claims support is outstanding. When we had a fire incident, they processed our claim quickly and helped us get back on our feet.",
+      rating: 5,
+    },
+  ];
+};
