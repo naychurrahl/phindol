@@ -1,3 +1,13 @@
+export function countWords(text){
+  if (!text) return 0;
+
+  const cleanText = text.replace(/<[^>]+>/g, ""); // remove HTML tags
+  const words = cleanText.split(/\s+/);
+
+  return words.length;
+
+}
+
 export function truncateWords(text, suffix = "...", wordLimit = 20) {
   if (!text) return "";
 
@@ -234,6 +244,7 @@ export const management = [
     },
   },
 ];
+
 
 // Customer Relations
 export const customerRelations = [

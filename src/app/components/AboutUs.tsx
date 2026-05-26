@@ -7,15 +7,73 @@ import {
   customerRelations,
   partners,
   truncateWords,
+  countWords,
 } from "@/app/data";
 import Modal from "@/app/components/Modal";
 import { createPortal } from "react-dom";
 
 const domNode = document.getElementById("overlays");
 
+interface CardInterface {
+  group: Staff[];
+  title?: string;
+  cols?: number;
+};
+
+interface Staff {
+  id: number;
+  name: string;
+  position: string;
+  image: string;
+  meta: {[key: string]: any};
+}
+
 export function AboutUs() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [hayStack, setHaystack] = useState<any[]>([]);
+  
+  function Card({ title = "Poorly Named Group", group, cols=3 }: CardInterface) {
+    return (
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl text-center mb-12">
+            Our {title}
+          </h2>
+          <div className={`grid md:grid-cols-2 lg:grid-cols-${cols} gap-8`}>
+            {group.map((member) => (
+              <div
+                key={member.id}
+                onClick={() => {
+                  setSelectedId(member.id);
+                  setHaystack(group);
+                  document.body.classList.add("overflow-hidden");
+                }}
+                className="card overflow-hidden flex flex-col items-center justify-center"
+              >
+                <div className="bg-gradient-blue-radial h-48 aspect-[2/3] flex items-center justify-center">
+                  <ImageWithFallback
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl mb-2">{member.name}</h3>
+                  <p
+                    className="text-brand-secondary mb-3"
+                    style={{ fontWeight: 600 }}
+                  >
+                    {member.position}
+                  </p>
+                  <p className="text-muted text-sm">{`${truncateWords(member.meta.bio, " ... Read more.", 30 - (countWords(member.name) + countWords(member.position)))}`}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <>
@@ -193,131 +251,17 @@ export function AboutUs() {
         </section>
 
         {/* Our Board */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl text-center mb-12">
-              Our Board Members
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {boardMembers.map((member) => (
-                <div
-                  key={member.id}
-                  onClick={() => {
-                    //console.log("clicked", member);
-                    setSelectedId(member.id);
-                    setHaystack(boardMembers);
-                    document.body.classList.add("overflow-hidden");
-                  }}
-                  className="card overflow-hidden flex flex-col cursor-pointer"
-                >
-                  <div className="bg-gradient-blue-radial h-48 flex items-center justify-center">
-                    {/* <Users className="text-brand-white" size={80} /> */}
-                    <ImageWithFallback
-                      /* src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" */
-                      src={member.image}
-                      alt="Car Insurance Brokers"
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl mb-2">{member.name}</h3>
-                    <p
-                      className="text-brand-secondary mb-3"
-                      style={{ fontWeight: 600 }}
-                    >
-                      {member.position}
-                    </p>
-                    <p className="text-muted text-sm">{`${truncateWords(member.meta.bio, " Read more...")}`}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Card group={boardMembers} title="Board Members" />
 
         {/* Our Management */}
-        <section className="py-16 section-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl text-center mb-12">
-              Our Management Team
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-              {management.map((member) => (
-                <div
-                  key={member.id}
-                  onClick={() => {
-                    setSelectedId(member.id);
-                    setHaystack(management);
-                    document.body.classList.add("overflow-hidden");
-                  }}
-                  className="card overflow-hidden cursor-pointer flex flex-col"
-                >
-                  <div className="bg-gradient-blue-radial h-48 flex items-center justify-center">
-                    {/* <Users className="text-brand-white" size={80} /> */}
-                    <ImageWithFallback
-                      /* src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" */
-                      src={member.image}
-                      alt="Car Insurance Brokers"
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl mb-2">{member.name}</h3>
-                    <p
-                      className="text-brand-secondary mb-3"
-                      style={{ fontWeight: 600 }}
-                    >
-                      {member.position}
-                    </p>
-                    <p className="text-muted text-sm">{`${truncateWords(member.meta.bio, " ... Read more.", (90 - (member.name.length + member.position.length)))}`}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Card group={management} title="Management Team" />
 
         {/* Our Customer Relations */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl text-center mb-12">
-              Our Customer Relations Team
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {customerRelations.map((member) => (
-                <div
-                  key={member.id}
-                  onClick={() => {
-                    setSelectedId(member.id);
-                    setHaystack(customerRelations);
-                    document.body.classList.add("overflow-hidden");
-                  }}
-                  className="card overflow-hidden"
-                >
-                  <div className="bg-gradient-blue-radial h-48 flex items-center justify-center">
-                    {/* <Users className="text-brand-white" size={80} /> */}
-                    <ImageWithFallback
-                      /* src="https://images.unsplash.com/photo-1769674109078-da12f5cc7871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlJTIwaW5zdXJhbmNlJTIwaGFwcHklMjBmYW1pbHl8ZW58MXx8fHwxNzcyMzA1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" */
-                      src={member.image}
-                      alt="Car Insurance Brokers"
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl mb-2">{member.name}</h3>
-                    <p
-                      className="text-brand-secondary mb-3"
-                      style={{ fontWeight: 600 }}
-                    >
-                      {member.position}
-                    </p>
-                    <p className="text-muted text-sm">{`${truncateWords(member.meta.bio, " ... Read more.", 50 - (member.name.length + member.position.length))}`}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Card
+          group={customerRelations}
+          title={"Customer Relations Team"}
+          cols={4}
+        />
 
         {/* Our Partners */}
         <section className="py-16 section-dark">
