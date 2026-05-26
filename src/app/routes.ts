@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router";
-import { Root } from "./components/Root";
-import { Home } from "./components/Home";
-import { AboutUs } from "./components/AboutUs";
-import { LifeInsurance } from "./components/LifeInsurance";
-import { CorporateInsurance } from "./components/CorporateInsurance";
-import { ClaimsSupport } from "./components/ClaimsSupport";
-import { Contact } from "./components/Contact";
-import { Gallery } from "./components/Gallery";
-import { Blog } from "./components/Blog";
-import { BlogPost } from "./components/BlogPost";
-import { NotFound } from "./components/NotFound";
+import { Root } from "@/app/components/Root";
+import { Home } from "@/app/components/Home";
+import { AboutUs } from "@/app/components/AboutUs";
+import { LifeInsurance } from "@/app/components/LifeInsurance";
+import { CorporateInsurance } from "@/app/components/CorporateInsurance";
+import { ClaimsSupport } from "@/app/components/ClaimsSupport";
+import { Contact } from "@/app/components/Contact";
+import { Gallery } from "@/app/components/Gallery";
+import { Blog } from "@/app/components/Blog";
+import { BlogPost } from "@/app/components/BlogPost";
+import { NotFound } from "@/app/components/NotFound";
 
 export const router = createBrowserRouter([
   {

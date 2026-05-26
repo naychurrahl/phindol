@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router';
 import { Calendar, User, Clock, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { blog } from '../data';
+import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
+import { blog } from "@/app/data";
 
 const blogs = await blog();
 

@@ -49,8 +49,8 @@ export async function apiRequest({
   return result;
 }
 
-//const baseUrl = "https://localhost:6443";
-const baseUrl = "https://api.phindol.ng";
+const baseUrl = "https://localhost:6443";
+//const baseUrl = "https://api.phindol.ng";
 
 // Company Information
 export const companyInfo = {
@@ -78,20 +78,18 @@ export const boardMembers = [
     id: 1,
     name: "Amb.  Udoyen Victor Etim",
     position: "Chairman Board of Directors",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/udoyen_victor.jpg",
     meta: {},
   },
   {
     id: 2,
     name: "Mr. Obadiah Othman Aloko, fsi",
     position: "Non Executive Director",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/aloko_obadiah.jpg",
     meta: {
       bio: `Mr.  Obadiah Othman Aloko brings over 35 years of distinguished experience in Nigeria’s Foreign Service to our board. Born in 1962 in Kpangwa, Jenkwe, Obi LGA, Nasarawa State, he holds a B.Sc. in Political Science from Ahmadu Bello University, Zaria (1983), and an M.Sc. in International Relations from the University of Abuja (2007).
-                            His illustrious diplomatic career includes pivotal roles in China, Cameroon, and Ghana, where he served as Deputy High Commissioner. Rising to the rank of Director in Nigeria’s Ministry of Foreign Affairs, Ambassador Aloko played a key role in shaping the nation’s international policies. His expertise in diplomacy, management, security, and trade negotiation has earned him multiple awards and recognition for his contributions to national and global engagements.
-                            A passionate advocate for national development, Ambassador Aloko is deeply committed to youth empowerment in Nigeria. He is married with five children and brings a wealth of strategic insight and global perspective to our board.`,
+      His illustrious diplomatic career includes pivotal roles in China, Cameroon, and Ghana, where he served as Deputy High Commissioner. Rising to the rank of Director in Nigeria’s Ministry of Foreign Affairs, Ambassador Aloko played a key role in shaping the nation’s international policies. His expertise in diplomacy, management, security, and trade negotiation has earned him multiple awards and recognition for his contributions to national and global engagements.
+      A passionate advocate for national development, Ambassador Aloko is deeply committed to youth empowerment in Nigeria. He is married with five children and brings a wealth of strategic insight and global perspective to our board.`,
     },
   },
   {
@@ -102,42 +100,39 @@ export const boardMembers = [
       "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
     meta: {
       bio: `Mr. Hamzat Ibrahim, born in 1960 in Bakori, Katsina State, brings over three decades of distinguished service in Nigeria’s Foreign Service to our board. He holds a B.Sc. in Business Administration from Ahmadu Bello University, Zaria (1985), complemented by professional training at the Foreign Service Academy and courses in computer appreciation, citizenship, and leadership in Lagos.
-                        His illustrious diplomatic career spans impactful postings, including Namibia (1990), where he contributed to the Convention for a Democratic South Africa (CODESA), aiding the end of apartheid. He served in Morocco (2003–2007), coordinating the rescue and repatriation of over 3,500 undocumented Nigerians, and in Cameroon (2012–2015), where he played a key role in concluding the Greentree Agreement on Bakassi. As Ambassador Extraordinary and Plenipotentiary to Iran (2017–2020), with concurrent accreditation to Armenia, Azerbaijan, and Kazakhstan, he led Nigeria’s diplomatic efforts with distinction.
-                        Mr. Ibrahim represented Nigeria in numerous high-level international engagements, including Bi-National Commissions with South Africa, China, and others, as well as summits like the African Union Summit in Kampala (2010) and the D8 Summit in Abuja (2010). As Director of the West Africa Division (2015–2016), he shaped Nigeria’s regional foreign policy. His contributions to global diplomacy, migration, and human rights have earned him widespread respect.
-                        Retired in 2020, Ambassador Ibrahim brings strategic insight and a global perspective to our board, enhancing our mission for growth and impact.`,
+      His illustrious diplomatic career spans impactful postings, including Namibia (1990), where he contributed to the Convention for a Democratic South Africa (CODESA), aiding the end of apartheid. He served in Morocco (2003–2007), coordinating the rescue and repatriation of over 3,500 undocumented Nigerians, and in Cameroon (2012–2015), where he played a key role in concluding the Greentree Agreement on Bakassi. As Ambassador Extraordinary and Plenipotentiary to Iran (2017–2020), with concurrent accreditation to Armenia, Azerbaijan, and Kazakhstan, he led Nigeria’s diplomatic efforts with distinction.
+      Mr. Ibrahim represented Nigeria in numerous high-level international engagements, including Bi-National Commissions with South Africa, China, and others, as well as summits like the African Union Summit in Kampala (2010) and the D8 Summit in Abuja (2010). As Director of the West Africa Division (2015–2016), he shaped Nigeria’s regional foreign policy. His contributions to global diplomacy, migration, and human rights have earned him widespread respect.
+      Retired in 2020, Ambassador Ibrahim brings strategic insight and a global perspective to our board, enhancing our mission for growth and impact.`,
     },
   },
   {
     id: 4,
     name: "Mrs. Ifeyinwa Angela Nworgu",
     position: "Non Executive Director",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/nworgu_ifeyinwa.jpg",
     meta: {
       bio: `Mrs. Ifeyinwa Angela Nworgu is a distinguished legal practitioner and expert in multilateral diplomacy, anti-money laundering (AML/CFT), anti-human trafficking, and international peace and security. With a career spanning over three decades, she brings unparalleled expertise to our board. Called to the Nigerian Bar in 1984, she practiced law before joining Nigeria’s Foreign Service, where she represented the nation with distinction across multiple global roles.
-                        Her illustrious career includes serving as Nigeria’s Representative to the Sixth Committee of the United Nations (2006–2010), Senior Special Adviser on Legal Matters to the 64th President of the UN General Assembly (2010–2011), and Senior Special Adviser on Global Peace and Security to the 74th President of the UN General Assembly (2019–2020), where she was the Focal Point for Africa. As Director of the Nigerian Special Control Unit Against Money Laundering (2011–2013), she pioneered compliance frameworks for anti-money laundering and counter-terrorism financing. She also served as Consul in Rome, Italy (2015–2018), addressing human trafficking and migration challenges, and as Director of Legal at the Nigerian Ministry of Foreign Affairs (2013–2015, 2018–2019).
-                        Since 2020, Mrs. Nworgu has been Chairman of the Board of Trustees at the Center for Fiscal Transparency and Integrity Watch (CeFTIW), a UNCAC Coalition Board Member representing Sub-Saharan Africa. She holds certificates in Corruption Studies from the University of Hong Kong and the Law of the Sea from the Rhodes Academy, and is a UNODC-certified Corruption Risk Assessor, a certified Management Consultant, and a Fellow of the Institute of Management Consultants.
-                        Mrs. Nworgu’s global perspective and commitment to transparency and security enhance our board’s strategic vision.`,
+      Her illustrious career includes serving as Nigeria’s Representative to the Sixth Committee of the United Nations (2006–2010), Senior Special Adviser on Legal Matters to the 64th President of the UN General Assembly (2010–2011), and Senior Special Adviser on Global Peace and Security to the 74th President of the UN General Assembly (2019–2020), where she was the Focal Point for Africa. As Director of the Nigerian Special Control Unit Against Money Laundering (2011–2013), she pioneered compliance frameworks for anti-money laundering and counter-terrorism financing. She also served as Consul in Rome, Italy (2015–2018), addressing human trafficking and migration challenges, and as Director of Legal at the Nigerian Ministry of Foreign Affairs (2013–2015, 2018–2019).
+      Since 2020, Mrs. Nworgu has been Chairman of the Board of Trustees at the Center for Fiscal Transparency and Integrity Watch (CeFTIW), a UNCAC Coalition Board Member representing Sub-Saharan Africa. She holds certificates in Corruption Studies from the University of Hong Kong and the Law of the Sea from the Rhodes Academy, and is a UNODC-certified Corruption Risk Assessor, a certified Management Consultant, and a Fellow of the Institute of Management Consultants.
+      Mrs. Nworgu’s global perspective and commitment to transparency and security enhance our board’s strategic vision.`,
     },
   },
   {
     id: 5,
     name: "Mr. Babatunde Tajudeen Shonubi",
     position: "Non Executive Director",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/shonubi_babatunde.jpg",
     meta: {
       bio: `Ambassador Babatunde Tajudeen Shonubi brings over 35 years of exemplary service as a technocrat in Nigeria’s Foreign Service to our board. A graduate of the University of Ilorin with a Bachelor’s Degree in Education, he rose to the rank of Director on Special Grade Level 17 in the Ministry of Foreign Affairs, Abuja, demonstrating exceptional leadership and dedication.
-                        His diplomatic career was enriched by specialized training at the Foreign Service Academy, the Citizenship and Leadership Training Centre (Sea School), and the Management Techniques Workshop at the Centre for Management Development. Renowned for his expertise in diplomacy, bureaucracy, analysis, communication, and time management, Ambassador Shonubi significantly advanced Nigeria’s interests through key overseas postings in Saudi Arabia, Cameroon, the United Arab Emirates, and other nations. His efforts bolstered Nigeria’s domestic and international policy frameworks.
-                        Happily married with children, Ambassador Shonubi’s strategic vision and global experience strengthen our board’s commitment to impactful leadership and growth.`,
+      His diplomatic career was enriched by specialized training at the Foreign Service Academy, the Citizenship and Leadership Training Centre (Sea School), and the Management Techniques Workshop at the Centre for Management Development. Renowned for his expertise in diplomacy, bureaucracy, analysis, communication, and time management, Ambassador Shonubi significantly advanced Nigeria’s interests through key overseas postings in Saudi Arabia, Cameroon, the United Arab Emirates, and other nations. His efforts bolstered Nigeria’s domestic and international policy frameworks.
+      Happily married with children, Ambassador Shonubi’s strategic vision and global experience strengthen our board’s commitment to impactful leadership and growth.`,
     },
   },
   {
     id: 6,
     name: "Omodele Stephen Adesogan",
     position: "MD/CEO",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/omodele_adesogan.jpg",
     meta: {
       bio: `Omodele Stephen Adesogan is a highly accomplished insurance professional with nearly 30 years of experience in insurance brokerage, underwriting, and strategic leadership. A results-driven executive, he has held key managerial and executive positions across leading insurance firms in Nigeria, demonstrating exceptional expertise in business development, marketing, and corporate leadership.`,
     },
@@ -151,8 +146,7 @@ export const management = [
     name: "Omodele S. Adesogan – MBA, ACII, ANIMN",
     position:
       "Pioneer Managing Director/Chief Executive Officer, Phindol Insurance Brokers Limited",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/omodele_adesogan.jpg",
     meta: {
       bio: "Stephen Omodele Adesogan is a highly accomplished insurance professional with nearly 30 years of experience in insurance brokerage, underwriting, and strategic leadership. A results-driven executive, he has held key managerial and executive positions across leading insurance firms in Nigeria, demonstrating exceptional expertise in business development, marketing, and corporate leadership.",
       "Career Highlights": `* 1994 – Began his career at Clarkson Edu & Partners, a leading insurance brokerage firm.
@@ -173,8 +167,7 @@ export const management = [
     id: 2,
     name: "Shehu Abdulrahman – MBA, MNIM , FNHR",
     position: "Director, Corporate Services",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/shehu_abdulrahman.jpg",
     meta: {
       bio: "Shehu Abdulrahman is a seasoned corporate executive with extensive expertise in Governance, Administration, Financial Management, Human Resources, and Strategic Business Operations. As the Director of Corporate Services at Phindol Insurance Brokers Limited, he plays a pivotal role in ensuring seamless administrative functions, financial oversight, and regulatory compliance while supporting business growth and operational efficiency.",
       "Career Highlights": `1990 – Began his career as a National Youth Service Corps (NYSC) member at Continental Merchant Bank Plc, Kano.
@@ -196,8 +189,7 @@ export const management = [
     id: 3,
     name: "Opeyemi Abimbola – ACIRLM, CIIN",
     position: "Head Marketing - Phindol Insurance Brokers Limited",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/opeyemi_abimbola.jpg",
     meta: {
       bio: "Opeyemi Abimbola is a dynamic marketing professional with expertise in strategic planning, client engagement, and business development within the public sector and parastatal organizations. As the Head of Marketing (Corporate & Parastatals) at Phindol Insurance Brokers Limited, she plays a pivotal role in driving market expansion and strengthening key institutional relationships. See more",
       "Career Highlights": `2010 – Began her career as an Administrative Assistant at Industrial and General Insurance PLC.
@@ -214,8 +206,7 @@ export const management = [
     name: "Adewole Michael Tunde",
     position:
       "Head of Underwriting & Claims - Phindol Insurance Brokers Limited",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/adewole_michael.jpg",
     meta: {
       bio: `Adewole Michael Tunde is an accomplished insurance professional with over 12 years of experience spanning the shipping, logistics, and insurance sectors. As the Head of Underwriting & Claims at Phindol Insurance Brokers Limited, he plays a critical role in risk assessment, claims management, and ensuring seamless policy execution for clients.
         A  specialist in business development, bid and tender participation, and claims processing, Adewole is well-versed in industry best practices. His strong stakeholder management capabilities and deep understanding of underwriting principles enable him to drive operational excellence and customer satisfaction. See More`,
@@ -230,8 +221,7 @@ export const management = [
     id: 5,
     name: "Hellen Ene Odukoya",
     position: "Head of Account - Phindol Insurance Brokers Limited",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/hellen_odukoya.jpg",
     meta: {
       bio: "Hellen Ene Odukoya is a results-driven accounting professional with a strong background in financial management, reporting, and corporate accounting. As the Head of Account at Phindol Insurance Brokers Limited, she oversees financial operations, ensuring accuracy, compliance, and efficiency in financial planning and execution",
       "Career Highlights": `2008 – Began her career as an Assistant Head Teacher at Dove Children School, Karmo, Abuja, developing leadership and organizational skills.
@@ -251,8 +241,7 @@ export const customerRelations = [
     id: 1,
     name: "Opeyemi Abimbola",
     position: "Head Marketing",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/opeyemi_abimbola.jpg",
     meta: {
       bio: "Serves as Head of Marketing, bringing over 15 years of experience in the insurance industry and customer relationship management. She leads corporate and parastatal engagement efforts, designing targeted campaigns and partnership programs that strengthen client trust and open new business channels.",
     },
@@ -261,8 +250,7 @@ export const customerRelations = [
     id: 2,
     name: "Faith Olasunkanmi Ekundayo",
     position: "Marketing executive",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/faith_ekundayo.jpg",
     meta: {
       bio: "Is a seasoned marketing executive whose extensive background in sales informs every engagement she leads. She excels at translating strategic insights into personalized communication plans that resonate with individual customers, fostering loyalty and advocacy. Faith designs and executes multi‑channel campaigns—ranging from targeted email sequences to social media activations—that consistently boost customer lifetime value and drive measurable growth.",
     },
@@ -271,8 +259,7 @@ export const customerRelations = [
     id: 3,
     name: "M. A. Abdul Rahman",
     position: "Marketing executive",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/m_a_abdullahi.jpg",
     meta: {
       bio: "A results-driven marketing executive with a strong focus on understanding customer needs and behaviors. Abdul Rahman designs targeted campaigns—from awareness to post‑purchase engagement—that speak directly to segmented audiences and drive measurable outcomes.",
     },
@@ -281,8 +268,7 @@ export const customerRelations = [
     id: 4,
     name: "Abubakar Yusuf",
     position: "Marketing executive",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/abubakar_yusuf.jpg",
     meta: {
       bio: "Abubakar is dedicated to ensuring customer satisfaction at every touchpoint. With expertise in CRM tools and customer advocacy, he proactively addresses client needs, helping businesses build meaningful and lasting relationships with their audience.",
     },
@@ -291,8 +277,7 @@ export const customerRelations = [
     id: 5,
     name: "Beatrice  Orugun",
     position: "Marketing executive",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/beatrice_k_orugun.jpg",
     meta: {
       bio: "Beatrice is dedicated to deepening customer relationships through engagement and loyalty initiatives. Drawing on detailed market analysis and direct customer feedback, Beatrice crafts programs that reward repeat business and encourage brand advocacy. She oversees the design and rollout of tiered loyalty schemes, personalized email journeys, and targeted in‑app notifications—each element calibrated to drive incremental engagement and measurable uplift in retention rates",
     },
@@ -301,8 +286,7 @@ export const customerRelations = [
     id: 6,
     name: "Sholademi Noah Surudara",
     position: "Digital Marketer",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/ness.jpg",
     meta: {
       bio: "Noah excels at bridging the gap between customer needs and innovative insurance solutions. His professional journey has been defined by a commitment to helping clients understand and access the best products while also driving brand awareness and business growth through strategic digital initiatives.",
     },
@@ -311,10 +295,9 @@ export const customerRelations = [
     id: 7,
     name: "Aniche Lilian",
     position: "Customer/Complaints Representative",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/media/aniche_lilian.jpg",
     meta: {
-      bio: "Lilian Aniche is a dedicated Customer and Complaints Representative at Phindol Insurance Brokers Limited, where she plays a key role in ensuring client satisfaction and resolving issues with professionalism and empathy. With a calm demeanor and a strong commitment to service excellence, she works tirelessly to address concerns, streamline communication, and build trust with clients.",
+      bio: `Lilian Aniche is a dedicated Customer and Complaints Representative at Phindol Insurance Brokers Limited, where she plays a key role in ensuring client satisfaction and resolving issues with professionalism and empathy. With a calm demeanor and a strong commitment to service excellence, she works tirelessly to address concerns, streamline communication, and build trust with clients. \nHer role bridges the gap between the company and its clients, ensuring every voice is heard and every problem is handled promptly and efficiently. Lilian brings a solutions-oriented mindset and a deep understanding of customer relations, helping to maintain Phindol's reputation for responsiveness and care.`,
     },
   },
 ];

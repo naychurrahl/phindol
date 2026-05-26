@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { gallery } from "../data";
+import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
+import { gallery } from "@/app/data";
 
 const galleryData = await gallery();
 

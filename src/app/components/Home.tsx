@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import { ArrowRight, Shield, Users, Clock, Phone, Filter, Percent, Car, Headphones, ClipboardCheck } from 'lucide-react';
-import { companyInfo, services } from "../data";
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { companyInfo, services } from "@/app/data";
+import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react';
 
 export function Home() {

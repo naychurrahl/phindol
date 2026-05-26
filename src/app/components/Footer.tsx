@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiFacebook } from "react-icons/fi";
-import { companyInfo, services } from '../data';
+import { companyInfo, services } from "@/app/data";
 
 export function  Footer() {
 

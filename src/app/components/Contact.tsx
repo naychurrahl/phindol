@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { companyInfo } from "../data";
+import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
+import { companyInfo } from "@/app/data";
 
 export function Contact() {
   const [formData, setFormData] = useState({

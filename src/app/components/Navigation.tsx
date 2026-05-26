@@ -1,8 +1,8 @@
 import { useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import Logo from "./ui/logo";
-import { services } from "../data";
+import Logo from "@/app/components/ui/logo";
+import { services } from "@/app/data";
 
 export function Navigation() {
   const location = useLocation();

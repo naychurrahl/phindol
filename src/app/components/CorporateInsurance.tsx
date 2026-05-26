@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { Building2, Shield, Users, Briefcase, CheckCircle, ArrowRight, FileText, TrendingUp } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 
 export function CorporateInsurance() {
   return (

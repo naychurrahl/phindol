@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Target, Award, Heart, Users } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import {
   boardMembers,
   management,
   customerRelations,
   partners,
   truncateWords,
-} from "../data";
-import Modal from "./Modal";
+} from "@/app/data";
+import Modal from "@/app/components/Modal";
 import { createPortal } from "react-dom";
 
 const domNode = document.getElementById("overlays");
@@ -203,7 +203,7 @@ export function AboutUs() {
                 <div
                   key={member.id}
                   onClick={() => {
-                    console.log("clicked", member);
+                    //console.log("clicked", member);
                     setSelectedId(member.id);
                     setHaystack(boardMembers);
                     document.body.classList.add("overflow-hidden");

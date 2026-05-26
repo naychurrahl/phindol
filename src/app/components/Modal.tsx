@@ -23,14 +23,14 @@ export default function Modal({
           closeModal();
         }
       }}
-      className="fixed inset-0 h-dvh w-screen z-50 backdrop-blur-sm flex items-center overflow-scroll justify-center p-4"
+      className="fixed inset-0 h-dvh w-screen z-50 backdrop-blur-sm flex flex-col items-center overflow-scroll justify-center p-4"
     >
-      <div className="flex flex-col bg-brand-primary p-4 overflow-scroll space-y-6">
-        <div className="text-center mb-6">
+      <div className="flex flex-col bg-brand-primary p-8 w-[80vw] items-center aspect-[9/16] overflow-scroll space-y-6">
+        <div className="flex flex-col items-center text-center mb-6">
           <img
-            src={person.image ?? "img.jpg"}
+            src={person.image ?? "/media/pics.jpg"}
             alt={person.name}
-            className="w-full object-cover"
+            className="w-80 aspect-[9/16] object-cover"
           />
 
           <h2 className="font-heading text-2xl font-bold ">{person.name}</h2>
