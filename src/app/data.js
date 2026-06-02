@@ -59,7 +59,7 @@ export async function apiRequest({
   return result;
 }
 
-const baseUrl = "https://localhost:6443";
+//const baseUrl = "https://localhost:6443";
 const baseUrl = "https://api.phindol.ng";
 
 // Company Information
