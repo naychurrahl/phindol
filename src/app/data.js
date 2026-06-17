@@ -487,43 +487,29 @@ export const gallery = async () => {
 export const partners = [
   {
     id: 1,
-    name: "Dr. Johnson",
-    position: "Chief Executive Officer",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    meta: {
-      bio: "With over 20 years in the insurance industry, Dr. Johnson leads Phindol with vision and expertise.",
-    },
+    name: "E5 Energy",
+    image: "/media/e5_eEnergy.jpeg",
   },
   {
     id: 2,
-    name: "Chiomy Okafor",
-    position: "Head of Corporate Insurance",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvbWFuJTIwYWZyaWNhbnxlbnwxfHx8fDE3MjQyNjM3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    meta: {
-      bio: "Chioma specializes in creating tailored insurance solutions for businesses of all sizes.",
-    },
+    name: "Alpha Zigma Assets",
+    image: "/media/alpha_zigma_assets.jpeg",
   },
   {
     id: 3,
-    name: "Ibrahim Musa",
-    position: "Director of Claims",
-    image:
-      "https://images.unsplash.com/photo-1556157382-97eda2d62296?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMHN1aXR8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    meta: {
-      bio: "Ibrahim ensures that every claim is processed efficiently and fairly, providing peace of mind to our clients.",
-    },
+    name: "Blue Dolphin Aviation",
+    image: "",
   },
   {
     id: 4,
-    name: "Fatima Bello",
-    position: "Senior Life Insurance Advisor",
+    name: "Mea Research Library",
     image:
-      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGJ1c2luZXNzJTIwaGlqYWJ8ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    meta: {
-      bio: "Fatima has helped hundreds of families secure their financial future with comprehensive life insurance plans.",
-    },
+      "/media/mea_research_library.jpeg",
+  },
+  {
+    id: 5,
+    name: "Tom Hawkworths Limited",
+    image: "/media/tom_hawkworths_limited.jpeg",
   },
 ];
 
