@@ -209,43 +209,6 @@ export function AboutUs() {
                 </div>
                 <h3 className="text-xl mb-3">loyalty</h3>
               </div>
-              {/* <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full mb-4">
-                  <Target className="icon-blue" size={40} />
-                </div>
-                <h3 className="text-xl mb-3">Integrity</h3>
-                <p className="text-muted">
-                  We operate with honesty and transparency in all our dealings.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full mb-4">
-                  <Award className="icon-blue" size={40} />
-                </div>
-                <h3 className="text-xl mb-3">Excellence</h3>
-                <p className="text-muted">
-                  We strive for the highest standards in service and expertise.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full mb-4">
-                  <Heart className="icon-blue" size={40} />
-                </div>
-                <h3 className="text-xl mb-3">Care</h3>
-                <p className="text-muted">
-                  We genuinely care about our clients' wellbeing and security.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full mb-4">
-                  <Users className="icon-blue" size={40} />
-                </div>
-                <h3 className="text-xl mb-3">Partnership</h3>
-                <p className="text-muted">
-                  We build lasting relationships based on trust and mutual
-                  respect.
-                </p>
-              </div> */}
             </div>
           </div>
         </section>

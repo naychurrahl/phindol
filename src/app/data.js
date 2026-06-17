@@ -107,12 +107,12 @@ export const boardMembers = [
     name: "Mr. Hamzat Ibrahim",
     position: "Non Executive Director",
     image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1hbiUyMGFmcmljYW58ZW58MXx8fHwxNzI0MjYzNzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "/profile.jpeg",
     meta: {
       bio: `Mr. Hamzat Ibrahim, born in 1960 in Bakori, Katsina State, brings over three decades of distinguished service in Nigeria’s Foreign Service to our board. He holds a B.Sc. in Business Administration from Ahmadu Bello University, Zaria (1985), complemented by professional training at the Foreign Service Academy and courses in computer appreciation, citizenship, and leadership in Lagos.
       His illustrious diplomatic career spans impactful postings, including Namibia (1990), where he contributed to the Convention for a Democratic South Africa (CODESA), aiding the end of apartheid. He served in Morocco (2003–2007), coordinating the rescue and repatriation of over 3,500 undocumented Nigerians, and in Cameroon (2012–2015), where he played a key role in concluding the Greentree Agreement on Bakassi. As Ambassador Extraordinary and Plenipotentiary to Iran (2017–2020), with concurrent accreditation to Armenia, Azerbaijan, and Kazakhstan, he led Nigeria’s diplomatic efforts with distinction.
       Mr. Ibrahim represented Nigeria in numerous high-level international engagements, including Bi-National Commissions with South Africa, China, and others, as well as summits like the African Union Summit in Kampala (2010) and the D8 Summit in Abuja (2010). As Director of the West Africa Division (2015–2016), he shaped Nigeria’s regional foreign policy. His contributions to global diplomacy, migration, and human rights have earned him widespread respect.
-      Retired in 2020, Ambassador Ibrahim brings strategic insight and a global perspective to our board, enhancing our mission for growth and impact.`,
+      Retired in 2020, Ambassador Ibrahim brings strategic insight and a global perspective to our board, enhancing our mission for growth and impact`,
     },
   },
   {
