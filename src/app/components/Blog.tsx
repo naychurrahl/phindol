@@ -1,14 +1,14 @@
 import { Link } from 'react-router';
 import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import { blog } from "@/app/data";
-
-const blogData = await blog();
-
-const blogPosts = blogData.blogPosts;
-const blogCategories = ["all", ...blogData.blogCategories];
+import { blogFallback } from "@/app/newData";
+import { useLiveData } from "@/app/lib/useLiveData";
 
 export function Blog() {
+  const blogData = useLiveData("blog", blogFallback);
+  const blogPosts = blogData.blogPosts;
+  const blogCategories = ["all", ...blogData.blogCategories];
+
   const featuredPost = blogPosts[0];
   const recentPosts = blogPosts.slice(1);
 

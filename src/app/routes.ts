@@ -2,9 +2,7 @@ import { createBrowserRouter } from "react-router";
 import { Root } from "@/app/components/Root";
 import { Home } from "@/app/components/Home";
 import { AboutUs } from "@/app/components/AboutUs";
-import { LifeInsurance } from "@/app/components/LifeInsurance";
-import { CorporateInsurance } from "@/app/components/CorporateInsurance";
-import { ClaimsSupport } from "@/app/components/ClaimsSupport";
+import { Service } from "@/app/components/[service]";
 import { Contact } from "@/app/components/Contact";
 import { Gallery } from "@/app/components/Gallery";
 import { Blog } from "@/app/components/Blog";
@@ -18,9 +16,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "about", Component: AboutUs },
-      { path: "services/life-insurance", Component: LifeInsurance },
-      { path: "services/corporate-insurance", Component: CorporateInsurance },
-      { path: "services/claims-support", Component: ClaimsSupport },
+      { path: "services/:slug", Component: Service },
       { path: "contact", Component: Contact },
       { path: "gallery", Component: Gallery },
       { path: "blog", Component: Blog },

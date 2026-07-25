@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import {
   FaLinkedin,
   FaInstagram,
@@ -7,9 +7,12 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiFacebook } from "react-icons/fi";
-import { companyInfo, services } from "@/app/data";
+import { companyInfo as companyInfoFallback, services as servicesFallback } from "@/app/newData";
+import { useLiveData } from "@/app/lib/useLiveData";
 
 export function  Footer() {
+  const companyInfo = useLiveData("companies", companyInfoFallback);
+  const services = useLiveData("services", servicesFallback);
 
   return (
     <footer
@@ -152,13 +155,13 @@ export function  Footer() {
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.id}>
-                  <a
-                    href={`/#${service.slug}`}
+                  <Link
+                    to={service.detail ? `/services/${service.slug}` : `/#${service.slug}`}
                     className="hover:opacity-80 transition-opacity"
                     style={{ color: "inherit" }}
                   >
                     {service.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

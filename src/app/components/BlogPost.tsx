@@ -1,14 +1,13 @@
 import { Link, useParams } from 'react-router';
 import { Calendar, User, Clock, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import { blog } from "@/app/data";
-
-const blogs = await blog();
-
-const blogPosts = blogs.blogPosts;
+import { blogFallback } from "@/app/newData";
+import { useLiveData } from "@/app/lib/useLiveData";
 
 export function BlogPost() {
   const { id } = useParams();
+  const blogData = useLiveData("blog", blogFallback);
+  const blogPosts = blogData.blogPosts;
 
   const post = blogPosts.find(p => p.id === Number(id)) || blogPosts[0];
 

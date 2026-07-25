@@ -2,11 +2,13 @@ import { useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Logo from "@/app/components/ui/logo";
-import { services } from "@/app/data";
+import { services as servicesFallback } from "@/app/newData";
+import { useLiveData } from "@/app/lib/useLiveData";
 
 export function Navigation() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const services = useLiveData("services", servicesFallback);
 
   const isActive = (path: string) => {
     if (path === "/") {
@@ -21,9 +23,9 @@ export function Navigation() {
     {
       path: "/#services",
       label: "Services",
-      submenu: Object.entries(services).map(([key, value]) => ({
-        path: `/#${value?.slug}`,
-        label: value?.title ?? null,
+      submenu: services.map((service) => ({
+        path: service.detail ? `/services/${service.slug}` : `/#${service.slug}`,
+        label: service.title ?? null,
       })),
     },
     { path: "/gallery", label: "Gallery" },

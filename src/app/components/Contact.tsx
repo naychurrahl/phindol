@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import { companyInfo } from "@/app/data";
+import { companyInfo as companyInfoFallback } from "@/app/newData";
+import { useLiveData } from "@/app/lib/useLiveData";
 
 export function Contact() {
+  const companyInfo = useLiveData("companies", companyInfoFallback);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,10 +16,19 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Mock form submission
-    alert(
-      "Thank you for contacting us! We will get back to you within 24 hours.",
-    );
+
+    const subject = `Insurance Inquiry: ${formData.insuranceType || "General"}`;
+    const body = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone}`,
+      `Insurance Type: ${formData.insuranceType}`,
+      "",
+      formData.message,
+    ].join("\n");
+
+    window.location.href = `mailto:${companyInfo.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
     setFormData({
       name: "",
       email: "",

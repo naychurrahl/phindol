@@ -1,10 +1,22 @@
 import { Link } from 'react-router';
 import { ArrowRight, Shield, Users, Clock, Phone, Filter, Percent, Car, Headphones, ClipboardCheck } from 'lucide-react';
-import { companyInfo, services } from "@/app/data";
+import { companyInfo as companyInfoFallback, services as servicesFallback } from "@/app/newData";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react';
+import { useLiveData } from "@/app/lib/useLiveData";
+
+interface Service {
+  slug?: string;
+  icon?: string;
+  title: string;
+  description: string;
+  cta?: string;
+  detail?: unknown;
+}
 
 export function Home() {
+  const companyInfo = useLiveData("companies", companyInfoFallback);
+  const services = useLiveData("services", servicesFallback);
+
   return (
     <div>
       {/* Hero Section */}
@@ -161,8 +173,9 @@ export function Home() {
             Our Services
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service: { slug: string | undefined; icon: any; title: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; description: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; cta: any; }) => (
+            {services.map((service: Service) => (
               <div
+                key={service.slug}
                 id={service.slug}
                 className="bg-white rounded-lg shadow-lg overflow-hidden"
               >
@@ -179,13 +192,13 @@ export function Home() {
                     {service.title}
                   </h3>
                   <p className="text-gray-600 mb-4">{service.description}</p>
-                  <a
-                    href="/contact#cta"
+                  <Link
+                    to={service.detail ? `/services/${service.slug}` : "/contact#cta"}
                     className="inline-flex items-center text-[#4172af] hover:text-[#4172af]"
                   >
-                    {service.cta ?? "Get quote"}
+                    {service.detail ? "Learn More" : (service.cta ?? "Get quote")}
                     <ArrowRight className="ml-2" size={18} />
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}

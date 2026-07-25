@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Target, Award, Heart, Users } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import {
-  boardMembers,
-  management,
-  customerRelations,
-  partners,
+  boardMembers as boardMembersFallback,
+  management as managementFallback,
+  customerRelations as customerRelationsFallback,
+  partners as partnersFallback,
   truncateWords,
   countWords,
-} from "@/app/data";
+} from "@/app/newData";
 import Modal from "@/app/components/Modal";
 import { createPortal } from "react-dom";
+import { useLiveData } from "@/app/lib/useLiveData";
 
 const domNode = document.getElementById("overlays");
 
@@ -29,9 +29,14 @@ interface Staff {
 }
 
 export function AboutUs() {
+  const boardMembers = useLiveData("teams/board", boardMembersFallback);
+  const management = useLiveData("teams/management", managementFallback);
+  const customerRelations = useLiveData("teams/customer-relations", customerRelationsFallback);
+  const partners = useLiveData("partners", partnersFallback);
+
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [hayStack, setHaystack] = useState<any[]>([]);
-  
+
   function Card({ title = "Poorly Named Group", group, cols=3 }: CardInterface) {
     return (
       <section className="py-16">
