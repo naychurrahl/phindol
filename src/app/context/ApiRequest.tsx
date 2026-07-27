@@ -6,8 +6,7 @@ export interface apiData {
   headers?: object;
 }
 
-//export const baseUrl = "https://api.phindol.com";
-export const baseUrl = "https://phindol.local";
+export const baseUrl = "https://api.phindol.com"; //"https://phindol.local";
 
 export async function ApiRequest({
   url,
