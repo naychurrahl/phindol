@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import {
-  boardMembers as boardMembersFallback,
-  management as managementFallback,
-  customerRelations as customerRelationsFallback,
-  partners as partnersFallback,
-  truncateWords,
-  countWords,
-} from "@/app/newData";
+import { truncateWords, countWords } from "@/app/newData";
 import Modal from "@/app/components/Modal";
 import { createPortal } from "react-dom";
+import { Loading } from "@/app/components/ui/Loading";
 import { useLiveData } from "@/app/lib/useLiveData";
 
 const domNode = document.getElementById("overlays");
@@ -28,14 +22,51 @@ interface Staff {
   meta: {[key: string]: any};
 }
 
-export function AboutUs() {
-  const boardMembers = useLiveData("teams/board", boardMembersFallback);
-  const management = useLiveData("teams/management", managementFallback);
-  const customerRelations = useLiveData("teams/customer-relations", customerRelationsFallback);
-  const partners = useLiveData("partners", partnersFallback);
+interface StaffWithGroup extends Staff {
+  group: string;
+}
 
+interface TeamGroup {
+  id: number;
+  name: string;
+  sort_order: number;
+  visible: boolean;
+}
+
+interface CompanyValue {
+  id: number;
+  title: string;
+  description: string | null;
+}
+
+interface Partner {
+  id: number;
+  name: string;
+  image: string;
+}
+
+function prettify(name: string): string {
+  return name.replace(/[_-]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+export function AboutUs() {
+  // Groups themselves come from the live /team-groups list (admin-
+  // controlled order + visibility); /teams (no group segment) returns
+  // every member across every group in one call, tagged with which
+  // group they're in, so we're not calling a hook once per group.
+  const { data: groups, loading: groupsLoading } = useLiveData<TeamGroup[]>("team-groups");
+  const { data: allMembers, loading: membersLoading } = useLiveData<StaffWithGroup[]>("teams");
+  const { data: partners, loading: partnersLoading } = useLiveData<Partner[]>("partners");
+  const { data: values, loading: valuesLoading } = useLiveData<CompanyValue[]>("company-values");
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [hayStack, setHaystack] = useState<any[]>([]);
+
+  if (groupsLoading || membersLoading || partnersLoading || valuesLoading) return <Loading />;
+  if (!groups || !allMembers || !partners || !values) return null;
+
+  const visibleGroups = [...groups]
+    .filter((g) => g.visible)
+    .sort((a, b) => a.sort_order - b.sort_order);
 
   function Card({ title = "Poorly Named Group", group, cols=3 }: CardInterface) {
     return (
@@ -171,65 +202,28 @@ export function AboutUs() {
             <h2 className="text-3xl md:text-4xl text-center mb-12">
               Our Core Values
             </h2>
-            <div className="grid md:grid-cols-7 gap-8">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full mb-4 text-3xl md:text-4xl text-center mb-12">
-                  P
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+              {values.map((v) => (
+                <div key={v.id} className="text-center">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full mb-4 text-3xl md:text-4xl">
+                    {v.title.charAt(0).toUpperCase()}
+                  </div>
+                  <h3 className="text-xl mb-3">{v.title}</h3>
+                  {v.description && <p className="text-muted text-sm">{v.description}</p>}
                 </div>
-                <h3 className="text-xl mb-3">Professionalism</h3>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full text-3xl md:text-4xl text-center mb-12">
-                  H
-                </div>
-                <h3 className="text-xl mb-3">Hospitality</h3>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full text-3xl md:text-4xl text-center mb-12">
-                  I
-                </div>
-                <h3 className="text-xl mb-3">Innovation</h3>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full text-3xl md:text-4xl text-center mb-12">
-                  N
-                </div>
-                <h3 className="text-xl mb-3">Negotiation</h3>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full text-3xl md:text-4xl text-center mb-12">
-                  D
-                </div>
-                <h3 className="text-xl mb-3">Dogeddness</h3>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full text-3xl md:text-4xl text-center mb-12">
-                  O
-                </div>
-                <h3 className="text-xl mb-3">openness</h3>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full text-3xl md:text-4xl text-center mb-12">
-                  L
-                </div>
-                <h3 className="text-xl mb-3">loyalty</h3>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Our Board */}
-        <Card group={boardMembers} title="Board Members" />
-
-        {/* Our Management */}
-        <Card group={management} title="Management Team" />
-
-        {/* Our Customer Relations */}
-        <Card
-          group={customerRelations}
-          title={"Customer Relations Team"}
-          cols={4}
-        />
+        {/* Team groups -- admin-controlled which ones show, and in what order */}
+        {visibleGroups.map((g) => (
+          <Card
+            key={g.id}
+            group={allMembers.filter((m) => m.group === g.name)}
+            title={prettify(g.name)}
+          />
+        ))}
 
         {/* Our Partners */}
         <section className="py-16 section-dark">

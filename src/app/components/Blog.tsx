@@ -1,11 +1,32 @@
 import { Link } from 'react-router';
 import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import { blogFallback } from "@/app/newData";
+import { Loading } from "@/app/components/ui/Loading";
 import { useLiveData } from "@/app/lib/useLiveData";
 
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string | null;
+  author: string | null;
+  date: string | null;
+  readTime: string | null;
+  category: string | null;
+  image: string | null;
+  content: string;
+}
+
+interface BlogData {
+  blogPosts: BlogPost[];
+  blogCategories: string[];
+}
+
 export function Blog() {
-  const blogData = useLiveData("blog", blogFallback);
+  const { data: blogData, loading } = useLiveData<BlogData>("blog");
+
+  if (loading) return <Loading />;
+  if (!blogData || blogData.blogPosts.length === 0) return null;
+
   const blogPosts = blogData.blogPosts;
   const blogCategories = ["all", ...blogData.blogCategories];
 

@@ -1,15 +1,36 @@
 import { Link, useParams } from 'react-router';
 import { Calendar, User, Clock, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import { blogFallback } from "@/app/newData";
+import { NotFound } from "@/app/components/NotFound";
+import { Loading } from "@/app/components/ui/Loading";
 import { useLiveData } from "@/app/lib/useLiveData";
+
+interface BlogPostItem {
+  id: number;
+  title: string;
+  excerpt: string | null;
+  author: string | null;
+  date: string | null;
+  readTime: string | null;
+  category: string | null;
+  image: string | null;
+  content: string;
+}
+
+interface BlogData {
+  blogPosts: BlogPostItem[];
+  blogCategories: string[];
+}
 
 export function BlogPost() {
   const { id } = useParams();
-  const blogData = useLiveData("blog", blogFallback);
-  const blogPosts = blogData.blogPosts;
+  const { data: blogData, loading } = useLiveData<BlogData>("blog");
 
-  const post = blogPosts.find(p => p.id === Number(id)) || blogPosts[0];
+  if (loading) return <Loading />;
+  if (!blogData) return null;
+
+  const post = blogData.blogPosts.find(p => p.id === Number(id));
+  if (!post) return <NotFound />;
 
   return (
     <div>

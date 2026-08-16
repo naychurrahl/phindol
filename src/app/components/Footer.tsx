@@ -7,12 +7,33 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiFacebook } from "react-icons/fi";
-import { companyInfo as companyInfoFallback, services as servicesFallback } from "@/app/newData";
 import { useLiveData } from "@/app/lib/useLiveData";
 
+interface Company {
+  name: string;
+  tagline: string;
+  address: string;
+  tel: string;
+  wa: string;
+  email: string;
+  social: { whatsapp: string; facebook: string; instagram: string; linkedin: string; twitter: string };
+}
+
+interface Service {
+  id: number;
+  slug?: string;
+  title: string;
+  detail?: unknown;
+}
+
 export function  Footer() {
-  const companyInfo = useLiveData("companies", companyInfoFallback);
-  const services = useLiveData("services", servicesFallback);
+  const { data: companyInfo } = useLiveData<Company>("companies");
+  const { data: services } = useLiveData<Service[]>("services");
+
+  // Nothing to show until the company profile loads -- no stand-in
+  // content, just no footer yet rather than a full-page block on
+  // persistent site chrome.
+  if (!companyInfo) return null;
 
   return (
     <footer
@@ -153,7 +174,7 @@ export function  Footer() {
               Our Services
             </h3>
             <ul className="space-y-2">
-              {services.map((service) => (
+              {(services ?? []).map((service) => (
                 <li key={service.id}>
                   <Link
                     to={service.detail ? `/services/${service.slug}` : `/#${service.slug}`}

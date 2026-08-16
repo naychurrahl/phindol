@@ -1,14 +1,29 @@
 import { useState } from 'react';
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import { galleryFallback } from "@/app/newData";
+import { Loading } from "@/app/components/ui/Loading";
 import { useLiveData } from "@/app/lib/useLiveData";
 
+interface GalleryImage {
+  id: number;
+  title: string;
+  url: string;
+  category: string | null;
+}
+
+interface GalleryData {
+  galleryImages: GalleryImage[];
+  galleryCategories: string[];
+}
+
 export function Gallery() {
-  const galleryData = useLiveData("gallery", galleryFallback);
+  const { data: galleryData, loading } = useLiveData<GalleryData>("gallery");
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  if (loading) return <Loading />;
+  if (!galleryData) return null;
+
   const galleryImages = galleryData.galleryImages;
   const galleryCategories = ["all", ...galleryData.galleryCategories];
-
-  const [selectedCategory, setSelectedCategory] = useState('all');
 
   const filteredImages = selectedCategory === 'all'
     ? galleryImages

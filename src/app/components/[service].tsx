@@ -6,7 +6,8 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { NotFound } from "@/app/components/NotFound";
-import { services as servicesFallback, type ServiceIcon, type ServiceItem } from "@/app/newData";
+import { type ServiceIcon, type ServiceItem } from "@/app/newData";
+import { Loading } from "@/app/components/ui/Loading";
 import { useLiveData } from "@/app/lib/useLiveData";
 
 const icons: Record<ServiceIcon, LucideIcon> = {
@@ -25,10 +26,11 @@ function gridCols(count: number): string {
 
 export function Service() {
   const { slug } = useParams();
-  const fallback = slug ? servicesFallback.find((s) => s.slug === slug) : undefined;
-  const service = useLiveData<ServiceItem | undefined>(`services/${slug ?? ""}`, fallback);
-  const detail = service?.detail;
+  const { data: service, loading } = useLiveData<ServiceItem>(`services/${slug ?? ""}`);
 
+  if (loading) return <Loading />;
+
+  const detail = service?.detail;
   if (!detail) {
     return <NotFound />;
   }
