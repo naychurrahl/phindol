@@ -3,6 +3,7 @@ import React from "react";
 interface LogoProps {
   src: string;
   alt?: string;
+  name?: string;
   size?: number;
   className?: string;
 }
@@ -10,6 +11,7 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({
   src,
   alt = "logo",
+  name,
   size = 180,
   className = "",
 }) => {
@@ -36,11 +38,16 @@ const Logo: React.FC<LogoProps> = ({
       >
         <img src={src} alt={alt} style={imageStyle} />
       </div>
-      <div>
-        <span className="text-l font-bold text-[#4172af]">Phindol</span>
-        <span className="text-l text-gray-700 ml-1">Insurance</span>
-        <span className="text-l text-gray-700 ml-1">Brokers</span>
-      </div>
+      {name && (
+        <div>
+          <span className="text-l font-bold text-[#4172af]">
+            {name.split(" ")[0]}
+          </span>
+          <span className="text-l text-gray-700 ml-1">
+            {name.split(" ").slice(1).join(" ")}
+          </span>
+        </div>
+      )}
     </div>
   );
 };
