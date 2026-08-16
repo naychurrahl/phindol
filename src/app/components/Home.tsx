@@ -188,12 +188,12 @@ export function Home() {
           <h2 className="text-3xl md:text-4xl text-center mb-12 text-gray-900">
             Our Services
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {services.map((service: Service) => (
               <div
                 key={service.slug}
                 id={service.slug}
-                className="bg-white rounded-lg shadow-lg overflow-hidden"
+                className="w-full md:w-[calc(50%-1rem)] bg-white rounded-lg shadow-lg overflow-hidden"
               >
                 <ImageWithFallback
                   src={
@@ -231,9 +231,9 @@ export function Home() {
           <p className="text-2xl md:text-2xl text-center mb-12 text-gray-600">
             Thousands of Nigerians trust Phindol to protect what matters most.
           </p>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {testimonials.map((t: Testimonial) => (
-              <div key={t.id} className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div key={t.id} className="w-full md:w-[calc(50%-1rem)] bg-white p-8 rounded-lg shadow-md text-center">
                 <h3 className="text-xl mb-3 text-gray-900">"{t.text}"</h3>
                 <p className="text-gray-600">
                   – {t.name}
