@@ -1,14 +1,24 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { Loading } from "@/app/components/ui/Loading";
 import { useLiveData } from "@/app/lib/useLiveData";
+import { waLink } from "@/app/lib/phone";
+
+interface CompanyPhone {
+  number: string;
+  channel: "phone" | "whatsapp" | "both";
+}
+
+interface CompanyEmail {
+  email: string;
+  label: string | null;
+}
 
 interface Company {
   address: string;
-  phone: string;
-  tel: string;
-  email: string;
+  phones: CompanyPhone[];
+  emails: CompanyEmail[];
   hours: string;
 }
 
@@ -25,6 +35,12 @@ export function Contact() {
   if (loading) return <Loading />;
   if (!companyInfo) return null;
 
+  // Defensive against an API that hasn't been redeployed with the new
+  // emails/phones columns yet -- degrade to empty lists instead of
+  // crashing on .map(undefined).
+  const phones = companyInfo.phones ?? [];
+  const emails = companyInfo.emails ?? [];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -38,7 +54,10 @@ export function Contact() {
       formData.message,
     ].join("\n");
 
-    window.location.href = `mailto:${companyInfo.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const primaryEmail = emails[0]?.email;
+    if (primaryEmail) {
+      window.location.href = `mailto:${primaryEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
 
     setFormData({
       name: "",
@@ -100,32 +119,60 @@ export function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg">
-                      <Phone className="text-blue-600" size={24} />
+                {phones.length > 0 && (
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg">
+                        <Phone className="text-blue-600" size={24} />
+                      </div>
+                    </div>
+                    <div className="ml-4 space-y-1.5">
+                      <h3 className="text-lg mb-1 text-gray-900">Phone</h3>
+                      {phones.map((p) => (
+                        <div key={p.number} className="flex items-center gap-3 flex-wrap">
+                          {p.channel !== "whatsapp" ? (
+                            <a href={`tel:${p.number}`} className="text-gray-600 hover:text-blue-600">
+                              {p.number}
+                            </a>
+                          ) : (
+                            <span className="text-gray-600">{p.number}</span>
+                          )}
+                          {(p.channel === "whatsapp" || p.channel === "both") && (
+                            <a
+                              href={waLink(p.number)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-green-600 hover:text-green-700 text-sm"
+                            >
+                              <MessageCircle size={14} /> WhatsApp
+                            </a>
+                          )}
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg mb-1 text-gray-900">Phone</h3>
-                    <p className="text-gray-600">{`${companyInfo.phone}`}</p>
-                    <p className="text-sm text-gray-500 mt-1">
-                      24/7 Emergency Hotline
-                    </p>
-                  </div>
-                </div>
+                )}
 
-                <div className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg">
-                      <Mail className="text-blue-600" size={24} />
+                {emails.length > 0 && (
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg">
+                        <Mail className="text-blue-600" size={24} />
+                      </div>
+                    </div>
+                    <div className="ml-4 space-y-1">
+                      <h3 className="text-lg mb-1 text-gray-900">Email</h3>
+                      {emails.map((e) => (
+                        <p key={e.email}>
+                          <a href={`mailto:${e.email}`} className="text-gray-600 hover:text-blue-600">
+                            {e.email}
+                          </a>
+                          {e.label && <span className="text-xs text-gray-400 ml-2">({e.label})</span>}
+                        </p>
+                      ))}
                     </div>
                   </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg mb-1 text-gray-900">Email</h3>
-                    <p className="text-gray-600">{`${companyInfo.email}`}</p>
-                  </div>
-                </div>
+                )}
 
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
@@ -303,20 +350,24 @@ export function Contact() {
             insurance quote.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={`tel:${companyInfo.tel}`}
-              className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md hover:bg-gray-100 transition-colors text-lg"
-            >
-              <Phone className="mr-2" size={20} />
-              Call Us Now
-            </a>
-            <a
-              href={`mailto:${companyInfo.email}`}
-              className="inline-flex items-center justify-center bg-green-500 text-white px-8 py-4 rounded-md hover:bg-green-600 transition-colors text-lg"
-            >
-              <Mail className="mr-2" size={20} />
-              Email Us
-            </a>
+            {phones[0] && (
+              <a
+                href={`tel:${phones[0].number}`}
+                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md hover:bg-gray-100 transition-colors text-lg"
+              >
+                <Phone className="mr-2" size={20} />
+                Call Us Now
+              </a>
+            )}
+            {emails[0] && (
+              <a
+                href={`mailto:${emails[0].email}`}
+                className="inline-flex items-center justify-center bg-green-500 text-white px-8 py-4 rounded-md hover:bg-green-600 transition-colors text-lg"
+              >
+                <Mail className="mr-2" size={20} />
+                Email Us
+              </a>
+            )}
           </div>
         </div>
       </section>

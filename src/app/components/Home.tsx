@@ -4,8 +4,13 @@ import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { Loading } from "@/app/components/ui/Loading";
 import { useLiveData } from "@/app/lib/useLiveData";
 
+interface CompanyPhone {
+  number: string;
+  channel: "phone" | "whatsapp" | "both";
+}
+
 interface Company {
-  tel: string;
+  phones: CompanyPhone[];
 }
 
 interface Service {
@@ -33,6 +38,10 @@ export function Home() {
   if (companyLoading || servicesLoading || testimonialsLoading) return <Loading />;
   if (!companyInfo || !services || !testimonials) return null;
 
+  // Defensive against an API that hasn't been redeployed with the new
+  // phones column yet.
+  const callableNumber = (companyInfo.phones ?? []).find((p) => p.channel !== "whatsapp");
+
   return (
     <div>
       {/* Hero Section */}
@@ -57,13 +66,15 @@ export function Home() {
                   <ArrowRight className="ml-2 shrink-0" size={20} />
                 </Link>
 
-                <Link
-                  to={`tel:${companyInfo.tel}`}
-                  className="flex items-center min-w-0 whitespace-nowrap bg-white text-[#4172af] px-4 py-4 rounded-md hover:bg-gray-100 transition-colors text-[clamp(0.8rem,2vw,1rem)]"
-                >
-                  <span className="min-w-0 truncate">Call Now</span>
-                  <Phone className="ml-2 shrink-0" size={20} />
-                </Link>
+                {callableNumber && (
+                  <a
+                    href={`tel:${callableNumber.number}`}
+                    className="flex items-center min-w-0 whitespace-nowrap bg-white text-[#4172af] px-4 py-4 rounded-md hover:bg-gray-100 transition-colors text-[clamp(0.8rem,2vw,1rem)]"
+                  >
+                    <span className="min-w-0 truncate">Call Now</span>
+                    <Phone className="ml-2 shrink-0" size={20} />
+                  </a>
+                )}
               </div>
             </div>
             <div className="hidden md:block">
