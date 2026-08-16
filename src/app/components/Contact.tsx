@@ -1,11 +1,19 @@
 import { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import { companyInfo as companyInfoFallback } from "@/app/newData";
+import { Loading } from "@/app/components/ui/Loading";
 import { useLiveData } from "@/app/lib/useLiveData";
 
+interface Company {
+  address: string;
+  phone: string;
+  tel: string;
+  email: string;
+  hours: string;
+}
+
 export function Contact() {
-  const companyInfo = useLiveData("companies", companyInfoFallback);
+  const { data: companyInfo, loading } = useLiveData<Company>("companies");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,6 +21,9 @@ export function Contact() {
     insuranceType: "",
     message: "",
   });
+
+  if (loading) return <Loading />;
+  if (!companyInfo) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -126,11 +137,7 @@ export function Contact() {
                     <h3 className="text-lg mb-1 text-gray-900">
                       Business Hours
                     </h3>
-                    <p className="text-gray-600">
-                      Monday - Friday: 8:00 AM - 6:00 PM
-                    </p>
-                    <p className="text-gray-600">Saturday: 9:00 AM - 2:00 PM</p>
-                    <p className="text-gray-600">Sunday: Closed</p>
+                    <p className="text-gray-600">{companyInfo.hours}</p>
                   </div>
                 </div>
               </div>

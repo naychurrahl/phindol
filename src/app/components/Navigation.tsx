@@ -2,13 +2,21 @@ import { useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Logo from "@/app/components/ui/logo";
-import { services as servicesFallback } from "@/app/newData";
 import { useLiveData } from "@/app/lib/useLiveData";
+
+interface Service {
+  id: number;
+  slug?: string;
+  title: string;
+  detail?: unknown;
+}
 
 export function Navigation() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const services = useLiveData("services", servicesFallback);
+  // No fallback -- the submenu is just empty until this loads, rather
+  // than blocking the whole nav bar (which every page needs to work).
+  const { data: services } = useLiveData<Service[]>("services");
 
   const isActive = (path: string) => {
     if (path === "/") {
@@ -23,7 +31,7 @@ export function Navigation() {
     {
       path: "/#services",
       label: "Services",
-      submenu: services.map((service) => ({
+      submenu: (services ?? []).map((service) => ({
         path: service.detail ? `/services/${service.slug}` : `/#${service.slug}`,
         label: service.title ?? null,
       })),

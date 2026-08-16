@@ -1,8 +1,12 @@
 import { Link } from 'react-router';
 import { ArrowRight, Shield, Users, Clock, Phone, Filter, Percent, Car, Headphones, ClipboardCheck } from 'lucide-react';
-import { companyInfo as companyInfoFallback, services as servicesFallback } from "@/app/newData";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
+import { Loading } from "@/app/components/ui/Loading";
 import { useLiveData } from "@/app/lib/useLiveData";
+
+interface Company {
+  tel: string;
+}
 
 interface Service {
   slug?: string;
@@ -13,9 +17,21 @@ interface Service {
   detail?: unknown;
 }
 
+interface Testimonial {
+  id: number;
+  name: string;
+  company: string | null;
+  text: string;
+  rating: number;
+}
+
 export function Home() {
-  const companyInfo = useLiveData("companies", companyInfoFallback);
-  const services = useLiveData("services", servicesFallback);
+  const { data: companyInfo, loading: companyLoading } = useLiveData<Company>("companies");
+  const { data: services, loading: servicesLoading } = useLiveData<Service[]>("services");
+  const { data: testimonials, loading: testimonialsLoading } = useLiveData<Testimonial[]>("testimonials");
+
+  if (companyLoading || servicesLoading || testimonialsLoading) return <Loading />;
+  if (!companyInfo || !services || !testimonials) return null;
 
   return (
     <div>
@@ -216,20 +232,15 @@ export function Home() {
             Thousands of Nigerians trust Phindol to protect what matters most.
           </p>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <h3 className="text-xl mb-3 text-gray-900">
-                "Phindol Insurance Brokers saved me 35% on my Toyota Corolla
-                insurance in Abuja. Super fast!"
-              </h3>
-              <p className="text-gray-600">– Chinedu O., Abuja</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <h3 className="text-xl mb-3 text-gray-900">
-                "Best health insurance brokers in Nigeria. Seamless process!"
-              </h3>
-              <p className="text-gray-600">– Fatima A., Abuja</p>
-            </div>
+            {testimonials.map((t: Testimonial) => (
+              <div key={t.id} className="bg-white p-8 rounded-lg shadow-md text-center">
+                <h3 className="text-xl mb-3 text-gray-900">"{t.text}"</h3>
+                <p className="text-gray-600">
+                  – {t.name}
+                  {t.company ? `, ${t.company}` : ""}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
