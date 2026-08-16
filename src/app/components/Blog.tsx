@@ -101,9 +101,9 @@ export function Blog() {
       <section className="py-16" style={{ backgroundColor: 'var(--brand-gray-50)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl mb-12" style={{ color: 'var(--brand-gray-900)' }}>Recent Articles</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {recentPosts.map((post) => (
-              <article key={post.id} className="rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow" style={{ backgroundColor: 'var(--brand-white)' }}>
+              <article key={post.id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow" style={{ backgroundColor: 'var(--brand-white)' }}>
                 <ImageWithFallback
                   src={post.image}
                   alt={post.title}
@@ -174,11 +174,11 @@ export function Blog() {
       <section className="py-16" style={{ backgroundColor: 'var(--brand-gray-50)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl text-center mb-12" style={{ color: 'var(--brand-gray-900)' }}>Browse by Category</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {blogCategories.map((category, index) => (
               <div
                 key={index}
-                className="p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow cursor-pointer"
+                className="w-[calc(50%-0.75rem)] md:w-[calc(25%-1.125rem)] p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow cursor-pointer"
                 style={{ backgroundColor: 'var(--brand-white)' }}
               >
                 <p style={{ color: 'var(--brand-gray-800)' }}>{category}</p>

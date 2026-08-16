@@ -75,7 +75,7 @@ export function AboutUs() {
           <h2 className="text-3xl md:text-4xl text-center mb-12">
             Our {title}
           </h2>
-          <div className={`grid md:grid-cols-2 lg:grid-cols-${cols} gap-8`}>
+          <div className="flex flex-wrap justify-center gap-8">
             {group.map((member) => (
               <div
                 key={member.id}
@@ -84,7 +84,7 @@ export function AboutUs() {
                   setHaystack(group);
                   document.body.classList.add("overflow-hidden");
                 }}
-                className="card overflow-hidden flex flex-col items-center justify-center"
+                className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] card overflow-hidden flex flex-col items-center justify-center"
               >
                 <div className="bg-gradient-blue-radial h-48 aspect-[2/3] flex items-center justify-center">
                   <ImageWithFallback
@@ -202,9 +202,9 @@ export function AboutUs() {
             <h2 className="text-3xl md:text-4xl text-center mb-12">
               Our Core Values
             </h2>
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="flex flex-wrap justify-center gap-8">
               {values.map((v) => (
-                <div key={v.id} className="text-center">
+                <div key={v.id} className="w-full sm:w-[calc(50%-1rem)] md:w-[calc(25%-1.5rem)] text-center">
                   <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-50 rounded-full mb-4 text-3xl md:text-4xl">
                     {v.title.charAt(0).toUpperCase()}
                   </div>
@@ -231,12 +231,12 @@ export function AboutUs() {
             <h2 className="text-3xl md:text-4xl text-center mb-12">
               Our Clients
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <div className="flex flex-wrap justify-center gap-8">
               {partners.map(
                 (member: { id: number; name: string; image: string }) => (
                   <div
                     key={member.id}
-                    className="card bg-transparent overflow-hidden flex flex-col items-center justify-center"
+                    className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(20%-1.6rem)] card bg-transparent overflow-hidden flex flex-col items-center justify-center"
                   >
                     <div className="h-48 flex items-center justify-center">
                       {/* <Users className="text-brand-white" size={80} /> */}

@@ -11,12 +11,17 @@ interface Service {
   detail?: unknown;
 }
 
+interface Company {
+  name: string;
+}
+
 export function Navigation() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // No fallback -- the submenu is just empty until this loads, rather
-  // than blocking the whole nav bar (which every page needs to work).
+  // No fallback -- the submenu/name are just empty until these load,
+  // rather than blocking the whole nav bar (which every page needs to work).
   const { data: services } = useLiveData<Service[]>("services");
+  const { data: companyInfo } = useLiveData<Company>("companies");
 
   const isActive = (path: string) => {
     if (path === "/") {
@@ -48,9 +53,12 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <a href="/" className="flex items-center">
-            {/* <span className="text-2xl text-brand-primary" style={{ fontFamily: 'Georgia, serif', fontWeight: 700 }}>Phindol</span>
-            <span className="text-2xl ml-1 text-brand-primary" style={{ fontFamily: 'Arial, sans-serif' }}>Insurance</span> */}
-            <Logo src="/logo.png" alt="Phindol Insurance Logo" size={40} />
+            <Logo
+              src="/logo.png"
+              alt={companyInfo?.name ? `${companyInfo.name} Logo` : "Logo"}
+              name={companyInfo?.name}
+              size={40}
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -65,6 +73,7 @@ export function Navigation() {
                         color: isActive(link.path)
                           ? "var(--brand-secondary)"
                           : "var(--brand-primary)",
+                        fontWeight: "var(--font-weight-normal)",
                       }}
                       onMouseEnter={(e) =>
                         !isActive(link.path) &&
