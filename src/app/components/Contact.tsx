@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { Loading } from "@/app/components/ui/Loading";
 import { useLiveData } from "@/app/lib/useLiveData";
@@ -128,27 +128,23 @@ export function Contact() {
                     </div>
                     <div className="ml-4 space-y-1.5">
                       <h3 className="text-lg mb-1 text-gray-900">Phone</h3>
-                      {phones.map((p) => (
-                        <div key={p.number} className="flex items-center gap-3 flex-wrap">
-                          {p.channel !== "whatsapp" ? (
-                            <a href={`tel:${p.number}`} className="text-gray-600 hover:text-blue-600">
-                              {p.number}
-                            </a>
-                          ) : (
-                            <span className="text-gray-600">{p.number}</span>
-                          )}
-                          {(p.channel === "whatsapp" || p.channel === "both") && (
-                            <a
-                              href={waLink(p.number)}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 text-green-600 hover:text-green-700 text-sm"
-                            >
-                              <MessageCircle size={14} /> WhatsApp
-                            </a>
-                          )}
-                        </div>
-                      ))}
+                      {phones.map((p) =>
+                        p.channel === "whatsapp" ? (
+                          <a
+                            key={p.number}
+                            href={waLink(p.number)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block text-gray-600 hover:text-blue-600"
+                          >
+                            {p.number}
+                          </a>
+                        ) : (
+                          <a key={p.number} href={`tel:${p.number}`} className="block text-gray-600 hover:text-blue-600">
+                            {p.number}
+                          </a>
+                        )
+                      )}
                     </div>
                   </div>
                 )}

@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react';
 import { Link } from 'react-router';
-import { Mail, Phone, MapPin, MessageCircle, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import {
   FaLinkedin,
   FaInstagram,
@@ -67,6 +67,14 @@ export function  Footer() {
   const emails = companyInfo.emails ?? [];
   const socials = companyInfo.socials ?? [];
 
+  // A number's channel decides where it shows up, not just how it
+  // links: callable numbers (phone/both) go in Contact Us as tel:
+  // links; WhatsApp-capable numbers (whatsapp/both) show as an icon
+  // alongside the other social links instead, as wa.me links. A "both"
+  // number legitimately appears in both places.
+  const callPhones = phones.filter((p) => p.channel !== "whatsapp");
+  const whatsappPhones = phones.filter((p) => p.channel === "whatsapp" || p.channel === "both");
+
   return (
     <footer
       style={{
@@ -94,6 +102,19 @@ export function  Footer() {
             </div>
             <p className="text-sm mb-4">{companyInfo.tagline}</p>
             <div className="flex space-x-4">
+              {whatsappPhones.map((p) => (
+                <a
+                  key={p.number}
+                  href={waLink(p.number)}
+                  aria-label="Message on WhatsApp"
+                  className="hover:opacity-80 transition-opacity"
+                  style={{ color: "inherit" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaWhatsapp size={20} />
+                </a>
+              ))}
               {socials.map((s) => {
                 const Icon = socialIcons[s.platform.toLowerCase()] ?? Globe;
                 return (
@@ -205,31 +226,16 @@ export function  Footer() {
                 <MapPin size={18} className="mr-2 mt-1 flex-shrink-0" />
                 <span className="text-sm">{companyInfo.address}</span>
               </li>
-              {phones.map((p) => (
-                <li key={p.number} className="flex items-center flex-wrap gap-x-3">
+              {callPhones.map((p) => (
+                <li key={p.number} className="flex items-center">
                   <Phone size={18} className="mr-2 flex-shrink-0" />
-                  {p.channel !== "whatsapp" ? (
-                    <a
-                      href={`tel:${p.number}`}
-                      className="text-sm hover:opacity-80 transition-opacity"
-                      style={{ color: "inherit" }}
-                    >
-                      {p.number}
-                    </a>
-                  ) : (
-                    <span className="text-sm">{p.number}</span>
-                  )}
-                  {(p.channel === "whatsapp" || p.channel === "both") && (
-                    <a
-                      href={waLink(p.number)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm hover:opacity-80 transition-opacity"
-                      style={{ color: "inherit" }}
-                    >
-                      <MessageCircle size={14} /> WhatsApp
-                    </a>
-                  )}
+                  <a
+                    href={`tel:${p.number}`}
+                    className="text-sm hover:opacity-80 transition-opacity"
+                    style={{ color: "inherit" }}
+                  >
+                    {p.number}
+                  </a>
                 </li>
               ))}
               {emails.map((e) => (
