@@ -1,5 +1,6 @@
+import type { ComponentType } from 'react';
 import { Link } from 'react-router';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, Globe } from 'lucide-react';
 import {
   FaLinkedin,
   FaInstagram,
@@ -8,15 +9,30 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 import { FiFacebook } from "react-icons/fi";
 import { useLiveData } from "@/app/lib/useLiveData";
+import { waLink } from "@/app/lib/phone";
+
+interface CompanyPhone {
+  number: string;
+  channel: "phone" | "whatsapp" | "both";
+}
+
+interface CompanyEmail {
+  email: string;
+  label: string | null;
+}
+
+interface CompanySocial {
+  platform: string;
+  url: string;
+}
 
 interface Company {
   name: string;
   tagline: string;
   address: string;
-  tel: string;
-  wa: string;
-  email: string;
-  social: { whatsapp: string; facebook: string; instagram: string; linkedin: string; twitter: string };
+  phones: CompanyPhone[];
+  emails: CompanyEmail[];
+  socials: CompanySocial[];
 }
 
 interface Service {
@@ -26,6 +42,15 @@ interface Service {
   detail?: unknown;
 }
 
+const socialIcons: Record<string, ComponentType<{ size?: number }>> = {
+  facebook: FiFacebook,
+  instagram: FaInstagram,
+  linkedin: FaLinkedin,
+  twitter: FaXTwitter,
+  x: FaXTwitter,
+  whatsapp: FaWhatsapp,
+};
+
 export function  Footer() {
   const { data: companyInfo } = useLiveData<Company>("companies");
   const { data: services } = useLiveData<Service[]>("services");
@@ -34,6 +59,13 @@ export function  Footer() {
   // content, just no footer yet rather than a full-page block on
   // persistent site chrome.
   if (!companyInfo) return null;
+
+  // Defensive against an API that hasn't been redeployed with the new
+  // emails/phones/socials columns yet -- degrade to empty lists instead
+  // of crashing on .map(undefined).
+  const phones = companyInfo.phones ?? [];
+  const emails = companyInfo.emails ?? [];
+  const socials = companyInfo.socials ?? [];
 
   return (
     <footer
@@ -62,46 +94,21 @@ export function  Footer() {
             </div>
             <p className="text-sm mb-4">{companyInfo.tagline}</p>
             <div className="flex space-x-4">
-              <a
-                href={companyInfo.social.whatsapp}
-                className="hover:opacity-80 transition-opacity"
-                style={{ color: "inherit" }}
-                target="_blank"
-              >
-                <FaWhatsapp size={20} />
-              </a>
-              <a
-                href={companyInfo.social.facebook}
-                className="hover:opacity-80 transition-opacity"
-                style={{ color: "inherit" }}
-                target="_blank"
-              >
-                <FiFacebook size={20} />
-              </a>
-              <a
-                href={companyInfo.social.instagram}
-                className="hover:opacity-80 transition-opacity"
-                style={{ color: "inherit" }}
-                target="_blank"
-              >
-                <FaInstagram size={20} />
-              </a>
-              <a
-                href={companyInfo.social.linkedin}
-                className="hover:opacity-80 transition-opacity"
-                style={{ color: "inherit" }}
-                target="_blank"
-              >
-                <FaLinkedin size={20} />
-              </a>
-              <a
-                href={companyInfo.social.twitter}
-                className="hover:opacity-80 transition-opacity"
-                style={{ color: "inherit" }}
-                target="_blank"
-              >
-                <FaXTwitter size={20} />
-              </a>
+              {socials.map((s) => {
+                const Icon = socialIcons[s.platform.toLowerCase()] ?? Globe;
+                return (
+                  <a
+                    key={s.platform + s.url}
+                    href={s.url}
+                    className="hover:opacity-80 transition-opacity"
+                    style={{ color: "inherit" }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon size={20} />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -198,33 +205,45 @@ export function  Footer() {
                 <MapPin size={18} className="mr-2 mt-1 flex-shrink-0" />
                 <span className="text-sm">{companyInfo.address}</span>
               </li>
-              <li className="flex items-center">
-                <Phone size={18} className="mr-2 flex-shrink-0" />
-                <a
-                  href={`tel:${companyInfo.tel}`}
-                  className="text-sm hover:opacity-80 transition-opacity"
-                  style={{ color: "inherit" }}
-                >
-                  {companyInfo.tel},
-                </a>
-                <a
-                  href={`tel:${companyInfo.wa}`}
-                  className="text-sm hover:opacity-80 transition-opacity"
-                  style={{ color: "inherit" }}
-                >
-                  {companyInfo.wa}
-                </a>
-              </li>
-              <li className="flex items-center">
-                <Mail size={18} className="mr-2 flex-shrink-0" />
-                <a
-                  href={`mailto:${companyInfo.email}`}
-                  className="text-sm hover:opacity-80 transition-opacity"
-                  style={{ color: "inherit" }}
-                >
-                  {companyInfo.email}
-                </a>
-              </li>
+              {phones.map((p) => (
+                <li key={p.number} className="flex items-center flex-wrap gap-x-3">
+                  <Phone size={18} className="mr-2 flex-shrink-0" />
+                  {p.channel !== "whatsapp" ? (
+                    <a
+                      href={`tel:${p.number}`}
+                      className="text-sm hover:opacity-80 transition-opacity"
+                      style={{ color: "inherit" }}
+                    >
+                      {p.number}
+                    </a>
+                  ) : (
+                    <span className="text-sm">{p.number}</span>
+                  )}
+                  {(p.channel === "whatsapp" || p.channel === "both") && (
+                    <a
+                      href={waLink(p.number)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm hover:opacity-80 transition-opacity"
+                      style={{ color: "inherit" }}
+                    >
+                      <MessageCircle size={14} /> WhatsApp
+                    </a>
+                  )}
+                </li>
+              ))}
+              {emails.map((e) => (
+                <li key={e.email} className="flex items-center">
+                  <Mail size={18} className="mr-2 flex-shrink-0" />
+                  <a
+                    href={`mailto:${e.email}`}
+                    className="text-sm hover:opacity-80 transition-opacity"
+                    style={{ color: "inherit" }}
+                  >
+                    {e.email}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -29,6 +29,7 @@ interface StaffWithGroup extends Staff {
 interface TeamGroup {
   id: number;
   name: string;
+  title: string;
   sort_order: number;
   visible: boolean;
 }
@@ -45,8 +46,10 @@ interface Partner {
   image: string;
 }
 
-function prettify(name: string): string {
-  return name.replace(/[_-]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+interface Company {
+  story: string | null;
+  mission: string | null;
+  vision: string | null;
 }
 
 export function AboutUs() {
@@ -58,11 +61,14 @@ export function AboutUs() {
   const { data: allMembers, loading: membersLoading } = useLiveData<StaffWithGroup[]>("teams");
   const { data: partners, loading: partnersLoading } = useLiveData<Partner[]>("partners");
   const { data: values, loading: valuesLoading } = useLiveData<CompanyValue[]>("company-values");
+  const { data: companyInfo, loading: companyLoading } = useLiveData<Company>("companies");
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [hayStack, setHaystack] = useState<any[]>([]);
 
-  if (groupsLoading || membersLoading || partnersLoading || valuesLoading) return <Loading />;
-  if (!groups || !allMembers || !partners || !values) return null;
+  if (groupsLoading || membersLoading || partnersLoading || valuesLoading || companyLoading) return <Loading />;
+  if (!groups || !allMembers || !partners || !values || !companyInfo) return null;
+
+  const storyParagraphs = (companyInfo.story ?? "").split(/\n\s*\n/).filter((p) => p.trim());
 
   const visibleGroups = [...groups]
     .filter((g) => g.visible)
@@ -138,63 +144,51 @@ export function AboutUs() {
         </section>
 
         {/* Our Story */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl mb-6">Our Story</h2>
-                <p className="text-muted mb-4 text-lg">
-                  Founded in 2015, Phindol Insurance Brokers emerged from a
-                  simple belief: that every individual and business deserves
-                  access to comprehensive, affordable insurance solutions
-                  tailored to their unique needs.
-                </p>
-                <p className="text-muted mb-4 text-lg">
-                  What started as a small team of dedicated insurance
-                  professionals in Abuja has grown into one of Nigeria's most
-                  trusted insurance brokerages. Our success is built on a
-                  foundation of trust, expertise, and an unwavering commitment
-                  to our clients.
-                </p>
-                <p className="text-muted text-lg">
-                  Today, we serve thousands of individuals and businesses across
-                  Nigeria, providing peace of mind through comprehensive
-                  insurance solutions that truly protect what matters most.
-                </p>
-              </div>
-              <div>
-                <ImageWithFallback
-                  src="/stock/story.jpg"
-                  alt="Our team at work"
-                  className="rounded-lg shadow-xl w-full"
-                />
+        {storyParagraphs.length > 0 && (
+          <section className="py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h2 className="text-3xl md:text-4xl mb-6">Our Story</h2>
+                  {storyParagraphs.map((p, i) => (
+                    <p key={i} className="text-muted mb-4 text-lg last:mb-0">
+                      {p.trim()}
+                    </p>
+                  ))}
+                </div>
+                <div>
+                  <ImageWithFallback
+                    src="/stock/story.jpg"
+                    alt="Our team at work"
+                    className="rounded-lg shadow-xl w-full"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Our Mission and Vision */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center items-stretch">
-              <div className="border-solid border-2 p-8 rounded-xl">
-                <h2 className="text-3xl md:text-4xl mb-6">Our Mission</h2>
-                <p className="text-muted mb-4 text-lg">
-                  Streamlined, cost-effective insurance providing lasting
-                  financial security for clients and Shareholders.
-                </p>
-              </div>
-              <div className="border-solid border-2 p-8 rounded-xl">
-                <h2 className="text-3xl md:text-4xl mb-6">Our Vision</h2>
-                <p className="text-muted mb-4 text-lg">
-                  To be Innovative, integrity led while delivering reliable
-                  insurance solutions that secure futures for clients and
-                  long-term value for Shareholders
-                </p>
+        {(companyInfo.mission || companyInfo.vision) && (
+          <section className="py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid md:grid-cols-2 gap-12 items-center items-stretch">
+                {companyInfo.mission && (
+                  <div className="border-solid border-2 p-8 rounded-xl">
+                    <h2 className="text-3xl md:text-4xl mb-6">Our Mission</h2>
+                    <p className="text-muted mb-4 text-lg">{companyInfo.mission}</p>
+                  </div>
+                )}
+                {companyInfo.vision && (
+                  <div className="border-solid border-2 p-8 rounded-xl">
+                    <h2 className="text-3xl md:text-4xl mb-6">Our Vision</h2>
+                    <p className="text-muted mb-4 text-lg">{companyInfo.vision}</p>
+                  </div>
+                )}
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Our Values */}
         <section className="py-16 section-light">
@@ -221,7 +215,7 @@ export function AboutUs() {
           <Card
             key={g.id}
             group={allMembers.filter((m) => m.group === g.name)}
-            title={prettify(g.name)}
+            title={g.title}
           />
         ))}
 
