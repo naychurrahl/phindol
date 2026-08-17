@@ -67,6 +67,14 @@ export function  Footer() {
   const emails = companyInfo.emails ?? [];
   const socials = companyInfo.socials ?? [];
 
+  // A number's channel decides where it shows up, not just how it
+  // links: callable numbers (phone/both) go in Contact Us as tel:
+  // links; WhatsApp-capable numbers (whatsapp/both) show as an icon
+  // alongside the other social links instead, as wa.me links. A "both"
+  // number legitimately appears in both places.
+  const callPhones = phones.filter((p) => p.channel !== "whatsapp");
+  const whatsappPhones = phones.filter((p) => p.channel === "whatsapp" || p.channel === "both");
+
   return (
     <footer
       style={{
@@ -94,6 +102,19 @@ export function  Footer() {
             </div>
             <p className="text-sm mb-4">{companyInfo.tagline}</p>
             <div className="flex space-x-4">
+              {whatsappPhones.map((p) => (
+                <a
+                  key={p.number}
+                  href={waLink(p.number)}
+                  aria-label="Message on WhatsApp"
+                  className="hover:opacity-80 transition-opacity"
+                  style={{ color: "inherit" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaWhatsapp size={20} />
+                </a>
+              ))}
               {socials.map((s) => {
                 const Icon = socialIcons[s.platform.toLowerCase()] ?? Globe;
                 return (
@@ -205,13 +226,11 @@ export function  Footer() {
                 <MapPin size={18} className="mr-2 mt-1 flex-shrink-0" />
                 <span className="text-sm">{companyInfo.address}</span>
               </li>
-              {phones.map((p) => (
+              {callPhones.map((p) => (
                 <li key={p.number} className="flex items-center">
                   <Phone size={18} className="mr-2 flex-shrink-0" />
                   <a
-                    href={p.channel === "whatsapp" ? waLink(p.number) : `tel:${p.number}`}
-                    target={p.channel === "whatsapp" ? "_blank" : undefined}
-                    rel={p.channel === "whatsapp" ? "noopener noreferrer" : undefined}
+                    href={`tel:${p.number}`}
                     className="text-sm hover:opacity-80 transition-opacity"
                     style={{ color: "inherit" }}
                   >
