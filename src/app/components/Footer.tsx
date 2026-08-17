@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react';
 import { Link } from 'react-router';
-import { Mail, Phone, MapPin, MessageCircle, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import {
   FaLinkedin,
   FaInstagram,
@@ -206,30 +206,17 @@ export function  Footer() {
                 <span className="text-sm">{companyInfo.address}</span>
               </li>
               {phones.map((p) => (
-                <li key={p.number} className="flex items-center flex-wrap gap-x-3">
+                <li key={p.number} className="flex items-center">
                   <Phone size={18} className="mr-2 flex-shrink-0" />
-                  {p.channel !== "whatsapp" ? (
-                    <a
-                      href={`tel:${p.number}`}
-                      className="text-sm hover:opacity-80 transition-opacity"
-                      style={{ color: "inherit" }}
-                    >
-                      {p.number}
-                    </a>
-                  ) : (
-                    <span className="text-sm">{p.number}</span>
-                  )}
-                  {(p.channel === "whatsapp" || p.channel === "both") && (
-                    <a
-                      href={waLink(p.number)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm hover:opacity-80 transition-opacity"
-                      style={{ color: "inherit" }}
-                    >
-                      <MessageCircle size={14} /> WhatsApp
-                    </a>
-                  )}
+                  <a
+                    href={p.channel === "whatsapp" ? waLink(p.number) : `tel:${p.number}`}
+                    target={p.channel === "whatsapp" ? "_blank" : undefined}
+                    rel={p.channel === "whatsapp" ? "noopener noreferrer" : undefined}
+                    className="text-sm hover:opacity-80 transition-opacity"
+                    style={{ color: "inherit" }}
+                  >
+                    {p.number}
+                  </a>
                 </li>
               ))}
               {emails.map((e) => (
